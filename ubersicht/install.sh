@@ -1,6 +1,9 @@
 widgets=~/.ubersicht/widgets/
 
-test -e $widgets && exit 0
+if git -C "$widgets" status >/dev/null 2>&1 ; then
+  git -C "$widgets" pull >/dev/null
+  exit 0
+fi
 
 which git >/dev/null 2>&1 || { echo 'git is not installed'; exit 1; }
 

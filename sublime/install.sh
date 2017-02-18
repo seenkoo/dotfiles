@@ -5,7 +5,10 @@ if [[ -z "$SUBLIME_ROOT" ]]; then
   source "$(dirname "$0")"/env.zsh
 fi
 
-git -C "$SUBLIME_ROOT" status >/dev/null 2>&1 && exit 0
+if git -C "$SUBLIME_ROOT" status >/dev/null 2>&1 ; then
+  git -C "$SUBLIME_ROOT" pull >/dev/null
+  exit 0
+fi
 
 read -p "Remove '$SUBLIME_ROOT' and install custom sublime settings?" yn
 case $yn in
