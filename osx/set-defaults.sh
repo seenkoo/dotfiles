@@ -85,5 +85,5 @@ scutil --set LocalHostName $SHORT_HOST
 sudo scutil --set HostName $SHORT_HOST
 
 # enable SSH daemon
-sudo systemsetup -setremotelogin on
+sudo systemsetup -setremotelogin on >/dev/null
 sudo dseditgroup -o edit -a admin -t group com.apple.access_ssh

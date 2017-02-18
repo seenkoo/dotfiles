@@ -1,5 +1,5 @@
 main() {
-  brew install zsh --with-texi2html zsh-autosuggestions zsh-completions zsh-syntax-highlighting
+  brew install zsh --with-texi2html zsh-autosuggestions zsh-completions zsh-syntax-highlighting 2>/dev/null
 
   # If this user's login shell is not already "zsh", attempt to switch.
   TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
