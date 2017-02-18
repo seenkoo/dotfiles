@@ -7,4 +7,5 @@ rake
 rdoc
 yard
 rails
+powder
 ' > $list

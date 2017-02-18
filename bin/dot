@@ -7,7 +7,7 @@
 export ZSH=$HOME/.dotfiles
 
 # Set macOS defaults
-$ZSH/macos/set-defaults.sh
+$ZSH/osx/set-defaults.sh
 
 # Install Homebrew
 $ZSH/homebrew/install.sh 2>&1
@@ -33,7 +33,6 @@ mas outdated && mas upgrade
 
 # Upgrade Ruby
 echo "› ruby upgrade"
-rbenv update
 gem update --system
 gem update
 powder update
