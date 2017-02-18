@@ -23,6 +23,18 @@ brew update
 echo "› brew upgrade"
 brew outdated && brew upgrade
 
+# Run Homebrew through the Brewfile
+echo "› brew bundle"
+brew bundle | while read line ; do
+  if [[ $line != 'Using '* ]] ; then
+    printf "\r\033[2K\033[00;32m$line\033[0m \n"
+  fi
+done
+
+# Install software
+echo "› $ZSH/script/install"
+$ZSH/script/install
+
 # Upgrade Brew Casks
 echo "› brew-cask-upgrade"
 brew-cask-upgrade
@@ -37,10 +49,6 @@ gem update --system
 gem update
 powder update 2>/dev/null
 rbenv rehash
-
-# Install software
-echo "› $ZSH/script/install"
-$ZSH/script/install
 
 echo "› cleanup"
 brew cleanup

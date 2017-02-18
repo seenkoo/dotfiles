@@ -6,15 +6,5 @@ set -e
 
 cd "$(dirname "$0")"/..
 
-# Run Homebrew through the Brewfile
-echo "› brew bundle"
-brew bundle | while read line ; do
-  if [[ $line != 'Using '* ]] ; then
-    printf "\r\033[2K\033[00;32m$line\033[0m \n"
-  fi
-done
-
-brew bundle >/dev/null
-
 # find the installers and run them iteratively
 find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
