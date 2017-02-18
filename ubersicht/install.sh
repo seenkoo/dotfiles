@@ -1,4 +1,3 @@
-#!/bin/sh
 widgets=~/.ubersicht/widgets/
 
 test -e $widgets && exit 0

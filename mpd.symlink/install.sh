@@ -1,4 +1,3 @@
-#!/bin/sh
 source "$(dirname "$0")"/env.zsh
 
 ln -fhs $(pwd)/$(dirname $0)/environment.user.mpd.plist ~/Library/LaunchAgents/
