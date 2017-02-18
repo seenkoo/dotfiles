@@ -32,7 +32,7 @@ _rake () {
     compadd $(cat .rake_tasks)
   fi
 }
-compdef _rake rake
+#compdef _rake rake
 
 rake_refresh () {
   [[ -f .rake_tasks ]] && rm -f .rake_tasks

@@ -58,10 +58,10 @@ alias gfa='git fetch --all --prune'
 alias gfo='git fetch origin'
 
 alias ggpull='git pull origin $(git_current_branch)'
-compdef _git ggpull=git-checkout
+#compdef _git ggpull=git-checkout
 
 alias ggpush='git push origin $(git_current_branch)'
-compdef _git ggpush=git-checkout
+#compdef _git ggpush=git-checkout
 
 alias ggsup='git branch --set-upstream-to=origin/$(git_current_branch)'
 alias gpsup='git push --set-upstream origin $(git_current_branch)'
@@ -92,7 +92,7 @@ alias gpd='git push --dry-run'
 alias gpv='git push -v'
 # alias gpu='git push upstream'
 # alias gpoat='git push origin --all && git push origin --tags'
-# compdef _git gpoat=git-push
+## compdef _git gpoat=git-push
 
 # alias grb='git rebase'
 # alias grba='git rebase --abort'
@@ -116,7 +116,7 @@ alias gru='git reset --'
 alias gsps='git show --pretty=short --show-signature'
 
 alias gcount='git shortlog -sn'
-compdef _git gcount
+#compdef _git gcount
 
 alias gst='git status'
 alias gss='git status -s'

@@ -11,7 +11,7 @@ function _rails_command () {
 }
 
 alias rails='_rails_command'
-compdef _rails_command=rails
+#compdef _rails_command=rails
 
 alias devlog='tail -f log/development.log'
 alias prodlog='tail -f log/production.log'
