@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# open new iTerm window with $1:-"default" profile
+#
+
+osascript -e "
+  if application \"iTerm\" is running then
+    tell application \"iTerm\"
+      create window with profile \"${1:-"default"}\"
+    end tell
+  end if
+  activate application \"iTerm\"" > /dev/null 2>&1

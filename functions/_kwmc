@@ -1,0 +1,314 @@
+#compdef kwmc
+#autoload
+
+local completions
+
+local -a _1st_arguments=(
+    'config:Configure Kwm'
+    'quit:Quit Kwm'
+    'window:Interact with windows'
+    'display:Interact with displays'
+    'space:Interact with spaces'
+    'tree:Interact with Kwm tree'
+    'scratchpad:Interact with Kwm scratchpad'
+    'query:Query current state'
+)
+
+local -a _config_arguments=(
+  'reload:Reload config ($HOME/.kwm/kwmrc)'
+  'optimal-ratio:Override the optimal split-mode (golden ratio -> 1.618)'
+  'spawn:The container position to be occupied by new windows: left | right'
+  'float-non-resizable:Automatically float non-resizable windows: on | off'
+  'lock-to-container:Automatically reapply container if window changes size: on | off'
+  'focus-follows-mouse:Set status of focus-follows-mouse: toggle | on | off'
+  'standby-on-float:Disable focus-follows-mouse when a floating window gains focus: on | off'
+  'center-on-float:Center window when made floating: on | off'
+  'cycle-focus:Allow focus commands to wrap: on | off'
+  'mouse-follows-focus:Set state of mouse-follows-focus: on | off'
+  'mouse-drag:Allow windows to be moved by dragging with mod+left_mouse and resized with mod+right_mouse: on | off'
+  'mouse-drag mod:Specify modifier keys to be used for initiating mouse-drag: mod+mod+mod'
+  'hotkeys:Enable hotkeys registered using `bindsym` and `bindcode`: on | off'
+  'split-ratio:Set split-ratio for containers: 0 < floating point number < 1'
+  'tiling:Set default tiling mode for Kwm: bsp | monocle | float'
+  'padding:Set default padding: top bottom left right'
+  'gap:Set default container gaps: vertical horizontal'
+  'border:Set window border settings'
+  'display:<display_id> Set display settings'
+  'space:<display_id> <space_id> Set space settings'
+)
+
+local -a _config_border_arguments=(
+  'focused:Set focused window border settings'
+  'marked:Set marked window border settings'
+)
+
+local -a _config_border_focused_arguments=(
+  'on:Enable focused window border'
+  'off:Disable focused window border'
+  'size:Set focused window border thickness: number'
+  'color:Set focused window border color: 0xaarrggbb'
+  'radius:Set focused window border radius: number'
+)
+
+local -a _config_border_marked_arguments=(
+  'on:Enable marked window border'
+  'off:Disable marked window border'
+  'size:Set marked window border thickness: number'
+  'color:Set marked window border color: 0xaarrggbb'
+  'radius:Set marked window border radius: number'
+)
+
+local -a _config_display_arguments=(
+  "mode:Override default tiling mode for display: bsp | monocle | float"
+  "padding:Override default padding for display: top bottom left right"
+  "gap:Override default gap for display: vertical horizontal"
+  "float-dim:Override dimension applied by center-on-float for display: width height"
+)
+
+local -a _config_space_arguments=(
+  "tree:Set default bsp-layout for space"
+  "name:Set default name for space"
+  "mode:Override default tiling mode for space: bsp | monocle | float"
+  "padding:Override default padding for space: top bottom left right"
+  "gap:Override default gaps for space: vertical horizontal"
+)
+
+local -a _window_arguments=(
+  "-f:Change focus between windows: north | east | south | west | prev | next | curr | window_id"
+  "-fm:Change focus between monocle-subtree windows: prev | next"
+  "-s:Swap window position: north | east | south | west | prev | next | mark"
+  "-z:Adjust container zoom: fullscreen | parent"
+  "-t:Toggle window floating: focused"
+  "-t:Float next window to be created: next"
+  "-r:Resize window to container size: focused"
+  "-c:Modify window container"
+  "-m:Move window"
+  "-mk:Mark window"
+)
+
+# kwmc window -c
+local -a _window_container_arguments=(
+  "split-mode:Modify container split-mode of window: toggle"
+  "type:Modify container type of window: monocle | bsp | toggle"
+  "reduce:<amount> <direction> Reduce container split-ratio of window in direction: {amount}: 0 < floating point number < 1 {direction}: north | east | south | west"
+  "expand:<amount> <direction> Expand container split-ratio of window in direction: {amount}: 0 < floating point number < 1 {direction}: north | east | south | west"
+)
+
+# kwmc window -m
+local -a _window_move_arguments=(
+  ":Move window on the current space: north | east | south | west | mark | xoff yoff"
+  "space:Move window to a different space: workspace_id | previous | left | right"
+  "display:Move window to an external display: display_id | prev | next"
+)
+
+# kwmc window -mk
+local -a _window_mark_arguments=(
+  "focused:Mark the focused window"
+  ":<direction> <wrap>Mark window in direction of focused window: {direction}: north | east | south | west {wrap}: wrap | nowrap"
+)
+
+local -a _display_arguments=(
+  "-f:Change focus between displays: prev | next | display_id"
+  "-c:Set active split-mode of display: optimal | vertical | horizontal"
+)
+
+local -a _space_arguments=(
+  "-n:Set name of active space"
+  "-fExperimental:Change focus between spaces, skipping transitions animation (mission control does not update, requires \`killall Dock\`)
+                    {space}: workspace_id | name | previous | left | right"
+  "-t:Set tiling mode of active space
+                    {mode}: bsp | monocle | float"
+  "-r:Resize all windows to their container size
+                    {opt}: focused"
+  "-p:Adjust padding of active space
+                    {mode}: increase | decrease
+                    {side}: all | left | right | top | bottom"
+  "-g:Adjust gaps of active space
+                    {mode}: increase | decrease
+                    {direction}: all | vertical | horizontal"
+)
+
+local -a _tree_arguments=(
+  "-pseudo:Manage pseudo containers
+            {action}: create | destroy"
+  "rotate:Rotate window-tree of current space
+            {degrees}: 90 | 180 | 27"
+  "save:Save bsp-layout of window-tree of current space
+            {file}: filename"
+  "restore:Restore bsp-layout of window-tree of current space
+            {file}: filename"
+)
+
+local -a _scratchpad_arguments=(
+  "add:Add the focused window to the first available scratchpad slot"
+  "remove:Remove the focused window from the scratchpad"
+  "toggle:Toggle visibility of the window associated with the provided slot
+            {visibility}: number"
+)
+
+local -a _query_arguments=(
+  "border:Get the state of borders
+                        {type}: focused | marked"
+  "cycle-focus:Get active cycle-focus mode"
+  "float-non-resizable:Get state of float-non-resizable"
+  "lock-to-container:Get state of lock-to-container"
+  "standby-on-float:Get state of standby-on-float"
+  "focus-follows-mouse:Get state of focus-follows-mouse"
+  "mouse-follows-focus:Get state of mouse-follows-focus"
+  "window:Windows queries"
+  "tiling:Tiling queries"
+  "space:Spaces queries"
+  "scratchpad:Scratchpad queries"
+)
+
+local -a _query_window_arguments=(
+  "focused:Get property of focused window
+              {property}: id | name | split | float"
+  "focused:Get id of window in direction of focused window
+              {direction}: north | east | south | west"
+  "marked:Get property of marked window
+              {property}: id | name | split | float"
+  "parent:<window_id1> <window_id2> Check if two windows have the same parent"
+  "child:<window_id> Get child position of window (left or right)"
+  "list:Get list of visible windows on active space"
+)
+
+local -a _query_tiling_arguments=(
+  "mode:Get tilling mode to be used for new spaces"
+  "spawn:Get child position used by new windows"
+  "split-mode:Get the mode used for binary splits"
+  "split-ratio:Get the ratio used for binary splits"
+)
+
+local -a _query_space_arguments=(
+  "active:Get property of the active space
+            {property}: tag | name | id"
+  "previous:Get property of the previously active space
+            {property}: name | id"
+  "list:Get list of all spaces on focused display"
+)
+
+local -a _query_scratchpad_arguments=(
+  "list:List all occupied scratchpad slots and their associated window"
+)
+
+_arguments '*:: :->subcmds' && return 0
+
+if (( CURRENT == 1 )); then
+  _describe -t commands "kwmc subcommand" _1st_arguments
+  return
+elif (( CURRENT == 2 )); then
+  case "$words[1]" in
+    config)
+      completions=_config_arguments ;;
+    window)
+      completions=_window_arguments ;;
+    display)
+      completions=_display_arguments ;;
+    space)
+      completions=_space_arguments ;;
+    tree)
+      completions=_tree_arguments ;;
+    scratchpad)
+      completions=_scratchpad_arguments ;;
+    query)
+      completions=_query_arguments ;;
+  esac
+  _describe -t commands "kwmc $words[1]" $completions
+  return
+elif (( CURRENT == 3 )); then
+  case "$words[1]" in
+    config)
+      case "$words[2]" in
+        border)
+          completions=_config_border_arguments ;;
+      esac
+      ;;
+    window)
+      case "$words[2]" in
+        -c)
+          completions=_window_container_arguments ;;
+        -m)
+          completions=_window_move_arguments ;;
+        -mk)
+          completions=_window_mark_arguments ;;
+      esac
+      ;;
+    display)
+      ;;
+    space)
+      ;;
+    tree)
+      ;;
+    scratchpad)
+      ;;
+    query)
+      case "$words[2]" in
+        window)
+          completions=_query_window_arguments ;;
+        tiling)
+          completions=_query_tiling_arguments ;;
+        space)
+          completions=_query_space_arguments ;;
+        scratchpad)
+          completions=_query_scratchpad_arguments ;;
+      esac
+      ;;
+  esac
+  _describe -t commands "kwmc $words[1,2]" $completions
+  return
+elif (( CURRENT == 4 )); then
+  case "$words[1]" in
+    config)
+      case "$words[2]" in
+        border)
+          case "$words[3]" in
+            focused)
+              completions=_config_border_focused_arguments ;;
+            marked)
+              completions=_config_border_marked_arguments ;;
+          esac
+          ;;
+        display)
+          completions=_config_display_arguments ;;
+      esac
+      ;;
+    window)
+      ;;
+    display)
+      ;;
+    space)
+      ;;
+    tree)
+      ;;
+    scratchpad)
+      ;;
+    query)
+      ;;
+  esac
+  _describe -t commands "kwmc $words[1,3]" $completions
+  return
+elif (( CURRENT == 5 )); then
+  case "$words[1]" in
+    config)
+      case "$words[2]" in
+        space)
+          completions=_config_space_arguments ;;
+      esac
+      ;;
+    window)
+      ;;
+    display)
+      ;;
+    space)
+      ;;
+    tree)
+      ;;
+    scratchpad)
+      ;;
+    query)
+      ;;
+  esac
+  _describe -t commands "kwmc $words[1,4]" $completions
+  return
+fi

@@ -1,0 +1,127 @@
+# NOTE(koekeishiya): A bind is written in the form:
+#   <keysym> [!] [<app list>] [->] : <command>
+#   where
+#       <keysym>   = mode + mod + ... + mod - literal
+#       <keysym>   = mode + mod + ... + mod - keycode (must have 0x prefix)
+#       <keysym>   = mode + mod + ... + mod (modifier only binding)
+#
+#       [<app,
+#         app,     = optional list '[app1, ..., appN]' of applications
+#         app>]      that this bind will be activated for. if the
+#                    focused application is not contained in this list,
+#                    the associated command will not be triggered, and
+#                    the keypress will be passed through as normal.
+#
+#       [!]        = optional operator '!' negates the behaviour when a
+#                    list of applications is given. this marks the bind
+#                    as 'Hotkey_Exclude', causing the bind to not work
+#                    when the focused application is in the given list.
+#
+#       [->]       = optional operator '->' that marks this bind as
+#                    'passthrough'. this causes the key to be passed
+#                    through to the system, instead of being consumed.
+#
+#       <command>  = command is executed through '$SHELL -c' and
+#                    follows valid shell syntax. if the $SHELL environment
+#                    variable is not set, it will default to '/bin/bash'.
+#                    when bash is used, the ';' delimeter can be specified
+#                    to chain commands.
+#
+#                    to allow a command to extend into multiple lines,
+#                    prepend '\' at the end of the previous line.
+#
+#                    an EOL character signifies the end of the bind.
+
+# NOTE(koekeishiya) Example of passthrough
+# cmd - m -> : echo "alert and minimize window" | alerter -title Test passthrough -timeout 2
+
+# NOTE(koekeishiya) Example of app list
+# alt - e [
+#           iTerm2,
+#           Terminal,
+#           HyperTerm
+#         ]
+#         : echo "so this is how deep the rabbit hole goes.." |\
+#           alerter -title Test passthrough -timeout 2
+
+# NOTE(koekeishiya) Example of negated app list
+# alt - e [
+#           iTerm2,
+#           Terminal,
+#           HyperTerm
+#         ] !
+#         : echo "blue pill, i choose you!" |\
+#           alerter -title Test passthrough -timeout 2
+
+# NOTE(koekeishiya) Modifier only binding
+# left shift    -> (    right shift   -> )
+# left cmd      -> {    right cmd     -> }
+
+# khd mod_trigger_timeout 0.1
+# lshift : khd -p "shift - 8"
+# rshift : khd -p "shift - 9"
+# lcmd   : khd -p "shift + alt - 8"
+# rcmd   : khd -p "shift + alt - 9"
+
+# Launch iTerm2
+cmd+ctrl-return : ~/bin/iterm
+
+# MPD
+cmd-f5 : mpc prev
+cmd-f6 : mpc next
+cmd-f7 : mpc toggle
+cmd-f8 : mpc stop
+
+# KWM
+khd kwm on
+cmd+ctrl+shift-q : kwmc quit
+cmd+ctrl+shift-r : kwmc tree restore prog
+
+# Set Space Tiling Mode
+ctrl+cmd+shift-b : kwmc space -t bsp
+ctrl+cmd+shift-m : kwmc space -t monocle
+ctrl+cmd+shift-f : kwmc space -t float
+# Rotate Window-Tree By 90* (Clockwise)
+ctrl+cmd-r : kwmc tree rotate 90
+# Container split-mode toggle
+ctrl+cmd-s : kwmc window -c split-mode toggle
+# Window float toggle
+ctrl+cmd+alt-f : kwmc window -t focused
+# Container size
+ctrl+cmd+alt-up          : kwmc window -c expand 0.025 north
+ctrl+cmd+alt-down        : kwmc window -c expand 0.025 south
+ctrl+cmd+alt-left        : kwmc window -c expand 0.025 west
+ctrl+cmd+alt-right       : kwmc window -c expand 0.025 east
+ctrl+cmd+alt+shift-up    : kwmc window -c reduce 0.025 north
+ctrl+cmd+alt+shift-down  : kwmc window -c reduce 0.025 south
+ctrl+cmd+alt+shift-left  : kwmc window -c reduce 0.025 west
+ctrl+cmd+alt+shift-right : kwmc window -c reduce 0.025 east
+
+# Focus window
+ctrl-h : kwmc window -f west
+ctrl-j : kwmc window -f south
+ctrl-k : kwmc window -f north
+ctrl-l : kwmc window -f east
+ctrl-left  : kwmc window -f west
+ctrl-down  : kwmc window -f south
+ctrl-up    : kwmc window -f north
+ctrl-right : kwmc window -f east
+
+# Move focused window
+ctrl+alt-up    : kwmc window -s north
+ctrl+alt-down  : kwmc window -s south
+ctrl+alt-left  : kwmc window -s west
+ctrl+alt-right : kwmc window -s east
+
+# Detach focused window and reinsert it
+ctrl+cmd-up    : ~/.kwm/bin/move-window north
+ctrl+cmd-down  : ~/.kwm/bin/move-window south
+ctrl+cmd-left  : ~/.kwm/bin/move-window west
+ctrl+cmd-right : ~/.kwm/bin/move-window east
+
+# Move window to left/right space
+ctrl+alt+cmd-h : kwmc window -m space left
+ctrl+alt+cmd-l : kwmc window -m space right
+
+# Toggle kwm-scratchpad Taskpaper window
+alt-tab : ~/.kwm/bin/toggle-taskpaper

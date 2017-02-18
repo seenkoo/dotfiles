@@ -1,0 +1,29 @@
+# Local/private config goes in the include
+[include]
+  path = ~/.gitconfig.local
+[hub]
+  protocol = https
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
+[core]
+  autocrlf = input
+  excludesfile = ~/.gitignore_global
+  editor = vim
+[apply]
+  whitespace = nowarn
+[mergetool]
+  keepBackup = false
+[difftool]
+  prompt = false
+[github]
+  user = seenkoo
+[help]
+  autocorrect = 1
+  format = man
+[gpg]
+  program = gpg2
+[push]
+  default = simple

@@ -1,0 +1,48 @@
+#!/usr/bin/env zsh
+#
+# dot
+#
+# `dot` handles installation, updates, things like that. Run it periodically
+# to make sure you're on the latest and greatest.
+export ZSH=$HOME/.dotfiles
+
+# Set macOS defaults
+$ZSH/macos/set-defaults.sh
+
+# Install Homebrew
+$ZSH/homebrew/install.sh 2>&1
+
+# Load Homebrew mixins
+source $ZSH/homebrew/mixins.zsh
+
+# Upgrade Homebrew
+echo "› brew update"
+brew update
+
+# Upgrade Brews
+echo "› brew upgrade"
+brew outdated && brew upgrade
+
+# Upgrade Brew Casks
+echo "› brew-cask-upgrade"
+brew-cask-upgrade
+
+# Upgrade AppStore apps
+echo "› mas upgrade"
+mas outdated && mas upgrade
+
+# Upgrade Ruby
+echo "› ruby upgrade"
+rbenv update
+gem update --system
+gem update
+powder update
+rbenv rehash
+
+# Install software
+echo "› $ZSH/script/install"
+$ZSH/script/install
+
+echo "› cleanup"
+brew cleanup
+brew cask cleanup

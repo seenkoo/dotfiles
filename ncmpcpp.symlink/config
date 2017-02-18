@@ -1,0 +1,150 @@
+### MPD ###
+# mpd_host =
+# mpd_port =
+mpd_connection_timeout = 5
+mpd_music_dir = ~/Music
+mpd_crossfade_time = 0
+
+### Common ###
+ncmpcpp_directory = ~/.ncmpcpp
+allow_for_physical_item_deletion = no
+playlist_separate_albums = no
+playlist_disable_highlight_delay = 7
+ask_before_clearing_playlists = yes
+default_find_mode = wrapped
+message_delay_time = 3
+volume_change_step = 5
+seek_time = 1
+incremental_seeking = yes
+centered_cursor = yes
+show_hidden_files_in_local_browser = no
+# user_interface = classic
+user_interface = alternative
+execute_on_song_change = ""
+## Common Colors ##
+colors_enabled = yes
+empty_tag_color = default
+color1 = white
+color2 = blue
+discard_colors_if_item_is_selected = yes
+## Common Formats ##
+empty_tag_marker = "<empty>"
+now_playing_prefix = "$3 ▶ "
+now_playing_suffix = "$9"
+selected_item_prefix = "$r [x] "
+selected_item_suffix = "$/r"
+
+### Mouse ###
+mouse_support = yes
+mouse_list_scroll_whole_page = no
+lines_scrolled = 5
+cyclic_scrolling = no
+
+### Startup ###
+autocenter_mode = yes
+startup_screen = playlist
+jump_to_now_playing_song_at_start = yes
+
+### Lyrics ###
+lyrics_directory = ~/.ncmpcpp/lyrics
+store_lyrics_in_song_dir = no
+external_editor = /usr/bin/vim
+use_console_editor = yes
+fetch_lyrics_for_current_song_in_background = yes
+
+### Main Window ###
+main_window_color = white
+main_window_highlight_color = blue
+window_border_color = cyan
+active_window_border = default
+state_line_color = default
+enable_window_title = yes
+song_window_title_format = {%a - }{%t}|{%f}
+
+### Header ###
+header_visibility = no
+header_window_color = default
+header_text_scrolling = yes
+state_flags_color = default
+display_volume_level = yes
+volume_color = default
+## Alternative Header ##
+alternative_header_first_line_format = $aqqu$/a$b {%a – }{%t}|{%f} $/b$atqq$/a
+alternative_header_second_line_format = {[$b%b$/b] }{($b%y$/b)}
+alternative_ui_separator_color = white
+## Playlist Header ##
+playlist_shorten_total_times = yes
+playlist_show_remaining_time = no
+playlist_show_mpd_host = yes
+
+### Statusbar ###
+statusbar_visibility = no
+statusbar_color = default
+display_bitrate = no
+display_remaining_time = no
+song_status_format = {%a - }{%t}|{%f}
+
+### Progressbar ###
+# progressbar_look = "=>"
+# progressbar_look = "─- "
+# progressbar_look = "▒▒░"
+# progressbar_look = "┅┅┄"
+progressbar_look = "─⊙┄"
+# progressbar_look = "─➞─"
+# progressbar_look = "─┅─"
+# progressbar_look = "▪▪▪"
+# progressbar_look = "▪▪▫"
+# progressbar_look = "───"
+# progressbar_look = "▁▁▁"
+# progressbar_look = "‒‒‒"
+# progressbar_look = "■◣ "
+# progressbar_look = "◈◆◇"
+progressbar_boldness = no
+progressbar_color = 9
+progressbar_elapsed_color = green
+
+### Classic List ###
+song_list_format = {%a}|{<unknown artist>} — {[%b]}|{<unknown album>} — {%t}|{%f}
+
+### Columns List ###
+titles_visibility = yes
+active_column_color = yellow
+song_columns_list_format = (20)[]{a} (25)[]{b} (25)[]{t|f:Title} (10)[]{gE} (10f)[]{l:Length} (20)[]{CE}
+
+### Playlist ###
+# playlist_display_mode = classic
+playlist_display_mode = columns
+
+### Browser ###
+browser_display_mode = columns
+browser_playlist_prefix = "$5playlist$9 "
+browser_sort_mode = format
+browser_sort_format = {%A}|{%a} {%b} {%n.} {%t}|{%f}
+
+### Search engine ###
+search_engine_display_mode = columns
+default_place_to_search_in = database
+
+### Media library ###
+media_library_primary_tag = album_artist
+song_library_format = {%n. }{%a - }{%t}|{%f}$R{[%l]}
+
+### Playlist editor ###
+playlist_editor_display_mode = columns
+
+### Tag editor ###
+default_tag_editor_pattern = %n. %a - %t
+modified_item_prefix = $6> $9
+
+### Visualizer ###
+# visualizer_fifo_path = /tmp/mpd.fifo
+# visualizer_output_name = "Visualizer feed"
+# visualizer_in_stereo = yes
+# visualizer_sample_multiplier = 1
+# visualizer_sync_interval = 20
+# visualizer_type = spectrum
+# visualizer_look = ●▮
+# visualizer_color = 41, 83, 119, 155, 185, 215, 209, 203, 197, 161
+
+### Clock ###
+clock_display_seconds = yes

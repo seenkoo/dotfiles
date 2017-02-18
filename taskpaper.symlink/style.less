@@ -1,0 +1,97 @@
+// Variables
+@user-font-size: 18;
+@text-color: rgb(129, 130, 132);
+@background-color: #131313;
+@tint-color: #551A8B;
+@selection-color: #551A8B;
+@invisibles-color: @selection-color;
+@line-height-multiple: 1.2;
+
+run[link^=""] {
+  color: rgb(33, 118, 199);
+  font-style: normal;
+  text-decoration: underline;
+}
+
+// Basics
+item[data-type="note"] {
+    > run[display] {
+        font-family: "Source Sans Pro Light";
+        font-style: italic;
+        font-size: @user-font-size*0.9;
+        color: rgb(71, 91, 98);
+    }
+    > run[link] {
+        color: rgb(33, 118, 199);
+        font-style: normal;
+        // text-decoration: underline;
+    }
+}
+
+run[link^="button"] {
+    color: @text-color;
+    text-expansion: 1;
+    text-decoration: none;
+}
+
+run[link^="filter"] {
+    color: @text-color;
+    text-decoration: none;
+}
+
+item[data-type="project"] {
+    font-weight: bold;
+    font-size: @user-font-size;
+    color: purple;
+ }
+
+// Tags
+run[tag] {
+    font-style: normal;
+    font-weight: normal;
+    color: mix(@text-color, @background-color, 50%);
+ }
+
+item[data-today], run[tag=data-today] {
+     color: yellow;
+}
+
+item[data-next], run[tag=data-next] {
+     color: rgb(165, 119, 6);
+}
+
+item[data-waiting], run[tag=data-waiting] {
+    color: fade(#875D48, 75%);
+}
+
+item[data-hold], run[tag=data-hold] {
+    color: fade(#875D48, 75%);
+}
+
+item[data-done] {
+  color: fade(@text-color, 60%);
+  > run[display] {
+      text-strikethrough: NSUnderlineStyleSingle;
+      text-strikethrough-color: rgba(10, 41, 51, 0.5);
+  }
+  > run[link] {
+      color: fade(@text-color, 60%);
+      text-strikethrough: NSUnderlineStyleSingle;
+      text-decoration: none important!;
+  }
+}
+
+// Sidebar
+sidebar {
+    appearance: NSAppearanceNameVibrantLight;
+}
+
+// Window
+window {
+    appearance: NSAppearanceNameVibrantDark;
+}
+
+// Searchbar
+searchbar {
+    appearance: NSAppearanceNameVibrantDark;
+}

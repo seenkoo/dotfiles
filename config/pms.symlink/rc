@@ -1,0 +1,65 @@
+set libraryroot=~/Music/
+set xtermtitle=%playstate%%ifcursong% %artist% – %title%%endif%
+set reconnectdelay=10
+set mpd_timeout=15
+set nodebug
+set repeat=off
+set stopdelay=1
+set nextinterval=3
+set crossfade=0
+set onplaylistfinish=
+set noaddtoreturns
+set nofollowplayback
+set nofollowwindow
+set nofollowcursor
+set nonextafteraction
+set startuplist=playlist
+set regexsearch
+set ignorecase
+set scroll=normal
+set scrolloff=0
+set playmode=linear
+set resetstatus=3
+set sort=track disc album albumartistsort
+set columns=artist album title length
+set status_unknown=[unknown]
+set status_play=[playing]
+set status_pause=[paused]
+set status_stop=[stopped]
+set nomouse
+set notopbarspace
+set notopbarborders
+set columnspace
+set notopbarclear
+
+set topbar1.left=%ifplaying%%time_elapsed%%else%00:00%endif%/%ifplaying%%time%%else%00:00%endif%
+set topbar1.center= %ifplaying%[%album%] (%year%)%endif%
+set topbar1.right=Vol: %volume%%%
+set topbar2.left=%playstate%
+set topbar2.center=%ifplaying%%artist% – %title%%endif%
+set topbar2.right=Mode: %muteshort%%repeatshort%%randomshort%%manualshort%
+
+unbind backspace
+bind s stop
+bind p toggle-play
+bind space toggle-select
+bind 1 change-window playlist
+bind 2 change-window library
+bind 3 change-window windowlist
+
+color title yellow
+color cursor black blue
+color current green
+color selection black grey
+color headers yellow
+color playinglist green
+color lastlist lightgrey
+color borders blue
+color topbar.time_elapsed magenta
+color topbar.time_remaining magenta
+color topbar.listsize lightgrey
+color fields.artist lightgrey
+color fields.title lightgrey
+color fields.album lightgrey
+color fields.time lightgrey
+color fields.track lightgrey

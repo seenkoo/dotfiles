@@ -1,0 +1,132 @@
+#!/usr/bin/env ruby
+if `which chrome-cli`.empty?
+  puts 'chrome-cli is not installed'
+  exit
+end
+
+require 'pathname'
+require 'uri'
+require 'fileutils'
+require 'optparse'
+require 'json'
+require 'typhoeus'
+
+def find_logo(url)
+  puts 'Finding logo...'
+  res = Typhoeus.get('https://www.googleapis.com/customsearch/v1',
+    params: {
+      key: ENV['GOOGLE_API_KEY'],
+      cx: ENV['GOOGLE_API_CX'],
+      searchType: 'image',
+      q: "#{url} logo"
+    }
+  )
+
+  JSON.load(res.body).dig('items', 0, 'link')
+end
+
+def fetch_title(url)
+  puts 'Fetching title...'
+  matches = Typhoeus.get(url, followlocation: true)
+                    .body
+                    .match(/<title>(.*?)<\/title>/i)
+  matches ? matches[1] : url.to_s
+end
+
+url, image, title, group, thumbnail = nil
+begin # Parse options
+  optparse = OptionParser.new do |parser|
+    parser.banner = "Usage: speed-dial-add [options]"
+    parser.on('-u', '--url URL', 'Bookmark URL')             { |v| url = v }
+    parser.on('-i', '--image URL', 'Bookmark thumbnail URL') { |v| image = v }
+    parser.on('-t', '--title TITLE', 'Bookmark title')       { |v| title = v }
+    parser.on('-g', '--group GROUP', 'Bookmark group')       { |v| group = v }
+  end
+
+  optparse.parse!
+
+  if ARGV.size == 1
+    arg = ARGV[0].to_s
+    if %w(.tif .tiff .gif .jpeg .jpg .png .webp).include?(File.extname(arg))
+      image = arg
+    else
+      url = arg
+    end
+  end
+
+  if not url and not image
+    if ARGV.size == 2 and not title and not group
+      url, image = ARGV
+    else
+      raise OptionParser::MissingArgument, 'url, image'
+    end
+  end
+
+  if image and not url
+    image.prepend('http://') unless image.match?(%r{\Ahttps?://}i)
+    image = URI(image).normalize
+    url = image.merge('/')
+  end
+
+  if url and not image
+    url.prepend('http://') unless url.match?(%r{\Ahttps?://}i)
+    url = URI(url).normalize
+    image = find_logo(url)
+  end
+
+  url, image = url.to_s, image.to_s
+  title = fetch_title(url) if not title
+rescue OptionParser::ParseError => e
+  puts e, optparse
+  exit
+end
+
+begin # Upload image to Imgur
+  puts 'Uploading thumbnail to Imgur...'
+
+  res = Typhoeus.post('https://api.imgur.com/3/image',
+    headers: { Authorization: "Bearer #{ENV['IMGUR_ACCESS_TOKEN']}" },
+    body: {
+      album: 'oWzNZ',
+      image: File.exist?(image) ? File.open(image, 'r') : image,
+      type: File.exist?(image) ? 'file' : 'url'
+    }
+  )
+  raise res.body unless res.success?
+  thumbnail = JSON.load(res.body)['data']['link']
+rescue => e
+  puts e
+  exit
+end
+
+puts 'Adding bookmark...'
+
+tab_id = `/usr/local/bin/chrome-cli list links | grep 'chrome://newtab/' | sed -E -e 's;\\[(.+)\\] chrome://newtab/;\\1;' -e 's;[0-9]+:;;' | tail -n1`.to_i
+tab_id = `/usr/local/bin/chrome-cli open chrome://newtab/ | grep -E 'Id: [0-9]+' | sed 's/Id: //'`.to_i if tab_id.zero?
+
+sleep(0.5)
+
+`/usr/local/bin/chrome-cli open 'javascript: \
+$(".group.ui-droppable:contains(#{group})").click();' \
+-t #{tab_id}`
+
+sleep(0.5)
+
+`/usr/local/bin/chrome-cli open 'javascript:
+$("#add-edit-dialog #name").val("#{title}"); \
+$("#add-edit-dialog #url").val("#{url}"); \
+$("#add-edit-dialog #thumbnail").val("#{thumbnail}"); \
+addBookmark();' \
+-t #{tab_id}`
+
+puts 'Syncing bookmarks...'
+
+sleep(0.5)
+
+`/usr/local/bin/chrome-cli open 'javascript:
+speeddial.storage.sync();' \
+-t #{tab_id}`
+
+sleep(0.5)
+
+puts 'Done!'

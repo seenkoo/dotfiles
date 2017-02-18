@@ -1,0 +1,7 @@
+#!/usr/bin/osascript
+-- Send SMS <number> <text>
+on run argv
+  tell application "Messages"
+    send (item 2 of argv) to buddy (item 1 of argv) of service "SMS"
+  end tell
+end run

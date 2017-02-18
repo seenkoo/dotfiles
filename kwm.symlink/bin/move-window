@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+DIRECTION="$1"
+FOCUSED_WINDOW=$(kwmc query window focused id)
+TARGET_WINDOW=$(kwmc query window focused "$DIRECTION")
+SAME_PARENT=$(kwmc query window parent "$FOCUSED_WINDOW" "$TARGET_WINDOW")
+
+if [ "$SAME_PARENT" = "true" ]; then
+  kwmc window -s "$DIRECTION"
+else
+  SPAWN=$(kwmc query tiling spawn)
+  CHILD=$(kwmc query window child "$TARGET_WINDOW")
+  if [ "$CHILD" = "left" ]
+  then
+      kwmc config spawn right
+  else
+      kwmc config spawn left
+  fi
+
+  kwmc window -m "$DIRECTION"
+  kwmc config spawn "$SPAWN"
+fi

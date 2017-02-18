@@ -1,0 +1,37 @@
+kwm_home /Users/seenkoo/.kwm
+kwm_layouts /Users/seenkoo/.kwm/layouts
+
+kwmc config tiling bsp
+
+kwmc config padding 26 10 10 10
+kwmc config gap 10 10
+
+kwmc config mouse-drag on
+kwmc config mouse-drag mod shift+ctrl
+
+kwmc config focus-follows-mouse on
+kwmc config mouse-follows-focus on
+kwmc config float-non-resizable off
+kwmc config lock-to-container on
+kwmc config standby-on-float on
+kwmc config cycle-focus off
+
+kwmc config split-ratio 0.5
+kwmc config spawn right
+
+kwmc config border focused on
+kwmc config border focused size 5
+kwmc config border focused color 0xA1E6DF00
+kwmc config border focused radius 6
+
+kwmc rule owner="iTerm2" properties={role="AXDialog"}
+kwmc rule name="Characters" properties={float="false"}
+kwmc rule owner="LastPass" properties={float="false"}
+kwmc rule owner="iTerm2" name="^pms$" properties={float="true"}
+kwmc rule owner="Steam" properties={float="true"}
+kwmc rule owner="Awaken" properties={float="true"}
+kwmc rule owner="Calculator" properties={float="true"}
+kwmc rule owner="System Preferences" properties={float="true"}
+kwmc rule owner="ColorPicker" name="Colors" properties={float="true"}
+kwmc rule owner="Sublime Text" name="^$" role="AXWindow" properties={float="true"}
+kwmc rule owner="Adium" properties={float="true"}
