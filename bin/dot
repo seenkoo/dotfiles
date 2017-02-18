@@ -27,7 +27,7 @@ brew outdated && brew upgrade
 echo "› brew bundle"
 brew bundle | while read line ; do
   if [[ $line != 'Using '* ]] ; then
-    printf "\r\033[2K\033[00;32m$line\033[0m \n"
+    echo -e "\033[00;32m $line \033[0m"
   fi
 done
 
