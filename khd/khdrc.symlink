@@ -64,7 +64,7 @@
 # rcmd   : khd -p "shift + alt - 9"
 
 # Launch iTerm2
-cmd+ctrl-return : ~/bin/iterm
+cmd+ctrl-return : ~/.dotfiles/bin/iterm
 
 # MPD
 cmd-f5 : mpc prev

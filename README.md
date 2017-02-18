@@ -47,6 +47,7 @@ Run this:
 ```sh
 git clone https://github.com/seenkoo/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
+git secret reveal
 script/bootstrap
 ```
 

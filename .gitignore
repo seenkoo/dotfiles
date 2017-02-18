@@ -1,3 +1,4 @@
+mpd.symlink/state
 secrets/api_tokens.zsh
 mpdscribble.symlink/mpdscribble.conf
 github/gist.symlink
