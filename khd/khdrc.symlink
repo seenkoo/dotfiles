@@ -125,3 +125,7 @@ ctrl+alt+cmd-l : kwmc window -m space right
 
 # Toggle kwm-scratchpad Taskpaper window
 alt-tab : ~/.kwm/bin/toggle-taskpaper
+
+ctrl+alt-1 : kwmc scratchpad toggle 1
+ctrl+alt-2 : kwmc scratchpad toggle 2
+ctrl+alt-3 : kwmc scratchpad toggle 3

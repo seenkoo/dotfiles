@@ -186,11 +186,13 @@ brew 'opusfile'
 brew 'orc'
 brew 'passenger'
 brew 'pms'
-brew 'postgresql'
+brew 'postgresql', restart_service: true
 brew 'putty'
 brew 'qrencode'
 brew 'ruby-build'
 brew 'rbenv'
+brew 'rbenv-default-gems'
+brew 'rbenv-gemset'
 brew 'redis', restart_service: true
 brew 'rtmpdump'
 brew 'rubberband'
@@ -235,6 +237,7 @@ cask 'font-bitstream-vera'
 cask 'font-dejavu-sans'
 cask 'font-hermit'
 cask 'font-input'
+cask 'font-open-sans'
 cask 'google-chrome'
 cask 'google-drive'
 cask 'gpgtools'
@@ -261,9 +264,9 @@ cask 'ubersicht'
 cask 'virtualbox'
 cask 'vlc'
 cask 'xld'
-mas 'Growl', id: 467939042
+mas 'Awaken', id: 404221531
 mas 'OmniFocus', id: 867299399
 mas 'LastPass', id: 926036361
-mas 'Xcode', id: 497799835
 mas 'The Unarchiver', id: 425424353
-mas 'Awaken', id: 404221531
+mas 'Growl', id: 467939042
+mas 'Xcode', id: 497799835

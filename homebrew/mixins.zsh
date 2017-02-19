@@ -6,8 +6,7 @@ brew-cask-upgrade() {
 }
 
 brew-cask-outdated() {
-  # next line is not working in bash
-  # local verbose=$(( ${@[(i)--verbose]} <= $# ))
+  local verbose=$(( ${@[(i)--verbose]} <= $# ))
   local -A casks=(${(fz)$(brew cask list --versions | sed -E "s/ (.*)/ '\1'/")})
   local -a cask_list=(${(ok)casks})
   integer idx=1
@@ -30,5 +29,7 @@ brew-cask-outdated() {
     fi
   done
 
-  print -l $outdated
+  if [[ -n "$outdated" ]]; then
+    print -l $outdated
+  fi
 }

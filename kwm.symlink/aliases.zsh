@@ -5,6 +5,4 @@ alias kwmtr='kwmc tree restore'
 alias kwmts='kwmc tree save'
 alias kwmqwf='kwmc query window focused'
 alias kwmqwl='kwmc query window list'
-alias kwm-config="$EDITOR $KWM/kwmrc"
-
-alias khd-config="$EDITOR $HOME/.khdrc"
+alias kwm-config='$EDITOR $KWM/kwmrc'

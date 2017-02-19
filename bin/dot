@@ -1,9 +1,11 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 #
 # dot
 #
 # `dot` handles installation, updates, things like that. Run it periodically
 # to make sure you're on the latest and greatest.
+cd "$(dirname "$0")"/..
+
 export ZSH=$HOME/.dotfiles
 
 # Set macOS defaults
