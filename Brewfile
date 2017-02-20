@@ -218,6 +218,7 @@ brew 'wgetpaste'
 brew 'wine'
 brew 'x265'
 brew 'yajl'
+brew 'yank'
 brew 'yarn'
 brew 'yasm'
 brew 'youtube-dl'
@@ -264,9 +265,10 @@ cask 'ubersicht'
 cask 'virtualbox'
 cask 'vlc'
 cask 'xld'
-mas 'Awaken', id: 404221531
 mas 'OmniFocus', id: 867299399
-mas 'LastPass', id: 926036361
-mas 'The Unarchiver', id: 425424353
+mas 'Awaken', id: 404221531
 mas 'Growl', id: 467939042
+mas 'Blackmagic Disk Speed Test', id: 425264550
 mas 'Xcode', id: 497799835
+mas 'The Unarchiver', id: 425424353
+mas 'LastPass', id: 926036361
