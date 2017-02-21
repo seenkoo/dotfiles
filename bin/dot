@@ -38,8 +38,8 @@ echo "› $ZSH/script/install"
 $ZSH/script/install
 
 # Upgrade Brew Casks
-echo "› brew-cask-upgrade"
-brew-cask-upgrade
+echo "› brew_cask_upgrade"
+brew_cask_upgrade
 
 # Upgrade AppStore apps
 echo "› mas upgrade"
@@ -52,6 +52,9 @@ gem update
 powder update 2>/dev/null
 rbenv rehash
 
-echo "› cleanup"
+echo "› brew cleanup"
 brew cleanup
+echo "› brew_cask_cleanup_old_versions"
+brew_cask_cleanup_old_versions
+echo "› brew cask cleanup"
 brew cask cleanup
