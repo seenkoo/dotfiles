@@ -1,0 +1,22 @@
+#
+# Usage: to_ogg [-d] <folder>
+# Description: Converts .flac, .m4a and .mp3 files in folder to .ogg
+#   -d: Also delete original file if convertation was successful
+to_ogg () {
+  local delete_original folder
+  if [[ "$1" == "-d" ]]; then
+    delete_original=true
+    1="$2"
+  fi
+  folder="${1:-$(pwd)}"
+
+  for f in $folder/*(.flac|.m4a|.mp3) ; do
+    local file_path=$(realpath "${f%(.flac|.m4a|.mp3)}.ogg")
+    if ffmpeg -y -i "$f" -q 10 "$file_path" ; then
+      echo "$file_path"
+      if [[ "$delete_original" == true ]]; then
+        rm -f "$f"
+      fi
+    fi
+  done
+}

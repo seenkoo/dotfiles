@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# Usage: hhmmss [-r] <time_in_seconds>
+# Description: Converts time in seconds to HH:MM:SS format
+#   -r: Instead convert time in HH:MM:SS format to seconds
+hhmmss () {
+  if [[ "$1" == "-r" ]]; then
+    echo "$2" | \
+      awk '{split($1, a, ":")
+            printf "%d\n",
+              int(a[1] * 3600 + a[2] * 60 + a[3])
+          }'
+  else
+    echo "$2" | \
+      awk '{printf "%02d:%02d:%02d\n",
+              int($1/3600), int(($1%3600)/60), int($1%60)
+          }'
+  fi
+}

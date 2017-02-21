@@ -1,3 +1,6 @@
+# Get uptime in seconds
+alias sec_uptime='expr $(gdate +%s) - $(sysctl -n kern.boottime | cut -c9-18)'
+
 # Put display to sleep
 alias dsplslp='pmset displaysleepnow'
 
