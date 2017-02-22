@@ -189,6 +189,7 @@ brew 'pms'
 brew 'postgresql', restart_service: true
 brew 'putty'
 brew 'qrencode'
+brew 'ranger'
 brew 'ruby-build'
 brew 'rbenv'
 brew 'rbenv-default-gems'
