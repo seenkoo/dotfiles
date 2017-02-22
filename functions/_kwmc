@@ -59,24 +59,33 @@ local -a _config_border_marked_arguments=(
 )
 
 local -a _config_display_arguments=(
-  "mode:Override default tiling mode for display: bsp | monocle | float"
-  "padding:Override default padding for display: top bottom left right"
-  "gap:Override default gap for display: vertical horizontal"
-  "float-dim:Override dimension applied by center-on-float for display: width height"
+  "mode:Override default tiling mode for display"
+    ":{mode}: bsp | monocle | float"
+  "padding:Override default padding for display"
+    ":{padding}: top bottom left right"
+  "gap:Override default gap for display"
+    ":{gap}: vertical horizontal"
+  "float-dim:Override dimension applied by 'center-on-float' for display"
+    ":{dimension}: width height"
 )
 
 local -a _config_space_arguments=(
   "tree:Set default bsp-layout for space"
   "name:Set default name for space"
-  "mode:Override default tiling mode for space: bsp | monocle | float"
-  "padding:Override default padding for space: top bottom left right"
+  "mode:Override default tiling mode for space"
+    ":{mode}: bsp | monocle | float"
+  "padding:Override default padding for space"
+    ":{padding}: top bottom left right"
   "gap:Override default gaps for space: vertical horizontal"
 )
 
 local -a _window_arguments=(
-  "-f:Change focus between windows: north | east | south | west | prev | next | curr | window_id"
-  "-fm:Change focus between monocle-subtree windows: prev | next"
-  "-s:Swap window position: north | east | south | west | prev | next | mark"
+  "-f:Change focus between windows"
+    ":{selector}: north | east | south | west | prev | next | curr | window_id"
+  "-fm:Change focus between monocle-subtree windows"
+    ":{selector}: prev | next"
+  "-s:Swap window position"
+    ":{selector}: north | east | south | west | prev | next | mark"
   "-z:Adjust container zoom: fullscreen | parent"
   "-t:Toggle window floating: focused"
   "-t:Float next window to be created: next"
@@ -89,22 +98,32 @@ local -a _window_arguments=(
 # kwmc window -c
 local -a _window_container_arguments=(
   "split-mode:Modify container split-mode of window: toggle"
-  "type:Modify container type of window: monocle | bsp | toggle"
-  "reduce:<amount> <direction> Reduce container split-ratio of window in direction: {amount}: 0 < floating point number < 1 {direction}: north | east | south | west"
-  "expand:<amount> <direction> Expand container split-ratio of window in direction: {amount}: 0 < floating point number < 1 {direction}: north | east | south | west"
+  "type:Modify container type of window"
+    ":{type}: monocle | bsp | toggle"
+  "reduce:Reduce container split-ratio of window in direction"
+    ":{amount}: 0 < floating point number < 1"
+    ":{direction}: north | east | south | west"
+  "expand:Expand container split-ratio of window in direction"
+    ":{amount}: 0 < floating point number < 1"
+    ":{direction}: north | east | south | west"
 )
 
 # kwmc window -m
 local -a _window_move_arguments=(
-  ":Move window on the current space: north | east | south | west | mark | xoff yoff"
-  "space:Move window to a different space: workspace_id | previous | left | right"
-  "display:Move window to an external display: display_id | prev | next"
+  ":Move window on the current space"
+    ":{direction}: north | east | south | west | mark | xoff yoff"
+  "space:Move window to a different space"
+    ":{space}: workspace_id | previous | left | right"
+  "display:Move window to an external display"
+    ":{display}: display_id | prev | next"
 )
 
 # kwmc window -mk
 local -a _window_mark_arguments=(
+  ":Mark window in direction of focused window"
+    ":{direction}: north | east | south | west"
+    ":{wrap}: wrap | nowrap"
   "focused:Mark the focused window"
-  ":<direction> <wrap>Mark window in direction of focused window: {direction}: north | east | south | west {wrap}: wrap | nowrap"
 )
 
 local -a _display_arguments=(
@@ -114,41 +133,41 @@ local -a _display_arguments=(
 
 local -a _space_arguments=(
   "-n:Set name of active space"
-  "-fExperimental:Change focus between spaces, skipping transitions animation (mission control does not update, requires \`killall Dock\`)
-                    {space}: workspace_id | name | previous | left | right"
-  "-t:Set tiling mode of active space
-                    {mode}: bsp | monocle | float"
-  "-r:Resize all windows to their container size
-                    {opt}: focused"
-  "-p:Adjust padding of active space
-                    {mode}: increase | decrease
-                    {side}: all | left | right | top | bottom"
-  "-g:Adjust gaps of active space
-                    {mode}: increase | decrease
-                    {direction}: all | vertical | horizontal"
+  "-fExperimental:Change focus between spaces, skipping animation"
+    ":{space}: workspace_id | name | previous | left | right"
+  "-t:Set tiling mode of active space"
+    ":{mode}: bsp | monocle | float"
+  "-r:Resize all windows to their container size"
+    ":{opt}: focused"
+  "-p:Adjust padding of active space"
+    ":{mode}: increase | decrease"
+    ":{side}: all | left | right | top | bottom"
+  "-g:Adjust gaps of active space"
+    ":{mode}: increase | decrease"
+    ":{direction}: all | vertical | horizontal"
 )
 
 local -a _tree_arguments=(
-  "-pseudo:Manage pseudo containers
-            {action}: create | destroy"
-  "rotate:Rotate window-tree of current space
-            {degrees}: 90 | 180 | 27"
-  "save:Save bsp-layout of window-tree of current space
-            {file}: filename"
-  "restore:Restore bsp-layout of window-tree of current space
-            {file}: filename"
+  "-pseudo:Manage pseudo containers"
+    ":{action}: create | destroy"
+  "rotate:Rotate window-tree of current space"
+    ":{degrees}: 90 | 180 | 27"
+  "save:Save bsp-layout of window-tree of current space"
+    ":{file}: filename"
+  "restore:Restore bsp-layout of window-tree of current space"
+    ":{file}: filename"
 )
 
 local -a _scratchpad_arguments=(
   "add:Add the focused window to the first available scratchpad slot"
   "remove:Remove the focused window from the scratchpad"
-  "toggle:Toggle visibility of the window associated with the provided slot
-            {visibility}: number"
+  "toggle:Toggle visibility of the window associated with the provided slot"
+    ":{visibility}: number"
 )
 
 local -a _query_arguments=(
-  "border:Get the state of borders
-                        {type}: focused | marked"
+  "border:Get the state of borders"
+    ":{type}: focused | marked"
   "cycle-focus:Get active cycle-focus mode"
   "float-non-resizable:Get state of float-non-resizable"
   "lock-to-container:Get state of lock-to-container"
@@ -162,12 +181,12 @@ local -a _query_arguments=(
 )
 
 local -a _query_window_arguments=(
-  "focused:Get property of focused window
-              {property}: id | name | split | float"
-  "focused:Get id of window in direction of focused window
-              {direction}: north | east | south | west"
-  "marked:Get property of marked window
-              {property}: id | name | split | float"
+  "focused:Get property of focused window"
+    ":{property}: id | name | split | float"
+  "focused:Get id of window in direction of focused window"
+    ":{direction}: north | east | south | west"
+  "marked:Get property of marked window"
+    ":{property}: id | name | split | float"
   "parent:<window_id1> <window_id2> Check if two windows have the same parent"
   "child:<window_id> Get child position of window (left or right)"
   "list:Get list of visible windows on active space"
@@ -181,10 +200,10 @@ local -a _query_tiling_arguments=(
 )
 
 local -a _query_space_arguments=(
-  "active:Get property of the active space
-            {property}: tag | name | id"
-  "previous:Get property of the previously active space
-            {property}: name | id"
+  "active:Get property of the active space"
+    ":{property}: tag | name | id"
+  "previous:Get property of the previously active space"
+    ":{property}: name | id"
   "list:Get list of all spaces on focused display"
 )
 

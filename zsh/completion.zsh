@@ -11,6 +11,9 @@ zstyle ':completion:*' matcher-list '' \
 # pasting with tabs doesn't perform completion
 zstyle ':completion:*' insert-tab pending
 
+#
+zstyle ':completion:*' sort false
+
 # load zsh-autosuggestions
 #   https://github.com/zsh-users/zsh-autosuggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
