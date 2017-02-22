@@ -1,0 +1,29 @@
+#!/usr/bin/env zsh
+local bin="$(dirname "$0")"
+kwmc tree restore prog
+sleep 0.5
+
+# Move iTerm to top right corner
+local iterm_id=$("$bin/get-window-id" iTerm2)
+kwmc window -f "$iterm_id"
+"$bin/move-window" top-right
+
+# Move Google Chrome window to bottom right corner
+local google_chrome_id=$("$bin/get-window-id" "Google Chrome")
+kwmc window -f "$google_chrome_id"
+"$bin/move-window" bottom-right
+
+# Move Sublime Text window to the left of Google Chrome window
+local sublime_text_id=$("$bin/get-window-id" "Sublime Text")
+kwmc window -f "$sublime_text_id"
+"$bin/move-window" bottom-left
+while [[ $(kwmc query window focused east) != "$google_chrome_id" ]] ; do
+  kwmc window -f "$sublime_text_id"
+  kwmc window -s east
+  kwmc window -s south
+done
+
+# Move Telegram window to top left corner
+local telegram_id=$("$bin/get-window-id" Telegram)
+kwmc window -f "$telegram_id"
+"$bin/move-window" top-left

@@ -75,7 +75,7 @@ cmd-f8 : mpc stop
 # KWM
 khd kwm on
 cmd+ctrl+shift-q : kwmc quit
-cmd+ctrl+shift-r : kwmc tree restore prog
+cmd+ctrl+shift-r : ~/.kwm/bin/prog-layout
 
 # Set Space Tiling Mode
 ctrl+cmd+shift-b : kwmc space -t bsp

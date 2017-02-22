@@ -1,22 +1,63 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-DIRECTION="$1"
-FOCUSED_WINDOW=$(kwmc query window focused id)
-TARGET_WINDOW=$(kwmc query window focused "$DIRECTION")
-SAME_PARENT=$(kwmc query window parent "$FOCUSED_WINDOW" "$TARGET_WINDOW")
+direction="$1"
+focused_window=$(kwmc query window focused id)
+kwmc config focus-follows-mouse toggle
 
-if [ "$SAME_PARENT" = "true" ]; then
-  kwmc window -s "$DIRECTION"
-else
-  SPAWN=$(kwmc query tiling spawn)
-  CHILD=$(kwmc query window child "$TARGET_WINDOW")
-  if [ "$CHILD" = "left" ]
-  then
-      kwmc config spawn right
+if [[ "$direction" =~ "^(north|east|south|west)$" ]];
+then
+  target_window=$(kwmc query window focused "$direction")
+  same_parent=$(kwmc query window parent "$focused_window" "$target_window")
+
+  if [[ "$same_parent" == "true" ]] ; then
+    kwmc window -s "$direction"
   else
-      kwmc config spawn left
-  fi
+    spawn=$(kwmc query tiling spawn)
+    if [[ "$(kwmc query window child "$target_window")" == "left" ]]; then
+        kwmc config spawn right
+    else
+        kwmc config spawn left
+    fi
 
-  kwmc window -m "$DIRECTION"
-  kwmc config spawn "$SPAWN"
+    kwmc window -m "$direction"
+    kwmc config spawn "$spawn"
+  fi
+elif [[ "$direction" =~ \
+  "^(top(-left)?|top(-right)?|bottom(-left)?|bottom(-right)?|left|right)$" ]];
+then
+  local -a steps=(
+    $(echo "$direction" | sed \
+      -e 's/-/ /' \
+      -e 's/top/north/' \
+      -e 's/bottom/south/' \
+      -e 's/left/west/' \
+      -e 's/right/east/')
+  )
+  local -A cur_neighbors=(north -1 east -1 south -1 west -1)
+  local -A prev_neighbors=(north -2 east -2 south -2 west -2)
+  local reached_position=false
+  local -i ensured_times
+
+  while [[ $ensured_times < 3 ]] ; do
+    reached_position=true
+    for step in $steps; do
+      kwmc window -f "$focused_window"
+      kwmc window -s "$step"
+    done
+
+    for d in north east south west ; do
+      kwmc window -f "$focused_window"
+      cur_neighbors[$d]=$(kwmc query window focused "$d")
+      if [[ $cur_neighbors[$d] != $prev_neighbors[$d] ]]; then
+        prev_neighbors[$d]=$cur_neighbors[$d]
+        reached_position=false
+      fi
+    done
+
+    if $reached_position ; then
+      ensured_times+=1
+    fi
+  done
 fi
+
+kwmc config focus-follows-mouse toggle

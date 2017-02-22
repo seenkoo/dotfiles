@@ -4,9 +4,8 @@
 #
 
 osascript -e "
-  if application \"iTerm\" is running then
-    tell application \"iTerm\"
-      create window with profile \"${1:-"default"}\"
-    end tell
-  end if
-  activate application \"iTerm\"" > /dev/null 2>&1
+  activate application \"iTerm\"
+  tell application \"iTerm\"
+    create window with profile \"${1:-"default"}\"
+  end tell
+" > /dev/null 2>&1
