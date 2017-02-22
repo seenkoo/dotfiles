@@ -40,9 +40,8 @@ brew_cask_cleanup_old_versions() {
     versions=(${=versions})
     if [[ $versions[(I)$versions[-1]] > 1 ]]; then
       for version in $versions[1,-2] ; do
-        local paths="'$caskroom_path/$cask/$version' '$caskroom_path/$cask/.metadata/$version'"
-        rm -rf "$paths"
-        echo "Removed $paths"
+        echo "Removing $cask $version"
+        rm -rvf "$caskroom_path/$cask/$version" "$caskroom_path/$cask/.metadata/$version"
       done
     fi
   done
