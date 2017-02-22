@@ -34,8 +34,8 @@ defaults write -g QLPanelAnimationDuration -float 0
 # disable window resize animation
 defaults write -g NSWindowResizeTime -float 0.001
 
-# set a really fast key repeat.
-defaults write NSGlobalDomain KeyRepeat -int 1
+# set key repeat
+defaults write NSGlobalDomain KeyRepeat -int 5
 
 # disable Dock launch animation
 defaults write com.apple.dock launchanim -bool false
