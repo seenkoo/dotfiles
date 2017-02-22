@@ -268,7 +268,6 @@ cask 'xld'
 mas 'Awaken', id: 404221531
 mas 'Blackmagic Disk Speed Test', id: 425264550
 mas 'Growl', id: 467939042
-mas 'Install macOS Sierra', id: 1127487414
 mas 'LastPass', id: 926036361
 mas 'OmniFocus', id: 867299399
 mas 'The Unarchiver', id: 425424353
