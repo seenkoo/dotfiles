@@ -31,6 +31,7 @@ kwmc rule owner="iTerm2" name="^pms$" properties={float="true"}
 kwmc rule owner="Steam" properties={float="true"}
 kwmc rule owner="Awaken" properties={float="true"}
 kwmc rule owner="Calculator" properties={float="true"}
+kwmc rule owner="QuickTime Player" properties={float="true"}
 kwmc rule owner="System Preferences" properties={float="true"}
 kwmc rule owner="ColorPicker" name="Colors" properties={float="true"}
 kwmc rule owner="Sublime Text" name="^$" role="AXWindow" properties={float="true"}
