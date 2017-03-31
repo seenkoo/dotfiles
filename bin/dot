@@ -49,7 +49,6 @@ mas outdated && mas upgrade
 echo "› ruby upgrade"
 gem update --system
 gem update
-powder update 2>/dev/null
 rbenv rehash
 
 echo "› brew cleanup"
