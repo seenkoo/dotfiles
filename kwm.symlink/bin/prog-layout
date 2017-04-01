@@ -1,4 +1,6 @@
 #!/usr/bin/env zsh
+# prog-layout expects exactly 6 opened windows
+[[ $(kwmc query window list | wc -l | xargs) == 6 ]] || exit 1
 local bin="$(dirname "$0")"
 kwmc tree restore prog
 sleep 0.5
