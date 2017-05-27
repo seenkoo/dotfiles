@@ -5,6 +5,8 @@ fpath=($ZSH/functions $fpath)
 
 autoload -U $ZSH/functions/*(:t)
 
+WORDCHARS=.
+
 KEYTIMEOUT=1
 
 HISTFILE=~/.zsh_history

@@ -31714,48 +31714,6 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0x61-0x80000</key>
-		<dict>
-			<key>Action</key>
-			<integer>10</integer>
-			<key>Text</key>
-			<string>B</string>
-		</dict>
-		<key>0x65-0x80000</key>
-		<dict>
-			<key>Action</key>
-			<integer>10</integer>
-			<key>Text</key>
-			<string>C</string>
-		</dict>
-		<key>0x68-0x80000</key>
-		<dict>
-			<key>Action</key>
-			<integer>10</integer>
-			<key>Text</key>
-			<string>b</string>
-		</dict>
-		<key>0x68-0xc0000</key>
-		<dict>
-			<key>Action</key>
-			<integer>31</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x6c-0x80000</key>
-		<dict>
-			<key>Action</key>
-			<integer>10</integer>
-			<key>Text</key>
-			<string>f</string>
-		</dict>
-		<key>0x6c-0xc0000</key>
-		<dict>
-			<key>Action</key>
-			<integer>30</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
 		<key>0xf700-0x300000</key>
 		<dict>
 			<key>Action</key>
@@ -31770,19 +31728,19 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0xf702-0x280000</key>
+		<key>0xf702-0x2c0000</key>
 		<dict>
 			<key>Action</key>
-			<integer>10</integer>
+			<integer>31</integer>
 			<key>Text</key>
-			<string>b</string>
+			<string></string>
 		</dict>
-		<key>0xf703-0x280000</key>
+		<key>0xf703-0x2c0000</key>
 		<dict>
 			<key>Action</key>
-			<integer>10</integer>
+			<integer>30</integer>
 			<key>Text</key>
-			<string>f</string>
+			<string></string>
 		</dict>
 		<key>0xf729-0x100000</key>
 		<dict>
@@ -31870,7 +31828,7 @@
 	<key>NSNavLastRootDirectory</key>
 	<string>~/.dotfiles/iterm2.symlink/color-schemes/custom</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
-	<string>{704, 393}</string>
+	<string>{704, 303}</string>
 	<key>NSNavPanelExpandedSizeForSaveMode</key>
 	<string>{704, 554}</string>
 	<key>NSNavPanelExpandedStateForSaveMode</key>
@@ -31929,17 +31887,17 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>1615 969 606 456 0 0 2560 1440 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>760 1001 400 129 0 0 2560 1440 </string>
+	<string>1717 294 400 129 0 0 2560 1440 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>1922 755 627 622 0 0 2560 1440 </string>
+	<string>647 755 627 622 0 0 2560 1440 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
-	<string>1742 958 606 456 0 0 2560 1440 </string>
+	<string>2050 958 606 456 0 0 2560 1440 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>629 80 796 473 0 0 2560 1440 </string>
+	<string>647 150 796 473 0 0 2560 1440 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>641 709 638 705 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>11 14 500 690 0 0 2560 1440 </string>
+	<string>322 277 570 354 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>1 5 2559 1408 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 10</key>
@@ -34330,7 +34288,7 @@
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
-	<integer>0</integer>
+	<integer>1</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
 	<key>NoSyncSilenceAnnoyingBellAutomatically</key>
@@ -34425,7 +34383,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-02-22T19:00:29Z</date>
+	<date>2017-05-26T18:34:20Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
@@ -34491,13 +34449,13 @@
 	<key>WindowStyle</key>
 	<integer>0</integer>
 	<key>WordCharacters</key>
-	<string>&lt;</string>
+	<string>.</string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.14</string>
+	<string>3.0.15</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>7</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
