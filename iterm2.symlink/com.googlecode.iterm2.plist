@@ -31728,12 +31728,26 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
+		<key>0xf702-0x280000</key>
+		<dict>
+			<key>Action</key>
+			<integer>10</integer>
+			<key>Text</key>
+			<string>b</string>
+		</dict>
 		<key>0xf702-0x2c0000</key>
 		<dict>
 			<key>Action</key>
 			<integer>31</integer>
 			<key>Text</key>
 			<string></string>
+		</dict>
+		<key>0xf703-0x280000</key>
+		<dict>
+			<key>Action</key>
+			<integer>10</integer>
+			<key>Text</key>
+			<string>f</string>
 		</dict>
 		<key>0xf703-0x2c0000</key>
 		<dict>
@@ -31893,11 +31907,11 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>2050 958 606 456 0 0 2560 1440 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>647 150 796 473 0 0 2560 1440 </string>
+	<string>647 588 796 473 0 0 2560 1440 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>641 709 638 705 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>322 277 570 354 0 0 2560 1440 </string>
+	<string>1286 721 1263 690 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>1 5 2559 1408 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 10</key>
@@ -34383,7 +34397,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-05-26T18:34:20Z</date>
+	<date>2017-05-27T18:34:20Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>

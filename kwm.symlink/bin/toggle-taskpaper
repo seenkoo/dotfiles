@@ -1,13 +1,26 @@
 #!/bin/sh
+taskpaper_scratchpad_id()
+{
+  kwmc query scratchpad list | sed -n -E "s/([0-9]+).*TaskPaper.*/\1/p"
+}
 
-scratchpad_id=$(kwmc query scratchpad list \
-                | sed -n -E "s/([0-9]+).*TaskPaper.*/\1/p")
-
-if [[ -n "$scratchpad_id" ]]; then
-  kwmc scratchpad toggle $scratchpad_id
-else
-  osascript -e 'tell application "TaskPaper" to activate'
-  kwmc scratchpad add
-  $0 # Hide TaskPaper window to reinsert it into kwm tree
-  $0 # Show TaskPaper window
+pad_id="$(taskpaper_scratchpad_id)"
+if [[ -n "$pad_id" ]]; then
+  kwmc scratchpad toggle $pad_id
+  exit
 fi
+
+source ~/.taskpaper/env.zsh
+
+osascript <<APPLESCRIPT
+  tell application "TaskPaper"
+    set mainFilePath to system attribute "TASKPAPER_MAIN_FILE"
+    open POSIX file mainFilePath as string
+    activate
+    do shell script "kwmc scratchpad add"
+  end tell
+APPLESCRIPT
+
+pad_id="$(taskpaper_scratchpad_id)"
+kwmc scratchpad toggle $pad_id # Hide TaskPaper window to reinsert it into kwm tree
+kwmc scratchpad toggle $pad_id # Show TaskPaper window
