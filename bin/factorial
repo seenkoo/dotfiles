@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+if ARGV.length != 1
+  puts 'Usage: factorial <integer>'
+  exit
+end
+
+def fact(n)
+  raise Math::DomainError if n < 0
+  return 1 if n == 0
+  return (1..n).inject(:*) if n <= 55
+
+  fact_tree = lambda do |l, r|
+    return l * r if r - l == 1
+    return l     if l == r
+    m = (l + r) / 2
+    fact_tree.call(l, m) * fact_tree.call(m + 1, r)
+  end
+
+  fact_tree.call(1, n)
+end
+
+N = Integer(ARGV.first, 10)
+
+puts fact(N)

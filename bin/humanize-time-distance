@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+if ARGV.length != 1
+  puts 'Usage: humanize-time-distance <seconds>'
+  exit
+end
+
+def humanize_time_distance(seconds)
+  seconds = seconds.to_i
+  return 'now' if seconds.zero?
+  in_past = seconds < 0
+  seconds = seconds.abs
+  duration = {}
+  duration[:year], seconds = seconds.divmod 31_536_000
+  duration[:day], seconds = seconds.divmod 86_400
+  duration[:hour], seconds = seconds.divmod 3600
+  duration[:minute], seconds = seconds.divmod 60
+  duration[:second] = seconds
+  duration.inject([]) do |out, (k, v)|
+    next out if v.zero?
+    out << (v > 1 ? "#{v} #{k}s" : "#{v} #{k}")
+  end.join(', ').sub(/,([^,]+)$/, ' and\1').concat(in_past ? ' ago' : '')
+end
+
+N = Integer(ARGV.first, 10)
+
+puts humanize_time_distance(N)
