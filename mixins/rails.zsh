@@ -16,6 +16,7 @@ alias rails='_rails_command'
 alias devlog='tail -f log/development.log'
 alias prodlog='tail -f log/production.log'
 alias testlog='tail -f log/test.log'
+alias sidekiqlog='tail -f log/sidekiq.log'
 
 alias -g RAILSDEV='RAILS_ENV=development'
 alias -g RAILSPROD='RAILS_ENV=production'
