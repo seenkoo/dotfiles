@@ -168,7 +168,7 @@ brew 'mas'
 brew 's-lang'
 brew 'midnight-commander'
 brew 'mpc'
-brew 'mpd', restart_service: true
+brew 'mpd'
 brew 'mpdscribble', restart_service: true
 brew 'mysql'
 brew 'net-snmp'
