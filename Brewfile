@@ -4,6 +4,7 @@ tap 'caskroom/versions'
 tap 'homebrew/bundle'
 tap 'homebrew/core'
 tap 'homebrew/dupes'
+tap "homebrew/nginx"
 tap 'homebrew/science'
 tap 'homebrew/services'
 tap 'homebrew/versions'
@@ -174,7 +175,7 @@ brew 'mysql'
 brew 'net-snmp'
 brew 'spdylay'
 brew 'nghttp2'
-brew 'nginx', args: ['with-passenger'], restart_service: true
+brew "homebrew/nginx/nginx-full", args: ["with-accept-language-module", "with-addition", "with-array-var-module", "with-auth-digest-module", "with-auth-req", "with-auto-keepalive-module", "with-cache-purge-module", "with-debug", "with-eval-module", "with-flv", "with-gd", "with-geoip", "with-geoip2-module", "with-gunzip", "with-gzip-static", "with-headers-more-module", "with-homebrew-libressl", "with-http-remote-passwd-module", "with-http2", "with-image-filter", "with-imlib2", "with-log-if-module", "with-lua-module", "with-mail", "with-mail-ssl", "with-mp4", "with-mp4-h264-module", "with-mruby-module", "with-nchan-module", "with-notice-module", "with-passenger", "with-pcre-jit", "with-push-stream-module", "with-random-index", "with-realip", "with-realtime-req-module", "with-redis-module", "with-redis2-module", "with-rtmp-module", "with-secure-link", "with-set-misc-module", "with-small-light-module", "with-stream", "with-stream-geoip", "with-stream-realip", "with-stream-ssl", "with-stream-ssl-preread", "with-sub", "with-subs-filter-module", "with-upstream-order-module", "with-var-req-speed-module", "with-vod-module", "with-websockify-module"]
 brew 'nmap'
 brew 'numpy'
 brew 'opencore-amr'
