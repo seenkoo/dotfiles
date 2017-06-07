@@ -1,22 +1,10 @@
 kwmc tree root create parent
 kwmc tree split-mode 1
-kwmc tree split-ratio 0.200000
+kwmc tree split-ratio 0.350000
 kwmc tree child
 kwmc tree root create left
 kwmc tree split-mode 2
-kwmc tree split-ratio 0.500000
-kwmc tree child
-kwmc tree leaf create left
-kwmc tree child
-kwmc tree leaf create right
-kwmc tree child
-kwmc tree root create right
-kwmc tree split-mode 2
-kwmc tree split-ratio 0.200000
-kwmc tree child
-kwmc tree root create left
-kwmc tree split-mode 1
-kwmc tree split-ratio 0.500000
+kwmc tree split-ratio 0.225000
 kwmc tree child
 kwmc tree leaf create left
 kwmc tree child
@@ -24,6 +12,12 @@ kwmc tree leaf create right
 kwmc tree child
 kwmc tree root create right
 kwmc tree split-mode 1
+kwmc tree split-ratio 0.650000
+kwmc tree child
+kwmc tree leaf create left
+kwmc tree child
+kwmc tree root create right
+kwmc tree split-mode 2
 kwmc tree split-ratio 0.500000
 kwmc tree child
 kwmc tree leaf create left
