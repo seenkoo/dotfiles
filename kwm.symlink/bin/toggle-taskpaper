@@ -20,7 +20,3 @@ osascript <<APPLESCRIPT
     do shell script "kwmc scratchpad add"
   end tell
 APPLESCRIPT
-
-pad_id="$(taskpaper_scratchpad_id)"
-kwmc scratchpad toggle $pad_id # Hide TaskPaper window to reinsert it into kwm tree
-kwmc scratchpad toggle $pad_id # Show TaskPaper window

@@ -25,10 +25,9 @@ kwmc config border focused color 0xA1E6DF00
 kwmc config border focused radius 6
 
 kwmc rule owner="iTerm2" properties={role="AXDialog"}
+kwmc rule owner="iTerm2" name="^float.*$" properties={float="true"}
 kwmc rule name="Characters" properties={float="false"}
 kwmc rule owner="LastPass" properties={float="false"}
-kwmc rule owner="iTerm2" name="^float.*$" properties={float="true"}
-kwmc rule owner="iTerm2" name="^scratchpad.*$" properties={float="true"}
 kwmc rule name="Steam" properties={float="true"}
 kwmc rule owner="Steam" properties={float="true"}
 kwmc rule owner="Awaken" properties={float="true"}

@@ -3,9 +3,8 @@
 # open new iTerm window with $1:-"default" profile
 #
 
-osascript -e "
-  activate application \"iTerm\"
-  tell application \"iTerm\"
-    create window with profile \"${1:-"default"}\"
+osascript <<APPLESCRIPT
+  tell application "iTerm"
+    create window with profile "${1:-"default"}"
   end tell
-" > /dev/null 2>&1
+APPLESCRIPT
