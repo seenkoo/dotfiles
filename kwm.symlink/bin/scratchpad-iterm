@@ -1,11 +1,19 @@
 #!/bin/sh
-main_scratchpad_id()
+osascript <<APPLESCRIPT
+  if (name of processes of application "System Events" as list contains "iTerm2") is false then
+    activate application "iTerm"
+  end if
+APPLESCRIPT
+
+iterm_scratchpad_id()
 {
-  kwmc query scratchpad list | sed -n -E "s/([0-9]+).*iTerm2.*/\1/p"
+  kwmc query scratchpad list | sed -n -E "s/([0-9]+): ([0-9]+), iTerm2, scratchpad.*/\1/p"
 }
 
-pad_id="$(main_scratchpad_id)"
-if [[ -n "$pad_id" ]]; then
+toggle_scratchpad()
+{
+  local pad_id="$(iterm_scratchpad_id)"
+  [[ -z "$pad_id" ]] && return
   osascript <<APPLESCRIPT
     tell application "iTerm2"
       repeat with aWindow in windows
@@ -21,15 +29,17 @@ if [[ -n "$pad_id" ]]; then
       end repeat
     end tell
 APPLESCRIPT
-  exit
+}
+
+if [[ -z "$(iterm_scratchpad_id)" ]]; then
+  osascript <<APPLESCRIPT
+    tell application "iTerm2"
+      set padWindow to (create window with profile "scratchpad")
+      select padWindow
+      delay 1
+      do shell script "kwmc scratchpad add; kwmc scratchpad toggle $(iterm_scratchpad_id)"
+    end tell
+APPLESCRIPT
 fi
 
-osascript <<APPLESCRIPT
-  activate application "iTerm2"
-  tell application "iTerm2"
-    set padWindow to (create window with profile "scratchpad")
-    select padWindow
-    delay 1
-    do shell script "kwmc scratchpad add"
-  end tell
-APPLESCRIPT
+toggle_scratchpad

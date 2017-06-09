@@ -31909,11 +31909,11 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>2269 251 606 456 0 0 2560 1440 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>647 234 796 473 0 0 2560 1440 </string>
+	<string>647 150 796 473 0 0 2560 1440 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>641 709 638 705 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>323 186 1914 1068 0 0 2560 1440 </string>
+	<string>10 12 1264 693 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>1 5 2559 1408 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 10</key>
