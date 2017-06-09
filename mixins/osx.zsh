@@ -1,7 +1,7 @@
 # Open the current directory in a Finder window
 alias ofd='open_command $PWD'
 
-function _omz_osx_get_frontmost_app() {
+function osx_get_frontmost_app() {
   local the_app=$(
     osascript 2>/dev/null <<EOF
       tell application "System Events"
@@ -15,9 +15,19 @@ EOF
 function tab() {
   # Must not have trailing semicolon, for iTerm compatibility
   local command="cd \\\"$PWD\\\"; clear"
-  (( $# > 0 )) && command="${command}; $*"
+  local user_command=""
+  local iterm2_profile="default"
+  if (( $# > 0 )); then
+    if [[ $1 == '-p' && -n $2 ]]; then
+      iterm2_profile="$2"
+      user_command="${*[3,-1]}"
+    else
+      user_command="$*"
+    fi
+  fi
+  [[ -n $user_command ]] && command="${command}; ${user_command}"
 
-  local the_app=$(_omz_osx_get_frontmost_app)
+  local the_app=$(osx_get_frontmost_app)
 
   if [[ "$the_app" == 'Terminal' ]]; then
     # Discarding stdout to quash "tab N of window id XXX" output
@@ -46,7 +56,7 @@ EOF
       osascript <<EOF
         tell application "iTerm2"
           tell current window
-            create tab with default profile
+            create tab with profile "${iterm2_profile}"
             tell current session to write text "${command}"
           end tell
         end tell
@@ -63,7 +73,7 @@ function vsplit_tab() {
   local command="cd \\\"$PWD\\\"; clear"
   (( $# > 0 )) && command="${command}; $*"
 
-  local the_app=$(_omz_osx_get_frontmost_app)
+  local the_app=$(osx_get_frontmost_app)
 
   if [[ "$the_app" == 'iTerm' ]]; then
     osascript <<EOF
@@ -103,7 +113,7 @@ function split_tab() {
   local command="cd \\\"$PWD\\\"; clear"
   (( $# > 0 )) && command="${command}; $*"
 
-  local the_app=$(_omz_osx_get_frontmost_app)
+  local the_app=$(osx_get_frontmost_app)
 
   if [[ "$the_app" == 'iTerm' ]]; then
     osascript 2>/dev/null <<EOF
