@@ -123,11 +123,14 @@ ctrl+cmd-right : ~/.kwm/bin/move-window east
 ctrl+alt+cmd-h : kwmc window -m space left
 ctrl+alt+cmd-l : kwmc window -m space right
 
-# Toggle kwm-scratchpad Taskpaper window
-ctrl+alt-tab : ~/.kwm/bin/toggle-taskpaper
-
 # Toggle kwm-scratchpad iTerm window
-alt-tab : ~/.kwm/bin/toggle-scratchpad
+alt-tab : ~/.kwm/bin/scratchpad-iterm
+
+# Toggle kwm-scratchpad Taskpaper window
+cmd-f12 : ~/.kwm/bin/scratchpad-taskpaper
+
+# Toggle kwm-scratchpad pms window
+cmd-f4 : ~/.kwm/bin/scratchpad-pms
 
 ctrl+alt-1 : kwmc scratchpad toggle 1
 ctrl+alt-2 : kwmc scratchpad toggle 2

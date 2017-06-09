@@ -1,19 +1,20 @@
 #!/bin/sh
-iterm_scratchpad_id()
+pms_scratchpad_id()
 {
-  kwmc query scratchpad list | sed -n -E "s/([0-9]+).*iTerm2.*/\1/p"
+  kwmc query scratchpad list | sed -n -E "s/([0-9]+).*pms.*/\1/p"
 }
 
-pad_id="$(iterm_scratchpad_id)"
+pad_id="$(pms_scratchpad_id)"
 if [[ -n "$pad_id" ]]; then
   osascript <<APPLESCRIPT
     tell application "iTerm2"
       repeat with aWindow in windows
         repeat with aTab in tabs of aWindow
           repeat with aSession in sessions of aTab
-            if (profile name of aSession as string) = "scratchpad" then
+            if (profile name of aSession as string) = "pms" then
               tell aWindow to select
               do shell script "kwmc scratchpad toggle ${pad_id}"
+              return
             end if
           end repeat
         end repeat
@@ -26,11 +27,9 @@ fi
 osascript <<APPLESCRIPT
   activate application "iTerm2"
   tell application "iTerm2"
-    set padWindow to (create window with profile "scratchpad")
-    tell padWindow
-      select
-      tell current session to write text "kwmc scratchpad add"
-      create tab with profile "pms"
-    end tell
+    set padWindow to (create window with profile "pms")
+    select padWindow
+    delay 1
+    do shell script "kwmc scratchpad add"
   end tell
 APPLESCRIPT
