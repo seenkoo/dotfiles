@@ -3,7 +3,7 @@ alias bl="bundle list"
 alias bp="bundle package"
 alias bo="bundle open"
 alias bout="bundle outdated"
-alias bu="bundle update"
+alias bu="bundle_update"
 alias bi="bundle_install"
 alias bcn="bundle clean"
 
@@ -68,6 +68,25 @@ bundle_install() {
     fi
   else
     echo "Can't 'bundle install' outside a bundled project"
+  fi
+}
+
+bundle_update() {
+  if _bundler-installed && _within-bundled-project; then
+    local bundler_version=$(bundle version | cut -d' ' -f3)
+    local -a bundler_version=( ${(s:.:)bundler_version} )
+    if [[ $bundler_version[2] -ge 4 ]]; then
+      if [[ "$OSTYPE" = darwin* ]]; then
+        local cores_num="$(sysctl -n hw.ncpu)"
+      else
+        local cores_num="$(nproc)"
+      fi
+      bundle update --jobs=$cores_num $@
+    else
+      bundle update $@
+    fi
+  else
+    echo "Can't 'bundle update' outside a bundled project"
   fi
 }
 

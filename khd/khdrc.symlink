@@ -73,7 +73,6 @@ cmd-f7 : mpc toggle
 cmd-f8 : mpc stop
 
 # KWM
-khd kwm on
 cmd+ctrl+shift-q : kwmc quit
 cmd+ctrl+shift-r : ~/.kwm/bin/prog-layout
 
