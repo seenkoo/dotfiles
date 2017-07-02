@@ -6,6 +6,8 @@
 	<false/>
 	<key>AllowClipboardAccess</key>
 	<false/>
+	<key>AlternateMouseScroll</key>
+	<true/>
 	<key>AnimateDimming</key>
 	<false/>
 	<key>AppleAntiAliasingThreshold</key>
@@ -31817,6 +31819,8 @@
 	<integer>63248</integer>
 	<key>HotkeyCode</key>
 	<integer>105</integer>
+	<key>HotkeyMigratedFromSingleToMulti</key>
+	<true/>
 	<key>HotkeyModifiers</key>
 	<integer>8388864</integer>
 	<key>HotkeyWindowFloatsAboveOtherWindows</key>
@@ -31903,17 +31907,17 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>1615 969 606 456 0 0 2560 1440 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>1717 294 400 129 0 0 2560 1440 </string>
+	<string>1717 648 400 129 0 0 2560 1440 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>647 755 627 622 0 0 2560 1440 </string>
+	<string>1567 401 700 622 0 0 2560 1440 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
-	<string>2269 251 606 456 0 0 2560 1440 </string>
+	<string>457 945 606 469 0 0 2560 1440 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>647 150 796 473 0 0 2560 1440 </string>
+	<string>647 941 796 473 0 0 2560 1440 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>641 709 638 705 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>10 12 1264 693 0 0 2560 1440 </string>
+	<string>11 14 1263 690 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>1 5 2559 1408 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 10</key>
@@ -34413,7 +34417,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-06-08T18:34:48Z</date>
+	<date>2017-07-01T18:34:50Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
@@ -34482,10 +34486,12 @@
 	<string>.</string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.15</string>
+	<string>3.1.beta.5</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>7</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
