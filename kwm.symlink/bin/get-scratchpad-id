@@ -1,0 +1,4 @@
+#!/bin/sh
+
+pattern="$@"
+kwmc query scratchpad list | ack -i "^(\d+): (\d+), ${pattern}" --output '$1'

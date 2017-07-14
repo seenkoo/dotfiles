@@ -1,0 +1,13 @@
+BASEDIR=$(dirname "$0")
+ID="$("$BASEDIR/get-scratchpad-id" Telegram)"
+if [[ -n "$ID" ]]; then
+  kwmc scratchpad toggle "$ID"
+  exit
+fi
+
+osascript <<APPLESCRIPT
+  tell application "Telegram Desktop"
+    activate
+    do shell script "kwmc scratchpad add"
+  end tell
+APPLESCRIPT

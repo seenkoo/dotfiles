@@ -29,14 +29,12 @@ setopt APPEND_HISTORY # append history instead of replacing history file
 setopt INC_APPEND_HISTORY # add command to history as soon as it is entered
 setopt SHARE_HISTORY # share history across sessions
 setopt PROMPT_SUBST
-setopt CORRECT
 setopt COMPLETE_IN_WORD
 setopt IGNORE_EOF
 setopt INTERACTIVE_COMMENTS # recognize comments
-
 # don't expand aliases _before_ completion has finished
 #   like: git comm-[tab]
-setopt complete_aliases
+setopt COMPLETE_ALIASES
 
 # only define LC_CTYPE if undefined
 if [[ -z "$LC_CTYPE" && -z "$LC_ALL" ]]; then

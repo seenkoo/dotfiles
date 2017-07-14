@@ -64,7 +64,7 @@
 # rcmd   : khd -p "shift + alt - 9"
 
 # Launch iTerm2
-cmd+ctrl-return : ~/.dotfiles/bin/iterm
+cmd+ctrl-return : iterm
 
 # MPD
 cmd-f5 : mpc prev
@@ -125,11 +125,12 @@ ctrl+alt+cmd-l : kwmc window -m space right
 # Toggle kwm-scratchpad iTerm window
 alt-tab : ~/.kwm/bin/scratchpad-iterm
 
+# Toggle kwm-scratchpad Telegram window
+cmd-f3 : ~/.kwm/bin/scratchpad-telegram
+
 # Toggle kwm-scratchpad Taskpaper window
 cmd-f12 : ~/.kwm/bin/scratchpad-taskpaper
 
-# Toggle kwm-scratchpad pms window
-cmd-f4 : ~/.kwm/bin/scratchpad-pms
 
 ctrl+alt-1 : kwmc scratchpad toggle 1
 ctrl+alt-2 : kwmc scratchpad toggle 2

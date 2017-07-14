@@ -1,20 +1,15 @@
-#!/bin/sh
-taskpaper_scratchpad_id()
-{
-  kwmc query scratchpad list | sed -n -E "s/([0-9]+).*TaskPaper.*/\1/p"
-}
-
-pad_id="$(taskpaper_scratchpad_id)"
-if [[ -n "$pad_id" ]]; then
-  kwmc scratchpad toggle $pad_id
+BASEDIR=$(dirname "$0")
+ID="$("$BASEDIR/get-scratchpad-id" TaskPaper)"
+if [[ -n "$ID" ]]; then
+  kwmc scratchpad toggle "$ID"
   exit
 fi
 
-source ~/.taskpaper/env.zsh
+source /Users/seenkoo/.taskpaper/env.zsh
 
 osascript <<APPLESCRIPT
   tell application "TaskPaper"
-    set mainFilePath to system attribute "TASKPAPER_MAIN_FILE"
+    set mainFilePath to (system attribute "TASKPAPER_MAIN_FILE")
     open POSIX file mainFilePath as string
     activate
     do shell script "kwmc scratchpad add"
