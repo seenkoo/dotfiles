@@ -1,7 +1,7 @@
-export USERTMP="$HOME/tmp"
+export USER_TMPDIR="$HOME/tmp"
 export SCREENSHOTS="$HOME/tmp/screenshots"
 
-mkdir -p "$USERTMP"
+mkdir -p "$USER_TMPDIR"
 mkdir -p "$SCREENSHOTS"
 
 # Figure out the SHORT hostname

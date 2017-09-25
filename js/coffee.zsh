@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 # compile a string of coffeescript and print to output
 cf () {
   coffee -peb "$1"
@@ -14,3 +12,5 @@ alias cfp='cf "$(clippaste)"'
 
 # compile from clipboard and copy to clipboard
 alias cfpc='cfp | clipcopy'
+
+alias cosh='open https://coshmain.github.io/'

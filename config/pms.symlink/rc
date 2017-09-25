@@ -26,7 +26,7 @@ set status_unknown=[unknown]
 set status_play=[playing]
 set status_pause=[paused]
 set status_stop=[stopped]
-set nomouse
+set mouse
 set notopbarspace
 set notopbarborders
 set columnspace

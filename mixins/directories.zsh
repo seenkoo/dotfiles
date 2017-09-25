@@ -49,3 +49,7 @@ function take() {
   mkdir -p "$1"
   cd "$1"
 }
+
+function t() {
+  cd "$USER_TMPDIR"
+}
