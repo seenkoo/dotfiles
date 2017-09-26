@@ -20,7 +20,7 @@
     telemetryConsent: "no"
     themes: [
       "seti-ui"
-      "monokai-blackboard"
+      "titan-dark-syntax"
     ]
     titleBar: "hidden"
     warnOnLargeFileLimit: 10
@@ -66,6 +66,9 @@
   "node-requirer":
     aliasList: "{\"lodash\":\"_\",\"async\":\"a\",\"bluebird\":\"Promise\",\"ioredis\":\"Redis\"}"
   "one-dark-ui": {}
+  "package-sync":
+    createOnChange: true
+    forceOverwrite: true
   pigments:
     autocompleteSuggestionsFromValue: true
   scratch:

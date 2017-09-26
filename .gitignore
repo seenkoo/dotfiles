@@ -5,3 +5,9 @@ github/gist.symlink
 config/asciinema.symlink/config
 config/ranger.symlink/bookmarks
 .tags
+.apm
+.node-gyp
+blob-store
+compile-cache
+packages
+storage
