@@ -1,0 +1,105 @@
+"*":
+  aligner:
+    alignComments: true
+  "autocomplete-plus": {}
+  "color-picker":
+    preferredFormat: "HEX"
+    uppercaseColorValues: true
+  core:
+    destroyEmptyPanes: false
+    disabledPackages: [
+      "symbols-view"
+      "vim-mode-plus"
+    ]
+    packagesWithKeymapsDisabled: [
+      "mpd"
+      "scratch"
+      "synonym-replace"
+    ]
+    projectHome: "/Users/seenkoo/Code"
+    telemetryConsent: "no"
+    themes: [
+      "seti-ui"
+      "monokai-blackboard"
+    ]
+    titleBar: "hidden"
+    warnOnLargeFileLimit: 10
+  "dash-ui":
+    themeColor: "Purple"
+  editor:
+    fontFamily: "SourceCode Pro"
+    fontSize: 11
+    scrollPastEnd: true
+    showIndentGuide: true
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+  "eval-and-replace":
+    customShell: "/usr/local/bin/zsh"
+  "exception-reporting":
+    userId: "891c391f-f6e4-4672-8bd2-f0f59250261b"
+  "file-icons":
+    strategies: {}
+  filesize: {}
+  fonts:
+    fontFamily: "FiraCode Light"
+  "goto-definition":
+    performanceMode: true
+  "highlight-selected": {}
+  minimap:
+    moveCursorOnMinimapClick: true
+    plugins:
+      codeglance: true
+      codeglanceDecorationsZIndex: 0
+      cursorline: true
+      cursorlineDecorationsZIndex: 0
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+      "minimap-quick-highlight": false
+      "minimap-quick-highlightDecorationsZIndex": 0
+      pigments: true
+      pigmentsDecorationsZIndex: 0
+      selection: true
+      selectionDecorationsZIndex: 0
+    redrawDelay: 100
+    scrollAnimationDuration: 200
+  mpd: {}
+  "node-requirer":
+    aliasList: "{\"lodash\":\"_\",\"async\":\"a\",\"bluebird\":\"Promise\",\"ioredis\":\"Redis\"}"
+  "one-dark-ui": {}
+  pigments:
+    autocompleteSuggestionsFromValue: true
+  scratch:
+    autosave: true
+  "seti-syntax":
+    dynamicColor: false
+    themeColor: "Red"
+  "seti-ui":
+    compactView: true
+    displayIgnored: false
+    fileIcons: false
+    hideProjectTab: true
+    themeColor: "Purple"
+  "vim-mode-plus":
+    ignoreCaseForSearch: true
+    statusBarModeStringStyle: "long"
+  "webbox-color":
+    fillColorAsBackground: false
+  welcome:
+    showOnStartup: false
+  "xatom-debug":
+    showToolbarIcon: false
+".js.regexp.replacement.source":
+  editor:
+    autoIndentOnPaste: true
+    preferredLineLength: 99
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+".js.regexp.source":
+  editor:
+    preferredLineLength: 99
+".js.source":
+  editor:
+    preferredLineLength: 99
+".source.yaml":
+  editor:
+    autoIndentOnPaste: true
