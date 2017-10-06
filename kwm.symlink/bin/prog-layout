@@ -15,19 +15,19 @@ local iterm_id=$("$bin/get-window-id" iTerm2)
 kwmc window -f "$iterm_id"
 "$bin/move-window" top-left
 
-# Move Sublime Text window to bottom left corner
-local sublime_text_id=$("$bin/get-window-id" "Sublime Text")
-kwmc window -f "$sublime_text_id"
+# Move Atom window to bottom left corner
+local atom_id=$("$bin/get-window-id" "Atom")
+kwmc window -f "$atom_id"
 "$bin/move-window" bottom-left
 
-# Move Google Chrome window to the right of Sublime Text window
+# Move Google Chrome window to the right of Atom window
 local google_chrome_id=$("$bin/get-window-id" "Google Chrome")
 kwmc window -f "$google_chrome_id"
-if [[ $(kwmc query window focused west) != "$sublime_text_id" ]] ; then
+if [[ $(kwmc query window focused west) != "$atom_id" ]] ; then
   "$bin/move-window" bottom-right
 fi
 kwmc window -f "$google_chrome_id"
-while [[ $(kwmc query window focused west) != "$sublime_text_id" ]] ; do
+while [[ $(kwmc query window focused west) != "$atom_id" ]] ; do
   kwmc window -f "$google_chrome_id"
   kwmc window -s west
   kwmc window -s south

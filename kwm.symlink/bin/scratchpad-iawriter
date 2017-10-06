@@ -1,12 +1,12 @@
 BASEDIR=$(dirname "$0")
-ID="$("$BASEDIR/get-scratchpad-id" Telegram)"
+ID="$("$BASEDIR/get-scratchpad-id" iA Writer)"
 if [[ -n "$ID" ]]; then
   kwmc scratchpad toggle "$ID"
   exit
 fi
 
 osascript <<APPLESCRIPT
-  tell application "Telegram"
+  tell application "iA Writer"
     activate
     do shell script "kwmc scratchpad add"
   end tell

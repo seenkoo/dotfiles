@@ -130,3 +130,6 @@ cmd-f3 : ~/.kwm/bin/scratchpad-telegram
 
 # Toggle kwm-scratchpad Taskpaper window
 cmd-f12 : ~/.kwm/bin/scratchpad-taskpaper
+
+# Toggle kwm-scratchpad iA Writer window
+cmd+shift-f12 : ~/.kwm/bin/scratchpad-iawriter

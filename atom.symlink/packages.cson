@@ -1,5 +1,6 @@
 packages: [
   "atom-nodejs-snippets"
+  "bitrix-snippets"
   "color-picker"
   "dash"
   "file-icons"
@@ -14,7 +15,9 @@ packages: [
   "open-in-browser"
   "package-sync"
   "pretty-json"
+  "set-syntax"
   "seti-ui"
   "symbol-gen"
+  "tasks"
   "titan-dark-syntax"
 ]
