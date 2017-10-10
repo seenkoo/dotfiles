@@ -70,7 +70,12 @@
     logToConsole: true
   "goto-definition":
     performanceMode: true
-  "highlight-selected": {}
+  "highlight-line":
+    hideHighlightOnSelect: true
+  "highlight-selected":
+    hideHighlightOnSelectedWord: true
+    highlightBackground: true
+    onlyHighlightWholeWords: false
   "jsdoc-generator": {}
   minimap:
     moveCursorOnMinimapClick: true
