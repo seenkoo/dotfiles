@@ -1,15 +1,32 @@
 "*":
   aligner:
     alignComments: true
+  "apathy-theme":
+    altStyle: "Color Pop"
+    syntaxBrightness: "100%"
+    syntaxContrast: "100%"
+    syntaxSaturation: "100%"
+  "atom-easy-jsdoc":
+    beta: true
+    useReturns: true
   "autocomplete-plus": {}
+  "block-cursor":
+    global:
+      blinkOff:
+        backgroundColor: "#000000"
+        borderColor: "#00f900"
+        borderStyle: "bordered-box"
+      blinkOn: {}
   "color-picker":
     preferredFormat: "HEX"
     uppercaseColorValues: true
   core:
     destroyEmptyPanes: false
     disabledPackages: [
-      "symbols-view"
       "vim-mode-plus"
+      "symbol-gen"
+      "symbols-view"
+      "goto-definition"
     ]
     packagesWithKeymapsDisabled: [
       "mpd"
@@ -20,12 +37,13 @@
     telemetryConsent: "no"
     themes: [
       "seti-ui"
-      "titan-dark-syntax"
+      "monokai"
     ]
     titleBar: "hidden"
     warnOnLargeFileLimit: 10
   "dash-ui":
     themeColor: "Purple"
+  docblockr: {}
   editor:
     fontFamily: "SourceCode Pro"
     fontSize: 11
@@ -42,9 +60,18 @@
   filesize: {}
   fonts:
     fontFamily: "FiraCode Light"
+  "glowing-cursor":
+    cursorWidth: 2
+    glowColor: "#ff2600"
+    glowDistance: 4
+    innerColor: "#ff9300"
+    transitionDuration: 1000
+  goto:
+    logToConsole: true
   "goto-definition":
     performanceMode: true
   "highlight-selected": {}
+  "jsdoc-generator": {}
   minimap:
     moveCursorOnMinimapClick: true
     plugins:
@@ -71,14 +98,15 @@
     forceOverwrite: true
   pigments:
     autocompleteSuggestionsFromValue: true
+  preview:
+    _analyticsUserId: "6dd96efc-4c04-4f3f-8bac-70bdd8055265"
   scratch:
     autosave: true
   "seti-syntax":
     dynamicColor: false
-    themeColor: "Red"
+    themeColor: "Green"
   "seti-ui":
     compactView: true
-    displayIgnored: false
     fileIcons: false
     hideProjectTab: true
     themeColor: "Purple"
