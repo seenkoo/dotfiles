@@ -34,6 +34,8 @@
   'f1': 'dash:shortcut'
   'shift-f1': 'dash:shortcut-alt'
   'ctrl-w': 'editor:select-word'
+  'ctrl-cmd-n': 'next-occurrence:next'
+  'ctrl-cmd-p': 'next-occurrence:prev'
 
 'atom-workspace atom-text-editor:not([mini])':
   'ctrl-cmd-j': 'editor:move-line-down'

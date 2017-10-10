@@ -28,6 +28,7 @@
       "symbols-view"
       "goto-definition"
     ]
+    excludeVcsIgnoredPaths: false
     packagesWithKeymapsDisabled: [
       "mpd"
       "scratch"
@@ -75,7 +76,6 @@
   "highlight-selected":
     hideHighlightOnSelectedWord: true
     highlightBackground: true
-    onlyHighlightWholeWords: false
   "jsdoc-generator": {}
   minimap:
     moveCursorOnMinimapClick: true
