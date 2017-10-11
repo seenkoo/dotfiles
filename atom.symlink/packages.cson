@@ -46,8 +46,10 @@ packages: [
   "seenkoo-syntax"
   "set-syntax"
   "seti-ui"
+  "smart-tags"
   "symbol-gen"
   "synonym-replace"
   "tasks"
   "titan-dark-syntax"
+  "toggle-snake-camel"
 ]

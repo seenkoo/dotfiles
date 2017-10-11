@@ -17,6 +17,8 @@
         borderColor: "#00f900"
         borderStyle: "bordered-box"
       blinkOn: {}
+  "coffee-paste":
+    nodePath: "\"/usr/local/bin\""
   "color-picker":
     preferredFormat: "HEX"
     uppercaseColorValues: true
@@ -77,6 +79,8 @@
     hideHighlightOnSelectedWord: true
     highlightBackground: true
   "jsdoc-generator": {}
+  "linter-ui-default":
+    showPanel: true
   minimap:
     moveCursorOnMinimapClick: true
     plugins:

@@ -43,3 +43,6 @@
 
 'atom-workspace':
   'ctrl-cmd-,': 'scratch:toggle'
+
+'.platform-darwin atom-text-editor':
+  'ctrl-cmd-a': 'aligner:align'
