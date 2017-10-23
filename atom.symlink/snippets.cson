@@ -24,3 +24,19 @@
   'Block comment':
     'prefix': '/'
     'body': '/**'
+
+'.source.php':
+  'Bitrix Debug::dump()':
+    'prefix': 'debug'
+    'body': 'Bitrix\\\\Main\\\\Diag\\\\Debug::dump(${1:$ar}); exit();'
+  'Bitrix GetMessage()':
+    'prefix': 'GetMessage'
+    'body': 'GetMessage(\'${1:KEY}\')'
+  'Bitrix Loader::includeModule()':
+    'prefix': 'includeModule'
+    'body': 'Bitrix\\\\Main\\\\Loader::includeModule(\'${1:name}\');'
+
+'.text.html.php':
+  '<?=...?>':
+    'prefix': 'ee'
+    'body': '<?=${1:$var}?>'

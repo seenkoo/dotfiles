@@ -50,6 +50,7 @@
   editor:
     fontFamily: "SourceCode Pro"
     fontSize: 11
+    invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
     softWrap: true
@@ -79,8 +80,7 @@
     hideHighlightOnSelectedWord: true
     highlightBackground: true
   "jsdoc-generator": {}
-  "linter-ui-default":
-    showPanel: true
+  "linter-ui-default": {}
   minimap:
     moveCursorOnMinimapClick: true
     plugins:
@@ -128,6 +128,9 @@
     showOnStartup: false
   "xatom-debug":
     showToolbarIcon: false
+".html.php.text":
+  editor:
+    preferredLineLength: 120
 ".js.regexp.replacement.source":
   editor:
     autoIndentOnPaste: true
