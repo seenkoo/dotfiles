@@ -62,7 +62,6 @@ brew "postgresql", restart_service: true
 brew "redis", restart_service: true
 brew "nmap"
 brew "passenger"
-brew "pillow"
 brew "pms"
 brew "ponysay"
 brew "qrencode"
