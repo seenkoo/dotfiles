@@ -149,7 +149,13 @@
     showOnStartup: false
   "xatom-debug":
     showToolbarIcon: false
+".basic.html.text":
+  editor:
+    tabLength: 2
 ".coffee.source":
+  editor:
+    tabLength: 2
+".css.source":
   editor:
     tabLength: 2
 ".erb.html.text":
