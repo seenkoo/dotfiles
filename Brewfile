@@ -14,7 +14,7 @@ cask "java"
 cask "xquartz"
 
 brew "autoconf"
-brew "automane"
+brew "automake"
 brew "boost"
 brew "openssl"
 brew "readline"
