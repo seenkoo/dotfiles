@@ -40,8 +40,6 @@ brew "certbot"
 brew "htop"
 brew "midnight-commander"
 brew "jq"
-brew "elm"
-brew "elm-format"
 brew "erlang"
 brew "gawk"
 brew "gcal"
@@ -55,16 +53,18 @@ brew "gnu-sed"
 brew "go"
 brew "gpg-agent"
 brew "grc"
+brew "ripgrep"
 brew "imagesnap"
 brew "mas"
 brew "mongodb", restart_service: true
 brew "mysql", restart_service: true
+brew "postgresql", restart_service: true
+brew "redis", restart_service: true
 brew "nmap"
 brew "passenger"
 brew "pillow"
 brew "pms"
 brew "ponysay"
-brew "postgresql", restart_service: true
 brew "qrencode"
 brew "ranger"
 brew "zsh"
@@ -73,6 +73,7 @@ brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 brew "koekeishiya/formulae/khd"
 brew "koekeishiya/formulae/kwm"
+brew "sassc"
 brew "screenfetch"
 brew "shared-mime-info"
 brew "sox", args: ["with-flac", "with-lame", "with-libsndfile", "with-libvorbis", "with-opusfile"]
@@ -81,6 +82,10 @@ brew "switchaudio-osx"
 brew "toilet"
 brew "unrar"
 brew "youtube-dl"
+brew "ruby"
+brew "rbenv"
+brew "rbenv-default-gems"
+brew "rbenv-gemset"
 
 # brew "fdk-aac"
 
@@ -89,16 +94,8 @@ brew "imagemagick", args: ["with-fftw", "with-fontconfig", "with-ghostscript", "
 brew "ffmpeg", args: ["with-fdk-aac", "with-fontconfig", "with-freetype", "with-frei0r", "with-game-music-emu", "with-libass", "with-libbluray", "with-libbs2b", "with-libcaca", "with-libgsm", "with-libmodplug", "with-libsoxr", "with-libssh", "with-libvidstab", "with-libvorbis", "with-libvpx", "with-opencore-amr", "with-openh264", "with-openjpeg", "with-openssl", "with-opus", "with-rtmpdump", "with-rubberband", "with-sdl2", "with-snappy", "with-speex", "with-tesseract", "with-theora", "with-tools", "with-two-lame", "with-wavpack", "with-webp", "with-x265", "with-xz", "with-zeromq", "with-zimg"]
 
 brew "mpc"
-brew "mpd", args: ["with-flac", "with-lame", "with-lastfm", "with-libmms", "with-libmodplug", "with-libnfs", "with-libshout", "with-libvorbis", "with-libzzip", "with-mad", "with-opus", "with-two-lame", "with-upnp", "with-wavpack", "with-yajl"], restart_service: true
+brew "mpd", args: ["with-flac", "with-lame", "with-lastfm", "with-libmms", "with-libmodplug", "with-libnfs", "with-libshout", "with-libvorbis", "with-libzzip", "with-mad", "with-opus", "with-two-lame", "with-upnp", "with-wavpack", "with-yajl"]
 brew "mpdscribble", restart_service: true
-
-brew "ruby"
-brew "rbenv"
-brew "rbenv-default-gems"
-brew "rbenv-gemset"
-brew "redis", restart_service: true
-brew "ripgrep"
-brew "sassc"
 
 brew "homebrew/nginx/nginx-full", args: ["with-addition", "with-auth-req", "with-auto-keepalive-module", "with-debug", "with-gunzip", "with-gzip-static", "with-headers-more-module", "with-http2", "with-passenger", "with-realip"]
 
@@ -162,7 +159,5 @@ mas "Awaken", id: 404221531
 mas "Blackmagic Disk Speed Test", id: 425264550
 mas "Growl", id: 467939042
 mas "LastPass", id: 926036361
-mas "Monosnap", id: 540348655
 # mas "OmniFocus", id: 867299399
-# mas "The Unarchiver", id: 425424353
-mas "Xcode", id: 497799835
+mas "The Unarchiver", id: 425424353

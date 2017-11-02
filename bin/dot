@@ -27,11 +27,12 @@ brew outdated && brew upgrade
 
 # Run Homebrew through the Brewfile
 echo "› brew bundle"
-brew bundle | while read line ; do
-  if [[ $line != 'Using '* ]] ; then
-    echo -e "\033[00;32m $line \033[0m"
-  fi
-done
+# brew bundle | while read line ; do
+#   if [[ $line != 'Using '* ]] ; then
+#     echo -e "\033[00;32m $line \033[0m"
+#   fi
+# done
+brew bundle
 
 # Install software
 echo "› $ZSH/script/install"
