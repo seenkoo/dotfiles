@@ -85,6 +85,7 @@ brew "ruby"
 brew "rbenv"
 brew "rbenv-default-gems"
 brew "rbenv-gemset"
+brew "nodejs"
 
 # brew "fdk-aac"
 

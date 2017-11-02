@@ -81,8 +81,10 @@ killall Finder
 killall SystemUIServer
 
 # set hostname
-# scutil --set LocalHostName $SHORT_HOST
 # sudo scutil --set HostName $SHORT_HOST
+# sudo scutil --set LocalHostName $SHORT_HOST
+# sudo scutil --set HostName $SHORT_HOST
+# dscacheutil -flushcache
 
 # enable SSH daemon
 # sudo systemsetup -setremotelogin on >/dev/null
