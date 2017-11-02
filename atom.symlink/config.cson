@@ -1,4 +1,7 @@
 "*":
+  "Remote-FTP":
+    dev:
+      debugResponse: true
   aligner:
     alignComments: true
   "apathy-theme":
@@ -9,6 +12,8 @@
   "atom-easy-jsdoc":
     beta: true
     useReturns: true
+  "atom-ternjs":
+    useSnippets: true
   "autocomplete-plus": {}
   "block-cursor":
     global:
@@ -22,6 +27,7 @@
   "color-picker":
     preferredFormat: "HEX"
     uppercaseColorValues: true
+  comment: {}
   core:
     destroyEmptyPanes: false
     disabledPackages: [
@@ -55,6 +61,7 @@
     showIndentGuide: true
     softWrap: true
     softWrapAtPreferredLineLength: true
+    tabLength: 4
   "eval-and-replace":
     customShell: "/usr/local/bin/zsh"
   "exception-reporting":
@@ -74,30 +81,37 @@
     logToConsole: true
   "goto-definition":
     performanceMode: true
-  "highlight-line":
-    hideHighlightOnSelect: true
+  "highlight-line": {}
   "highlight-selected":
     hideHighlightOnSelectedWord: true
     highlightBackground: true
   "jsdoc-generator": {}
   "linter-ui-default": {}
   minimap:
+    displayCodeHighlights: false
     moveCursorOnMinimapClick: true
     plugins:
+      bookmarks: true
+      bookmarksDecorationsZIndex: 0
       codeglance: true
       codeglanceDecorationsZIndex: 0
       cursorline: true
       cursorlineDecorationsZIndex: 0
-      "highlight-selected": true
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+      "highlight-selected": false
       "highlight-selectedDecorationsZIndex": 0
+      linter: true
+      linterDecorationsZIndex: 0
       "minimap-quick-highlight": false
       "minimap-quick-highlightDecorationsZIndex": 0
-      pigments: true
+      pigments: false
       pigmentsDecorationsZIndex: 0
       selection: true
       selectionDecorationsZIndex: 0
     redrawDelay: 100
     scrollAnimationDuration: 200
+  "minimap-linter": {}
   mpd: {}
   "node-requirer":
     aliasList: "{\"lodash\":\"_\",\"async\":\"a\",\"bluebird\":\"Promise\",\"ioredis\":\"Redis\"}"
@@ -119,6 +133,8 @@
     fileIcons: false
     hideProjectTab: true
     themeColor: "Purple"
+  "tree-view":
+    autoReveal: true
   "vim-mode-plus":
     ignoreCaseForSearch: true
     statusBarModeStringStyle: "long"
@@ -128,9 +144,13 @@
     showOnStartup: false
   "xatom-debug":
     showToolbarIcon: false
+".coffee.source":
+  editor:
+    tabLength: 2
 ".html.php.text":
   editor:
     preferredLineLength: 120
+    tabType: "soft"
 ".js.regexp.replacement.source":
   editor:
     autoIndentOnPaste: true

@@ -34,7 +34,10 @@
     'body': 'GetMessage(\'${1:KEY}\')'
   'Bitrix Loader::includeModule()':
     'prefix': 'includeModule'
-    'body': 'Bitrix\\\\Main\\\\Loader::includeModule(\'${1:name}\');'
+    'body': 'Bitrix\\\\Main\\\\Loader::includeModule(\'${1:iblock}\');'
+  'Bitrix if ($USER->isAdmin())...':
+    'prefix': 'ifadmin'
+    'body': 'if (${1:!}$USER->isAdmin()) {\n\t${2:die();}\n}'
 
 '.text.html.php':
   '<?=...?>':
