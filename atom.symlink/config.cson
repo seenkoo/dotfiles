@@ -90,8 +90,9 @@
     highlightBackground: true
   "jsdoc-generator": {}
   "linter-ruby":
-    rubyExecutablePath: "/usr/local/opt/rbenv/shims/ruby"
-  "linter-ui-default": {}
+    rubyExecutablePath: "/usr/local/bin/ruby"
+  "linter-ui-default":
+    panelHeight: 261
   minimap:
     displayCodeHighlights: false
     moveCursorOnMinimapClick: true
