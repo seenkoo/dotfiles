@@ -58,10 +58,11 @@
     fontSize: 11
     invisibles: {}
     scrollPastEnd: true
-    showIndentGuide: true
     softWrap: true
     softWrapAtPreferredLineLength: true
     tabLength: 4
+  emmet:
+    extensionsPath: "~/.emmet"
   "eval-and-replace":
     customShell: "/usr/local/bin/zsh"
   "exception-reporting":
@@ -81,6 +82,8 @@
     logToConsole: true
   "goto-definition":
     performanceMode: true
+  "highlight-column":
+    lineMode: true
   "highlight-line": {}
   "highlight-selected":
     hideHighlightOnSelectedWord: true
