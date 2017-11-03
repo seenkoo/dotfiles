@@ -2,6 +2,7 @@
   "Remote-FTP":
     dev:
       debugResponse: true
+    tree: {}
   aligner:
     alignComments: true
   "apathy-theme":
@@ -9,6 +10,10 @@
     syntaxBrightness: "100%"
     syntaxContrast: "100%"
     syntaxSaturation: "100%"
+  "atom-beautify":
+    js:
+      space_after_anon_function: true
+    php: {}
   "atom-easy-jsdoc":
     beta: true
     useReturns: true
@@ -31,7 +36,6 @@
     uppercaseColorValues: true
   comment: {}
   core:
-    destroyEmptyPanes: false
     disabledPackages: [
       "vim-mode-plus"
       "symbol-gen"
@@ -62,7 +66,6 @@
     scrollPastEnd: true
     softWrap: true
     softWrapAtPreferredLineLength: true
-    tabLength: 4
   emmet:
     extensionsPath: "~/.emmet"
   "eval-and-replace":
@@ -91,6 +94,8 @@
     hideHighlightOnSelectedWord: true
     highlightBackground: true
   "jsdoc-generator": {}
+  "linter-eslint":
+    useGlobalEslint: true
   "linter-ruby":
     rubyExecutablePath: "/usr/local/bin/ruby"
   "linter-ui-default":
@@ -141,6 +146,7 @@
     fileIcons: false
     hideProjectTab: true
     themeColor: "Purple"
+  "standard-formatter": {}
   "tree-view":
     autoReveal: true
   "vim-mode-plus":
