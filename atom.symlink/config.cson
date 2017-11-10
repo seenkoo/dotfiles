@@ -11,6 +11,9 @@
     syntaxContrast: "100%"
     syntaxSaturation: "100%"
   "atom-beautify":
+    coffeescript:
+      default_beautifier: "Coffee Formatter"
+      jslint_happy: true
     js:
       space_after_anon_function: true
     php: {}
@@ -41,6 +44,7 @@
       "symbol-gen"
       "symbols-view"
       "goto-definition"
+      "linter-ui-default"
     ]
     excludeVcsIgnoredPaths: false
     packagesWithKeymapsDisabled: [
@@ -48,7 +52,7 @@
       "scratch"
       "synonym-replace"
     ]
-    projectHome: "/Users/seenkoo/Code"
+    projectHome: "~/Code"
     telemetryConsent: "no"
     themes: [
       "seti-ui"
@@ -61,11 +65,13 @@
   docblockr: {}
   editor:
     fontFamily: "SourceCode Pro"
-    fontSize: 11
+    fontSize: 12
     invisibles: {}
     scrollPastEnd: true
+    scrollSensitivity: 50
     softWrap: true
     softWrapAtPreferredLineLength: true
+    tabType: "soft"
   emmet:
     extensionsPath: "~/.emmet"
   "eval-and-replace":
@@ -146,7 +152,11 @@
     fileIcons: false
     hideProjectTab: true
     themeColor: "Purple"
+  "snippet-manager":
+    root: "~/.atom/snippets"
   "standard-formatter": {}
+  "sublime-block-comment":
+    pad: true
   "tree-view":
     autoReveal: true
   "vim-mode-plus":
@@ -156,6 +166,8 @@
     fillColorAsBackground: false
   welcome:
     showOnStartup: false
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
   "xatom-debug":
     showToolbarIcon: false
 ".basic.html.text":
@@ -177,7 +189,8 @@
     tabType: "auto"
 ".html.php.text":
   editor:
-    preferredLineLength: 120
+    autoIndentOnPaste: true
+    showIndentGuide: false
     tabType: "soft"
 ".html.ruby.text":
   editor:
@@ -192,9 +205,6 @@
     preferredLineLength: 99
     softWrap: true
     softWrapAtPreferredLineLength: true
-".js.regexp.source":
-  editor:
-    preferredLineLength: 99
 ".js.source":
   editor:
     preferredLineLength: 99

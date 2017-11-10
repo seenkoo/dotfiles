@@ -1,45 +1,78 @@
-# Your snippets
-#
-# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
-# expand the prefix into a larger code block with templated values.
-#
-# You can create a new snippet in this file by typing "snip" and then hitting
-# tab.
-#
-# An example CoffeeScript snippet to expand log to console.log:
-#
-# '.source.coffee':
-#   'Console log':
-#     'prefix': 'log'
-#     'body': 'console.log $1'
-#
-# Each scope (e.g. '.source.coffee' above) can only be declared once.
-#
-# This file uses CoffeeScript Object Notation (CSON).
-# If you are unfamiliar with CSON, you can read more about it in the
-# Atom Flight Manual:
-# http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
-
-'.source.js':
-  'Block comment':
-    'prefix': '/'
-    'body': '/**'
-
-'.source.php':
-  'Bitrix Debug::dump()':
-    'prefix': 'debug'
-    'body': 'Bitrix\\\\Main\\\\Diag\\\\Debug::dump(${1:$ar}); exit();'
-  'Bitrix GetMessage()':
-    'prefix': 'GetMessage'
-    'body': 'GetMessage(\'${1:KEY}\')'
-  'Bitrix Loader::includeModule()':
-    'prefix': 'includeModule'
-    'body': 'Bitrix\\\\Main\\\\Loader::includeModule(\'${1:iblock}\');'
-  'Bitrix if ($USER->isAdmin())...':
-    'prefix': 'ifadmin'
-    'body': 'if (${1:!}$USER->isAdmin()) {\n\t${2:die();}\n}'
-
-'.text.html.php':
-  '<?=...?>':
-    'prefix': 'ee'
-    'body': '<?=${1:$var}?>'
+".source.js":
+  "Block comment":
+    prefix: "/"
+    body: "/**"
+  "getter (symbol key, lazy defaults)":
+    prefix: "gets"
+    body: '''
+      get ${1:propName} () {
+        const key = Symbol.for("${2:Klass}#${1:propName}")
+        return this[key] || (this[key] = ${3:{
+          ${4:defaults: "here"}
+        \\}})
+      }
+    '''
+  "setter (symbol key)":
+    prefix: "sets"
+    body: '''
+      set ${1:propName} () {
+        const key = Symbol.for("${2:Klass}#${1:propName}")
+        return (this[key] = val)
+      }
+    '''
+".text.html.php":
+  "<? … ?>":
+    prefix: "php"
+    body: "<? $0 ?>"
+  "<? echo … ?>":
+    prefix: "echo"
+    body: "<? echo ${1:$var} ?>$0"
+  "<? echo htmlentities(…) ?>":
+    prefix: "echoh"
+    body: "<? echo htmlentities(${1:$var}, ENT_QUOTES, \"utf-8\"); ?>$0"
+  "<? else: ?>":
+    prefix: "else"
+    body: "<? else: ?>"
+  "<? foreach (…) … <? endforeach ?>":
+    prefix: "foreach"
+    body: '''
+      <? foreach ($${1:variable} as $${2:key}${3: => $${4:value}}): ?>
+      	${0}
+      <? endforeach; ?>
+    '''
+  "<? if (…) ?> … <? else ?> … <? endif ?>":
+    prefix: "ifelse"
+    body: '''
+      <? if (${1:condition}): ?>
+      	$2
+      <? else: ?>
+      	$0
+      <? endif; ?>
+    '''
+  "<? if (…) ?> … <? endif ?>":
+    prefix: "if"
+    body: '''
+      <? if (${1:condition}): ?>
+      	$0
+      <? endif; ?>
+    '''
+  "<?=…?>":
+    prefix: "e"
+    body: "<?=${1:$var}?>"
+  "<?=htmlspecialchars(…)?>":
+    prefix: "eh"
+    body: "<?=htmlspecialchars(${1:$var})?>"
+".source.php":
+  "Bitrix GetMessage()":
+    prefix: "GetMessage"
+    body: "GetMessage('${1:KEY}')"
+  "Bitrix Loader::includeModule()":
+    prefix: "includeModule"
+    body: "Bitrix\\\\Main\\\\Loader::includeModule('${1:iblock}');"
+  "Bitrix if ($USER->isAdmin())...":
+    prefix: "ifadmin"
+    body: '''
+      if (${1:!}$USER->isAdmin()) {
+      	${2:die();}
+      }
+    '''

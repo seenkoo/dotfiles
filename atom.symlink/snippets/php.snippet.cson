@@ -1,0 +1,14 @@
+".source.php":
+  "Bitrix GetMessage()":
+    prefix: "GetMessage"
+    body: "GetMessage('${1:KEY}')"
+  "Bitrix Loader::includeModule()":
+    prefix: "includeModule"
+    body: "Bitrix\\\\Main\\\\Loader::includeModule('${1:iblock}');"
+  "Bitrix if ($USER->isAdmin())...":
+    prefix: "ifadmin"
+    body: """
+      if (${1:!}$USER->isAdmin()) {
+      	${2:die();}
+      }
+    """

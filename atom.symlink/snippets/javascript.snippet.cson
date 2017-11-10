@@ -1,0 +1,22 @@
+".source.js":
+  "Block comment":
+    prefix: "/"
+    body: "/**"
+  "getter (symbol key, lazy defaults)":
+    prefix: "gets"
+    body: """
+      get ${1:propName} () {
+        const key = Symbol.for("${2:Klass}#${1:propName}")
+        return this[key] || (this[key] = ${3:{
+          ${4:defaults: "here"}
+        \\}})
+      }
+    """
+  "setter (symbol key)":
+    prefix: "sets"
+    body: """
+      set ${1:propName} () {
+        const key = Symbol.for("${2:Klass}#${1:propName}")
+        return (this[key] = val)
+      }
+    """

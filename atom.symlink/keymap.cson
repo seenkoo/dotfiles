@@ -31,19 +31,21 @@
 # Atom Flight Manual:
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
 'atom-text-editor':
-  'f1':       'dash:shortcut'
+  'f1': 'dash:shortcut'
   'shift-f1': 'dash:shortcut-alt'
-  'ctrl-w':   'editor:select-word'
-  'alt-w':  'bookmarks:view-all'
-  'alt-e':       'bookmarks:jump-to-next-bookmark'
+  'ctrl-w': 'editor:select-word'
+  'alt-w': 'bookmarks:view-all'
+  'alt-e': 'bookmarks:jump-to-next-bookmark'
   'alt-q': 'bookmarks:jump-to-previous-bookmark'
+  'ctrl-u': 'editor:delete-line'
+  'ctrl-t': 'fuzzy-finder:toggle-buffer-finder'
 
 '.platform-darwin atom-text-editor':
-  'ctrl-cmd-a':  'aligner:align'
-  'ctrl-cmd-n':  'next-occurrence:next'
-  'ctrl-cmd-p':  'next-occurrence:prev'
+  'ctrl-cmd-a': 'aligner:align'
+  'ctrl-cmd-n': 'next-occurrence:next'
+  'ctrl-cmd-p': 'next-occurrence:prev'
   'cmd-shift-/': 'sublime-block-comment:toggle'
-  'alt-r':       'bookmarks:toggle-bookmark'
+  'alt-r': 'bookmarks:toggle-bookmark'
   'shift-alt-r': 'bookmarks:clear-bookmarks'
 
 'atom-workspace atom-text-editor:not([mini])':
@@ -52,4 +54,3 @@
 
 'atom-workspace':
   'ctrl-cmd-,': 'scratch:toggle'
-  'ctrl-t': 'fuzzy-finder:toggle-buffer-finder'

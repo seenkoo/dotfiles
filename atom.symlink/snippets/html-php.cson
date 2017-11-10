@@ -1,0 +1,28 @@
+".text.html.php":
+  "<? … ?>":
+    prefix: "php"
+    body: "<? $0 ?>"
+  "<? echo … ?>":
+    prefix: "echo"
+    body: "<? echo ${1:$var} ?>$0"
+  "<? echo htmlentities(…) ?>":
+    prefix: "echoh"
+    body: "<? echo htmlentities(${1:$var}, ENT_QUOTES, \"utf-8\"); ?>$0"
+  "<? else: ?>":
+    prefix: "else"
+    body: "<? else: ?>"
+  "<? foreach (…) … <? endforeach ?>":
+    prefix: "foreach"
+    body: "<? foreach ($${1:variable} as $${2:key}${3: => $${4:value}}): ?>\n\t${0}\n<? endforeach; ?>"
+  "<? if (…) ?> … <? else ?> … <? endif ?>":
+    prefix: "ifelse"
+    body: "<? if (${1:condition}): ?>\n\t$2\n<? else: ?>\n\t$0\n<? endif; ?>"
+  "<? if (…) ?> … <? endif ?>":
+    prefix: "if"
+    body: "<? if (${1:condition}): ?>\n\t$0\n<? endif; ?>"
+  "<?=…?>":
+    prefix: "e"
+    body: "<?=${1:$var}?>"
+  "<?=htmlspecialchars(…)?>":
+    prefix: "eh"
+    body: "<?=htmlspecialchars(${1:$var})?>"
