@@ -81,4 +81,6 @@ packages: [
   "titan-dark-syntax"
   "todo-manager"
   "toggle-snake-camel"
+  "tree-view-autoresize"
+  "tree-view-extended"
 ]

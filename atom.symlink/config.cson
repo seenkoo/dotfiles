@@ -25,6 +25,8 @@
   "autocomplete-plus": {}
   "autocomplete-ruby":
     rsensePath: "/usr/local/bin/rsense"
+  "autohide-tree-view":
+    pushEditor: true
   "block-cursor":
     global:
       blinkOff:
@@ -159,6 +161,8 @@
     pad: true
   "tree-view":
     autoReveal: true
+  "tree-view-auto-fold": {}
+  "tree-view-open-files": {}
   "vim-mode-plus":
     ignoreCaseForSearch: true
     statusBarModeStringStyle: "long"
