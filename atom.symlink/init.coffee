@@ -9,3 +9,4 @@
 # atom.workspace.observeTextEditors (editor) ->
 #   editor.onDidSave ->
 #     console.log "Saved! #{editor.getPath()}"
+require('module').globalPaths.push('/usr/local/lib/node_modules')
