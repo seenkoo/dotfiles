@@ -33,7 +33,7 @@
 'atom-text-editor':
   'f1': 'dash:shortcut'
   'shift-f1': 'dash:shortcut-alt'
-  'ctrl-w': 'editor:select-word'
+  'ctrl-shift-w': 'editor:select-word'
   'alt-w': 'bookmarks:view-all'
   'alt-e': 'bookmarks:jump-to-next-bookmark'
   'alt-q': 'bookmarks:jump-to-previous-bookmark'
@@ -47,6 +47,7 @@
   'cmd-shift-/': 'sublime-block-comment:toggle'
   'alt-r': 'bookmarks:toggle-bookmark'
   'shift-alt-r': 'bookmarks:clear-bookmarks'
+  'ctrl-w': 'emmet:wrap-with-abbreviation'
 
 'atom-workspace atom-text-editor:not([mini])':
   'ctrl-cmd-j': 'editor:move-line-down'

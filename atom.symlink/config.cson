@@ -6,7 +6,10 @@
     notifications:
       enableTransfer: true
     tree:
+      showProjectName: "remote"
       useDockIntegration: true
+  aligner:
+    alignComments: true
   "apathy-theme":
     altStyle: "Color Pop"
     syntaxBrightness: "100%"
@@ -56,6 +59,7 @@
       "symbol-gen"
       "symbols-view"
       "goto-definition"
+      "apex-superfish-menu"
     ]
     excludeVcsIgnoredPaths: false
     packagesWithKeymapsDisabled: [
@@ -63,6 +67,7 @@
       "scratch"
       "synonym-replace"
       "Remote-FTP"
+      "remote-edit"
     ]
     projectHome: "~/Code"
     telemetryConsent: "no"
@@ -119,6 +124,7 @@
     useGlobalEslint: true
   "linter-ruby":
     rubyExecutablePath: "/usr/local/bin/ruby"
+  "linter-tidy": {}
   "linter-ui-default":
     panelHeight: 261
   minimap:
@@ -157,6 +163,11 @@
     autocompleteSuggestionsFromValue: true
   preview:
     _analyticsUserId: "6dd96efc-4c04-4f3f-8bac-70bdd8055265"
+  "project-manager":
+    alwaysOpenInSameWindow: true
+  "remote-edit":
+    foldersOnTop: true
+    showHiddenFiles: true
   scratch:
     autosave: true
   "seti-syntax":
@@ -172,8 +183,43 @@
   "standard-formatter": {}
   "sublime-block-comment":
     pad: true
-  "tree-view":
-    autoReveal: true
+  "todo-show":
+    findTheseTodos: [
+      "TODO"
+      "FIXME"
+      "XXX"
+      "IDEA"
+      "HACK"
+      "NOTE"
+      "REVIEW"
+      "NB"
+      "BUG"
+      "QUESTION"
+      "COMBAK"
+      "TEMP"
+    ]
+    findUsingRegex: "/\\s\\b(${TODOS})[:;.,]\\d*($|\\s.*$|[\\{\\[\\(].+$)/g"
+    ignoreThesePaths: [
+      "bitrix/admin/"
+      "bitrix/image_uploader/"
+      "bitrix/wizards/"
+      "bitrix/components/"
+      "bitrix/js/"
+      "bitrix/php_interface/mail*/"
+      "bitrix/sxd/"
+      "bitrix/modules/"
+      "**/js/jquery*.js"
+      "**/css/jquery*.js"
+      "normalize.css"
+      "node_modules"
+      "vendor"
+      "bower_components"
+      "*.pdf"
+      "*.PDF"
+    ]
+    sortBy: "Id"
+    statusBarIndicator: true
+  "tree-view": {}
   "tree-view-auto-fold": {}
   "tree-view-open-files": {}
   "vim-mode-plus":

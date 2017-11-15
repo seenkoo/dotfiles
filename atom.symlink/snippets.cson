@@ -62,6 +62,9 @@
   "<?=htmlspecialchars(…)?>":
     prefix: "eh"
     body: "<?=htmlspecialchars(${1:$var})?>"
+  "<?if(!defined(\"B_PROLOG_INCLUDED\" … die();?>":
+    prefix: "ifnotprolog"
+    body: "<?if(!defined(\"B_PROLOG_INCLUDED\") || B_PROLOG_INCLUDED!==true)die();?>"
 ".source.php":
   "Bitrix GetMessage()":
     prefix: "GetMessage"
