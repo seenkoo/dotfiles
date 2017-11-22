@@ -228,10 +228,9 @@
   "sublime-block-comment":
     pad: true
   "sync-settings":
-    _lastBackupHash: "b23b501f3df5632c809f3ec2e0216463910116b2"
+    _lastBackupHash: "5b56e6b896e1ff33ad3a68eeb44f66569d014895"
     checkForUpdatedBackup: false
     gistId: "c510ced9b82e271083babe406886c7d3"
-    personalAccessToken: "b05c1d01ffc9d36fd585555f4bd17da61e8f99b4"
   "todo-show":
     findTheseTodos: [
       "TODO"

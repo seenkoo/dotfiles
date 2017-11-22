@@ -80,16 +80,28 @@
     prefix: "ifnotprolog"
     body: "<?if(!defined(\"B_PROLOG_INCLUDED\") || B_PROLOG_INCLUDED!==true)die();?>"
 ".source.php":
-  "Bitrix GetMessage()":
+  "GetMessage('…')":
     prefix: "GetMessage"
-    body: "GetMessage('${1:KEY}')"
-  "Bitrix Loader::includeModule()":
+    body: "GetMessage('${1:MESG_KEY}')"
+  "Bitrix\\Main\\Loader::includeModule('…')":
     prefix: "includeModule"
     body: "Bitrix\\\\Main\\\\Loader::includeModule('${1:iblock}');"
-  "Bitrix if ($USER->isAdmin())...":
+  "if (!$USER->isAdmin()) {…}":
     prefix: "ifadmin"
     body: '''
       if (${1:!}$USER->isAdmin()) {
       	${2:die();}
       }
     '''
+  SITE_DIR:
+    prefix: "SD"
+    body: "SITE_DIR"
+  SITE_TEMPLATE_PATH:
+    prefix: "STP"
+    body: "SITE_TEMPLATE_PATH"
+  "$_SERVER['DOCUMENT_ROOT']":
+    prefix: "ROOT"
+    body: "$_SERVER['DOCUMENT_ROOT']"
+  "$_SERVER['REMOTE_ADDR']":
+    prefix: "REM"
+    body: "$_SERVER['REMOTE_ADDR']"
