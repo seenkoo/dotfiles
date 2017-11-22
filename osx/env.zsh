@@ -7,7 +7,9 @@ mkdir -p "$SCREENSHOTS"
 # Figure out the SHORT hostname
 if [[ "$OSTYPE" = darwin* ]]; then
   # macOS's $HOST changes with dhcp, etc. Use ComputerName if possible.
-  export SHORT_HOST=$(scutil --get ComputerName 2>/dev/null) || SHORT_HOST=${HOST/.*/}
-else
-  export SHORT_HOST=${HOST/.*/}
+  SHORT_HOST=$(scutil --get ComputerName 2>/dev/null)
 fi
+if [[ -z "$SHORT_HOST" ]]; then
+  SHORT_HOST=${HOST/.*/.local}
+fi
+export SHORT_HOST

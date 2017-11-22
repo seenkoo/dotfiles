@@ -24,10 +24,10 @@ alias rd=rmdir
 alias d='dirs -v | head -10'
 
 # List directory contents
-alias ls='ls -lah'
-alias l='ls -lah'
-alias ll='ls -lh'
-alias la='ls -lAh'
+alias ls='ls -FGh'
+alias l='ls -lAFTGh'
+alias ll='ls -lFGTh'
+alias la='ls -AG'
 
 # Push and pop directories on directory stack
 alias pu='pushd'
@@ -38,10 +38,10 @@ alias po='popd'
 #   `brew install coreutils`
 if $(gls &>/dev/null)
 then
-  alias ls="gls -F --color"
-  alias l="gls -lAh --color"
-  alias ll="gls -l --color"
-  alias la='gls -A --color'
+  alias ls='gls -Fh --color=auto'
+  alias l='gls -FlAh --time-style="+%d.%m.%Y %H:%M:%S" --color=auto'
+  alias ll='gls -Flh --time-style="+%d.%m.%Y %H:%M:%S" --color=auto'
+  alias la='gls -A --color=auto'
 fi
 
 # Make path to directory and cd into it

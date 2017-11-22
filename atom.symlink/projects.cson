@@ -1,1 +1,38 @@
-[]
+[
+  {
+    title: "fbk.ru"
+    group: "softmajor"
+    paths: [
+      "/Users/seenkoo/Code/softmajor/fbk.ru"
+    ]
+  }
+  {
+    title: "ensb.tomsk.ru"
+    group: "softmajor"
+    paths: [
+      "/Users/seenkoo/Code/softmajor/ensb.tomsk.ru"
+    ]
+  }
+  {
+    title: "Литштамп"
+    group: "softmajor"
+    paths: [
+      "/Users/seenkoo/Code/softmajor/u42219.netangels.ru"
+    ]
+  }
+  {
+    title: "els.smhost.ru"
+    group: "softmajor"
+    paths: [
+      "/Users/seenkoo/Code/softmajor/els.smhost.ru"
+    ]
+    devMode: true
+  }
+  {
+    title: "dotfiles"
+    group: "seenkoo"
+    paths: [
+      "/Users/seenkoo/.dotfiles"
+    ]
+  }
+]

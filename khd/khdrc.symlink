@@ -1,135 +1,96 @@
-# NOTE(koekeishiya): A bind is written in the form:
-#   <keysym> [!] [<app list>] [->] : <command>
-#   where
-#       <keysym>   = mode + mod + ... + mod - literal
-#       <keysym>   = mode + mod + ... + mod - keycode (must have 0x prefix)
-#       <keysym>   = mode + mod + ... + mod (modifier only binding)
-#
-#       [<app,
-#         app,     = optional list '[app1, ..., appN]' of applications
-#         app>]      that this bind will be activated for. if the
-#                    focused application is not contained in this list,
-#                    the associated command will not be triggered, and
-#                    the keypress will be passed through as normal.
-#
-#       [!]        = optional operator '!' negates the behaviour when a
-#                    list of applications is given. this marks the bind
-#                    as 'Hotkey_Exclude', causing the bind to not work
-#                    when the focused application is in the given list.
-#
-#       [->]       = optional operator '->' that marks this bind as
-#                    'passthrough'. this causes the key to be passed
-#                    through to the system, instead of being consumed.
-#
-#       <command>  = command is executed through '$SHELL -c' and
-#                    follows valid shell syntax. if the $SHELL environment
-#                    variable is not set, it will default to '/bin/bash'.
-#                    when bash is used, the ';' delimeter can be specified
-#                    to chain commands.
-#
-#                    to allow a command to extend into multiple lines,
-#                    prepend '\' at the end of the previous line.
-#
-#                    an EOL character signifies the end of the bind.
+# reload config
+cmd + alt + ctrl - r : khd -e "reload"; \
+                       chunkc tiling::desktop --deserialize \
+                       ~/.dotfiles/chunkwm.symlink/layouts/desktop_1
 
-# NOTE(koekeishiya) Example of passthrough
-# cmd - m -> : echo "alert and minimize window" | alerter -title Test passthrough -timeout 2
+# open terminal
+ctrl + cmd - return : ~/.dotfiles/bin/iterm
 
-# NOTE(koekeishiya) Example of app list
-# alt - e [
-#           iTerm2,
-#           Terminal,
-#           HyperTerm
-#         ]
-#         : echo "so this is how deep the rabbit hole goes.." |\
-#           alerter -title Test passthrough -timeout 2
+# focus window
+# alt - h : chunkc tiling::window --focus west
+# alt - j : chunkc tiling::window --focus south
+# alt - k : chunkc tiling::window --focus north
+# alt - l : chunkc tiling::window --focus east
+ctrl - left  : chunkc tiling::window --focus west
+ctrl - down  : chunkc tiling::window --focus south
+ctrl - up    : chunkc tiling::window --focus north
+ctrl - right : chunkc tiling::window --focus east
 
-# NOTE(koekeishiya) Example of negated app list
-# alt - e [
-#           iTerm2,
-#           Terminal,
-#           HyperTerm
-#         ] !
-#         : echo "blue pill, i choose you!" |\
-#           alerter -title Test passthrough -timeout 2
+# equalize size of windows
+shift + alt - 0 : chunkc tiling::desktop --equalize
 
-# NOTE(koekeishiya) Modifier only binding
-# left shift    -> (    right shift   -> )
-# left cmd      -> {    right cmd     -> }
+# swap window
+# ctrl + alt - h : chunkc tiling::window --swap west
+# ctrl + alt - j : chunkc tiling::window --swap south
+# ctrl + alt - k : chunkc tiling::window --swap north
+# ctrl + alt - l : chunkc tiling::window --swap east
+ctrl + alt - left  : chunkc tiling::window --swap west
+ctrl + alt - down  : chunkc tiling::window --swap south
+ctrl + alt - up    : chunkc tiling::window --swap north
+ctrl + alt - right : chunkc tiling::window --swap east
 
-# khd mod_trigger_timeout 0.1
-# lshift : khd -p "shift - 8"
-# rshift : khd -p "shift - 9"
-# lcmd   : khd -p "shift + alt - 8"
-# rcmd   : khd -p "shift + alt - 9"
+# move window
+# ctrl + cmd - h : chunkc tiling::window --warp west
+# ctrl + cmd - j : chunkc tiling::window --warp south
+# ctrl + cmd - k : chunkc tiling::window --warp north
+# ctrl + cmd - l : chunkc tiling::window --warp east
+ctrl + cmd - left : chunkc tiling::window --warp west
+ctrl + cmd - down : chunkc tiling::window --warp south
+ctrl + cmd - up : chunkc tiling::window --warp north
+ctrl + cmd - right : chunkc tiling::window --warp east
 
-# Launch iTerm2
-cmd+ctrl-return : ~/.dotfiles/bin/iterm
+# float / unfloat window
+ctrl + alt + cmd - f : chunkc tiling::window --toggle float
 
-# MPD
-cmd-f5 : mpc prev
-cmd-f6 : mpc next
-cmd-f7 : mpc toggle
-cmd-f8 : mpc stop
+# toggle sticky window
+shift + ctrl + cmd - end : chunkc tiling::window --toggle sticky
 
-# KWM
-cmd+ctrl+shift-q : kwmc quit
-cmd+ctrl+shift-r : ~/.kwm/bin/prog-layout
+# toggle window split type
+shift + ctrl + cmd - delete : chunkc tiling::window --toggle split
 
-# Set Space Tiling Mode
-ctrl+cmd+shift-b : kwmc space -t bsp
-ctrl+cmd+shift-m : kwmc space -t monocle
-ctrl+cmd+shift-f : kwmc space -t float
-# Rotate Window-Tree By 90* (Clockwise)
-ctrl+cmd-r : kwmc tree rotate 90
-# Container split-mode toggle
-ctrl+cmd-s : kwmc window -c split-mode toggle
-# Window float toggle
-ctrl+cmd+alt-f : kwmc window -t focused
-# Container size
-ctrl+cmd+alt-up          : kwmc window -c expand 0.025 north
-ctrl+cmd+alt-down        : kwmc window -c expand 0.025 south
-ctrl+cmd+alt-left        : kwmc window -c expand 0.025 west
-ctrl+cmd+alt-right       : kwmc window -c expand 0.025 east
-ctrl+cmd+alt+shift-up    : kwmc window -c reduce 0.025 north
-ctrl+cmd+alt+shift-down  : kwmc window -c reduce 0.025 south
-ctrl+cmd+alt+shift-left  : kwmc window -c reduce 0.025 west
-ctrl+cmd+alt+shift-right : kwmc window -c reduce 0.025 east
+# increase region size
+shift + ctrl + alt + cmd - help : chunkc tiling::window --use-temporary-ratio 0.025 --adjust-window-edge west
+shift + ctrl + alt + cmd - home : chunkc tiling::window --use-temporary-ratio 0.025 --adjust-window-edge east
+shift + ctrl + alt + cmd - pageup : chunkc tiling::window --use-temporary-ratio 0.025 --adjust-window-edge north
+shift + ctrl + alt + cmd - pagedown : chunkc tiling::window --use-temporary-ratio 0.025 --adjust-window-edge south
 
-# Focus window
-#ctrl-h : kwmc window -f west
-#ctrl-j : kwmc window -f south
-#ctrl-k : kwmc window -f north
-#ctrl-l : kwmc window -f east
-ctrl-left  : kwmc window -f west
-ctrl-down  : kwmc window -f south
-ctrl-up    : kwmc window -f north
-ctrl-right : kwmc window -f east
 
-# Move focused window
-ctrl+alt-up    : kwmc window -s north
-ctrl+alt-down  : kwmc window -s south
-ctrl+alt-left  : kwmc window -s west
-ctrl+alt-right : kwmc window -s east
+# decrease region size
+ctrl  + alt + cmd - help : chunkc tiling::window --use-temporary-ratio -0.025 --adjust-window-edge west
+ctrl  + alt + cmd - home : chunkc tiling::window --use-temporary-ratio -0.025 --adjust-window-edge east
+ctrl  + alt + cmd - pageup : chunkc tiling::window --use-temporary-ratio -0.025 --adjust-window-edge north
+ctrl  + alt + cmd - pagedown : chunkc tiling::window --use-temporary-ratio -0.025 --adjust-window-edge south
 
-# Detach focused window and reinsert it
-ctrl+cmd-up    : ~/.kwm/bin/move-window north
-ctrl+cmd-down  : ~/.kwm/bin/move-window south
-ctrl+cmd-left  : ~/.kwm/bin/move-window west
-ctrl+cmd-right : ~/.kwm/bin/move-window east
+# mirror tree y-axis
+shift + ctrl + cmd - help : chunkc tiling::desktop --mirror vertical
+shift + ctrl + cmd - home : chunkc tiling::desktop --mirror vertical
 
-# Move window to left/right space
-#ctrl+alt+cmd-h : kwmc window -m space left
-#ctrl+alt+cmd-l : kwmc window -m space right
+# mirror tree x-axis
+shift + ctrl + cmd - pageup : chunkc tiling::desktop --mirror horizontal
+shift + ctrl + cmd - pagedown : chunkc tiling::desktop --mirror horizontal
+
+# toggle desktop offset
+cmd - f11 : chunkc tiling::desktop --toggle offset
+
+# change layout of desktop
+shift + ctrl + cmd - a : chunkc tiling::desktop --layout bsp
+shift + ctrl + cmd - s : chunkc tiling::desktop --layout monocle
+shift + ctrl + cmd - d : chunkc tiling::desktop --layout float
+
+# Music Player Daemon
+cmd - f5 : mpc prev
+cmd - f6 : mpc next
+cmd - f7 : mpc toggle
+cmd - f8 : mpc stop
 
 # Toggle kwm-scratchpad iTerm window
-alt-tab : ~/.kwm/bin/scratchpad-iterm
+# alt-tab : ~/.kwm/bin/scratchpad-iterm
 
 # Toggle kwm-scratchpad Telegram window
-cmd-f3 : ~/.kwm/bin/scratchpad-telegram
+# cmd-f3 : ~/.kwm/bin/scratchpad-telegram
 
 # Toggle kwm-scratchpad Taskpaper window
-cmd-f12 : ~/.kwm/bin/scratchpad-taskpaper
+# cmd-f12 : ~/.kwm/bin/scratchpad-taskpaper
 
 # Toggle kwm-scratchpad iA Writer window
-cmd+shift-f12 : ~/.kwm/bin/scratchpad-iawriter
+# cmd+shift-f12 : ~/.kwm/bin/scratchpad-iawriter

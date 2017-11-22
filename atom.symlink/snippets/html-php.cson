@@ -8,18 +8,30 @@
   "<? echo htmlentities(…) ?>":
     prefix: "echoh"
     body: "<? echo htmlentities(${1:$var}, ENT_QUOTES, \"utf-8\"); ?>$0"
+  # "<? else: ?>":
+  #   prefix: "else"
+  #   body: "<? else: ?>"
+  # "<? foreach (…) … <? endforeach ?>":
+  #   prefix: "foreach"
+  #   body: "<? foreach ($${1:variable} as $${2:key}${3: => $${4:value}}): ?>\n\t${0}\n<? endforeach; ?>"
+  # "<? if (…) ?> … <? else ?> … <? endif ?>":
+  #   prefix: "ifelse"
+  #   body: "<? if (${1:condition}): ?>\n\t$2\n<? else: ?>\n\t$0\n<? endif; ?>"
+  # "<? if (…) ?> … <? endif ?>":
+  #   prefix: "if"
+  #   body: "<? if (${1:condition}): ?>\n\t$0\n<? endif; ?>"
   "<? else: ?>":
     prefix: "else"
-    body: "<? else: ?>"
+    body: "<?\n}\nelse\n{ ?>"
   "<? foreach (…) … <? endforeach ?>":
     prefix: "foreach"
-    body: "<? foreach ($${1:variable} as $${2:key}${3: => $${4:value}}): ?>\n\t${0}\n<? endforeach; ?>"
+    body: "<? foreach ($${1:variable} as $${2:key}${3: => $${4:value}})\n{ ?>\n\t${0}\n<?\n} ?>"
   "<? if (…) ?> … <? else ?> … <? endif ?>":
     prefix: "ifelse"
-    body: "<? if (${1:condition}): ?>\n\t$2\n<? else: ?>\n\t$0\n<? endif; ?>"
+    body: "<? if (${1:condition})\n{ ?>\n\t$2\n<?\n}\nelse\n{ ?>\n\t$0\n<?\n} ?>"
   "<? if (…) ?> … <? endif ?>":
     prefix: "if"
-    body: "<? if (${1:condition}): ?>\n\t$0\n<? endif; ?>"
+    body: "<? if (${1:condition})\n{ ?>\n\t$0\n<?\n} ?>"
   "<?=…?>":
     prefix: "e"
     body: "<?=${1:$var}?>"

@@ -1,15 +1,16 @@
 "*":
   "Remote-FTP":
-    connector: {}
+    connector:
+      autoUploadOnSave: "only when connected"
     dev:
       debugResponse: true
     notifications:
       enableTransfer: true
     tree:
-      showProjectName: "remote"
-      useDockIntegration: true
+      enableDragAndDrop: false
   aligner:
     alignComments: true
+  "aligner-javascript": {}
   "apathy-theme":
     altStyle: "Color Pop"
     syntaxBrightness: "100%"
@@ -31,17 +32,21 @@
       wrap_line_length: 120
     js:
       space_after_anon_function: true
+      unescape_strings: true
     php: {}
   "atom-easy-jsdoc":
     beta: true
     useReturns: true
   "atom-ternjs":
     useSnippets: true
-  "autocomplete-plus": {}
+  "autocomplete-plus":
+    minimumWordLength: 2
   "autocomplete-ruby":
     rsensePath: "/usr/local/bin/rsense"
   "autohide-tree-view":
     pushEditor: true
+  "block-comment-plus":
+    wrapWith: "Spaces"
   "block-cursor":
     global:
       blinkOff:
@@ -60,14 +65,17 @@
       "symbols-view"
       "goto-definition"
       "apex-superfish-menu"
+      "tree-view-extended"
+      "livestyle-atom"
+      "Remote-FTP"
     ]
-    excludeVcsIgnoredPaths: false
     packagesWithKeymapsDisabled: [
       "mpd"
       "scratch"
       "synonym-replace"
       "Remote-FTP"
       "remote-edit"
+      "emmet"
     ]
     projectHome: "~/Code"
     telemetryConsent: "no"
@@ -120,13 +128,46 @@
     hideHighlightOnSelectedWord: true
     highlightBackground: true
   "jsdoc-generator": {}
+  linter:
+    disabledProviders: [
+      "js-standard"
+    ]
+  "linter-csslint": {}
   "linter-eslint":
     useGlobalEslint: true
+  "linter-js-standard":
+    checkForEslintConfig: false
+    honorStyleSettings: false
+    lintHtmlFiles: true
+    lintMarkdownFiles: true
+    showEslintRules: true
+  "linter-php":
+    executablePath: "/usr/local/bin/php"
   "linter-ruby":
     rubyExecutablePath: "/usr/local/bin/ruby"
-  "linter-tidy": {}
+  "linter-stylelint":
+    disableWhenNoConfig: false
+    useStandard: true
+  "linter-tidy":
+    executableArguments: [
+      "-utf8"
+      "--show-warnings"
+      "no"
+      "--show-body-only"
+      "yes"
+      "--fix-uri"
+      "no"
+    ]
+    grammarScopes: [
+      "text.html.basic"
+      "text.html.php"
+    ]
   "linter-ui-default":
     panelHeight: 261
+    showPanel: true
+    statusBarRepresents: "Current File"
+  "livestyle-atom":
+    debugMode: true
   minimap:
     displayCodeHighlights: false
     moveCursorOnMinimapClick: true
@@ -156,6 +197,7 @@
   "node-requirer":
     aliasList: "{\"lodash\":\"_\",\"async\":\"a\",\"bluebird\":\"Promise\",\"ioredis\":\"Redis\"}"
   "one-dark-ui": {}
+  "open-files": {}
   "package-sync":
     createOnChange: true
     forceOverwrite: true
@@ -165,6 +207,7 @@
     _analyticsUserId: "6dd96efc-4c04-4f3f-8bac-70bdd8055265"
   "project-manager":
     alwaysOpenInSameWindow: true
+    prettifyTitle: false
   "remote-edit":
     foldersOnTop: true
     showHiddenFiles: true
@@ -180,9 +223,15 @@
     themeColor: "Purple"
   "snippet-manager":
     root: "~/.atom/snippets"
-  "standard-formatter": {}
+  "standard-formatter":
+    honorPackageConfig: false
   "sublime-block-comment":
     pad: true
+  "sync-settings":
+    _lastBackupHash: "b23b501f3df5632c809f3ec2e0216463910116b2"
+    checkForUpdatedBackup: false
+    gistId: "c510ced9b82e271083babe406886c7d3"
+    personalAccessToken: "b05c1d01ffc9d36fd585555f4bd17da61e8f99b4"
   "todo-show":
     findTheseTodos: [
       "TODO"
@@ -221,7 +270,9 @@
     statusBarIndicator: true
   "tree-view": {}
   "tree-view-auto-fold": {}
+  "tree-view-autoresize": {}
   "tree-view-open-files": {}
+  "tree-view-panes": {}
   "vim-mode-plus":
     ignoreCaseForSearch: true
     statusBarModeStringStyle: "long"

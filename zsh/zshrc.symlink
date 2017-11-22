@@ -1,5 +1,15 @@
+# -----------------------------------------------------------------------------
+# Zsh start profiler
+#
+# PS4=$'\\\011%D{%s.%6.}\011%x\011%I\011%N\011%e\011'
+# exec 3>&2 2>$HOME/tmp/zshstart.$$.log
+# setopt xtrace prompt_subst
+# -----------------------------------------------------------------------------
+
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
+
+export BREW_PREFIX=$(brew --prefix)
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Code
@@ -14,25 +24,26 @@ fi
 
 # all of our zsh files
 typeset -U config_files
-config_files=($ZSH/**/*.zsh)
+config_files=($ZSH/*/*.zsh)
 
-# load the path files
+# load path files
 for file in ${(M)config_files:#*/path.zsh}
 do
   source $file
 done
 
-# load everything but the path and completion files
+# load everything but path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
   source $file
 done
 
+[[ $- != *i* ]] && return
+
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit
-
-# load every completion after autocomplete loads
+# load completions after compinit
 for file in ${(M)config_files:#*/completion.zsh}
 do
   source $file
@@ -40,4 +51,9 @@ done
 
 unset config_files
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# -----------------------------------------------------------------------------
+# Zsh start profiler
+#
+# unsetopt xtrace
+# exec 2>&3 3>&-
+# -----------------------------------------------------------------------------
