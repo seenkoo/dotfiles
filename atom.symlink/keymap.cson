@@ -24,8 +24,8 @@
   'cmd-shift-e': 'autocomplete-plus:activate'
 
 '.platform-darwin atom-text-editor':
-  'ctrl-cmd-n': 'next-occurrence:next'
-  'ctrl-cmd-p': 'next-occurrence:prev'
+  'f3': 'next-occurrence:prev'
+  'f4': 'next-occurrence:next'
   'alt-r': 'bookmarks:toggle-bookmark'
   'shift-alt-r': 'bookmarks:clear-bookmarks'
   'ctrl-w': 'emmet:wrap-with-abbreviation'

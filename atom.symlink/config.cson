@@ -45,7 +45,12 @@
   "atom-ternjs":
     useSnippets: true
   "autocomplete-plus":
-    minimumWordLength: 2
+    autoActivationDelay: 100
+    confirmCompletion: "tab always, enter when suggestion explicitly selected"
+    defaultProvider: "Fuzzy"
+    minimumWordLength: 1
+    similarSuggestionRemoval: "textOrSnippet"
+    suggestionListFollows: "Cursor"
   "autocomplete-ruby":
     rsensePath: "/usr/local/bin/rsense"
   "autohide-tree-view":
@@ -67,12 +72,12 @@
     disabledPackages: [
       "vim-mode-plus"
       "symbol-gen"
-      "symbols-view"
       "goto-definition"
       "apex-superfish-menu"
       "tree-view-extended"
       "livestyle-atom"
       "remote-edit"
+      "symbols-view"
     ]
     packagesWithKeymapsDisabled: [
       "mpd"
@@ -169,6 +174,7 @@
     ]
   "linter-ui-default":
     panelHeight: 261
+    showPanel: true
     statusBarRepresents: "Current File"
   "livestyle-atom":
     debugMode: true
@@ -239,10 +245,13 @@
   "sublime-block-comment":
     pad: true
   "sync-settings":
-    _lastBackupHash: "a0d37374285b4d988c07dbe5615516ceb4355cae"
+    _lastBackupHash: "8f9c648f271daf1d5cea5a0ead6a7e9a39f234a7"
+    blacklistedKeys: [
+      "sync-settings.personalAccessToken"
+    ]
     checkForUpdatedBackup: false
-    gistId: "c510ced9b82e271083babe406886c7d3"
-    personalAccessToken: "7a91862655f6da8ada9f4127d5b8ac5c73528c01"
+    gistId: "55831374ddd0bf814e6e27ae63e77c5a"
+    personalAccessToken: "546b19844d472ba351518fdc65e0717244633804"
   tasks: {}
   "todo-show":
     findTheseTodos: [

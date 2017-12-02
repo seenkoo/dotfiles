@@ -1,0 +1,6 @@
+[submodule "plugins/alias-tips"]
+	path = plugins/alias-tips
+	url = https://github.com/djui/alias-tips.git
+[submodule "atom.symlink/phpfmt"]
+	path = atom.symlink/phpfmt
+	url = https://github.com/akalongman/fmt.git

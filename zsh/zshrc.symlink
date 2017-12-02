@@ -40,6 +40,12 @@ done
 
 [[ $- != *i* ]] && return
 
+# load plugins
+# TODO: Move plugins loader to $ZSH/plugins
+# IDEA: add loaders in addition to path, completion, etc
+source $ZSH/plugins/alias-tips/alias-tips.plugin.zsh
+export ZSH_PLUGINS_ALIAS_TIPS_TEXT="💡 Alias tip: "
+
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit

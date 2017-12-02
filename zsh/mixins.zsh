@@ -1,10 +1,7 @@
-alias reload!='. ~/.zshrc'
-
-alias cls='clear' # Good 'ol Clear Screen command
-
-alias agrep='alias | grep -E'
-
-alias wha='which -a'
+# TODO: add description
+print_error() {
+  echo "$@" >&2
+}
 
 #
 # Get the value of an alias.

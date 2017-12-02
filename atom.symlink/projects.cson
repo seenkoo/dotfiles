@@ -35,6 +35,7 @@
     paths: [
       "/Users/seenkoo/.dotfiles"
     ]
+    devMode: true
   }
   {
     title: "pes.spb.ru"

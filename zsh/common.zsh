@@ -3,6 +3,13 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
 
+alias reload!='. ~/.zshrc'
+
+alias cls='clear' # Good 'ol Clear Screen command
+alias help='man'
+
+alias wha='which -a'
+
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
@@ -19,20 +26,34 @@ alias 7='cd -7'
 alias 8='cd -8'
 alias 9='cd -9'
 
-alias md='mkdir -p'
-alias rd=rmdir
+alias dud='du -d 1 -h'
+alias duf='du -sh *'
+alias fd='find . -type d -name'
+alias ff='find . -type f -name'
+
+alias agrep='alias | grep -E'
+alias hgrep="fc -El 0 | grep"
+alias cgrep='grep --color'
+
+# TODO: Dont use these in shell scripts, only in interactive terminal sessions
+# alias rm='rm -i'
+# alias cp='cp -i'
+# alias mv='mv -i'
+
 alias d='dirs -v | head -10'
+# Push and pop directories on directory stack
+alias pu='pushd'
+alias po='popd'
+
+alias md='mkdir -p'
+
+alias t='tail -f'
 
 # List directory contents
 alias ls='ls -FGh'
 alias l='ls -lAFTGh'
 alias ll='ls -lFGTh'
 alias la='ls -AG'
-
-# Push and pop directories on directory stack
-alias pu='pushd'
-alias po='popd'
-
 # grc overides for ls
 #   Made possible through contributions from generous benefactors like
 #   `brew install coreutils`
@@ -50,6 +71,6 @@ function take() {
   cd "$1"
 }
 
-function t() {
-  cd "$USER_TMPDIR"
+function ct() {
+  cd "$UTMPDIR"
 }

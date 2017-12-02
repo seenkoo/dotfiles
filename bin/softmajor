@@ -1,0 +1,37 @@
+#!/usr/bin/env zsh
+# -----------------------------------------------------------------------------
+# TODO: WIP
+#
+# -----------------------------------------------------------------------------
+# define usage function
+usage() {
+	echo "Usage: ${(%):-%x} <vpn> <start|stop>"
+	exit 1
+}
+
+# invoke  usage
+# call usage() function if sub-command not supplied
+[[ $# -eq 0 ]] && usage
+
+case $1 in
+  vpn )
+    case $2 in
+      start )
+        echo 'Connecting to Softmajor VPN…'
+        sudo -b pppd file ~/tmp/softmajor.vpn >/dev/null 2>&1
+        echo 'Done.'
+        ;;
+      stop )
+        echo 'Disconnecting from Softmajor VPN…'
+        sudo pkill -HUP pppd
+        echo 'Done.'
+        ;;
+      *)
+        usage
+        ;;
+    esac
+    ;;
+  *)
+    usage
+    ;;
+esac
