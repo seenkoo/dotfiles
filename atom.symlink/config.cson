@@ -1,11 +1,14 @@
 "*":
   "Remote-FTP":
+    beta: {}
     connector:
       autoUploadOnSave: "only when connected"
     dev:
       debugResponse: true
     notifications:
       enableTransfer: true
+    statusbar:
+      enable: true
     tree:
       enableDragAndDrop: false
   aligner:
@@ -20,6 +23,7 @@
     coffeescript:
       default_beautifier: "Coffee Formatter"
       jslint_happy: true
+    general: {}
     html:
       extra_liners: [
         "head"
@@ -33,7 +37,8 @@
     js:
       space_after_anon_function: true
       unescape_strings: true
-    php: {}
+    php:
+      rules: "@PSR2,-full_opening_tag,"
   "atom-easy-jsdoc":
     beta: true
     useReturns: true
@@ -67,15 +72,16 @@
       "apex-superfish-menu"
       "tree-view-extended"
       "livestyle-atom"
-      "Remote-FTP"
+      "remote-edit"
     ]
     packagesWithKeymapsDisabled: [
       "mpd"
       "scratch"
       "synonym-replace"
-      "Remote-FTP"
       "remote-edit"
       "emmet"
+      "Remote-FTP"
+      "tasks"
     ]
     projectHome: "~/Code"
     telemetryConsent: "no"
@@ -96,7 +102,6 @@
     scrollPastEnd: true
     scrollSensitivity: 50
     softWrap: true
-    softWrapAtPreferredLineLength: true
     tabType: "soft"
   emmet:
     extensionsPath: "~/.emmet"
@@ -164,7 +169,6 @@
     ]
   "linter-ui-default":
     panelHeight: 261
-    showPanel: true
     statusBarRepresents: "Current File"
   "livestyle-atom":
     debugMode: true
@@ -201,6 +205,12 @@
   "package-sync":
     createOnChange: true
     forceOverwrite: true
+  "php-fmt":
+    configFile: "/Users/seenkoo/.atom/.phpfmt"
+    executablePath: "/Users/seenkoo/.atom/phpfmt/fmt.phar"
+    indentationSpaces: 0
+    level: "none"
+    phpExecutablePath: "/usr/local/bin/php"
   pigments:
     autocompleteSuggestionsFromValue: true
   preview:
@@ -209,6 +219,7 @@
     alwaysOpenInSameWindow: true
     prettifyTitle: false
   "remote-edit":
+    filterHostsUsing: {}
     foldersOnTop: true
     showHiddenFiles: true
   scratch:
@@ -228,9 +239,11 @@
   "sublime-block-comment":
     pad: true
   "sync-settings":
-    _lastBackupHash: "5b56e6b896e1ff33ad3a68eeb44f66569d014895"
+    _lastBackupHash: "a0d37374285b4d988c07dbe5615516ceb4355cae"
     checkForUpdatedBackup: false
     gistId: "c510ced9b82e271083babe406886c7d3"
+    personalAccessToken: "7a91862655f6da8ada9f4127d5b8ac5c73528c01"
+  tasks: {}
   "todo-show":
     findTheseTodos: [
       "TODO"
@@ -304,8 +317,11 @@
 ".html.php.text":
   editor:
     autoIndentOnPaste: true
+    scrollPastEnd: false
     showIndentGuide: false
-    tabType: "soft"
+    showInvisibles: true
+    softWrapAtPreferredLineLength: true
+    tabType: "hard"
 ".html.ruby.text":
   editor:
     tabLength: 2

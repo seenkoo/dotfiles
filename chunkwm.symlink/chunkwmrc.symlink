@@ -92,14 +92,15 @@ chunkc core::load ffm.so
 # NOTE: shell commands require escaped quotes
 #       to pass value containing a whitespace.
 # -----------------------------------------------------------------------------
-chunkc tiling::rule --owner Spotify --role AXWindow --subrole AXDialog --state tile
-chunkc tiling::rule --owner \"Adium\" --state float
-chunkc tiling::rule --owner \"App Store\" --state float
-chunkc tiling::rule --owner \"Awaken\" --state float
-chunkc tiling::rule --owner \"Calculator\" --state float
-chunkc tiling::rule --owner \"ColorPicker\" --state float
+chunkc tiling::rule --owner \"Spotify\" --role AXWindow --subrole AXDialog --state tile
+chunkc tiling::rule --owner \"Adium\"                  --state float
+chunkc tiling::rule --owner \"App Store\"              --state float
+chunkc tiling::rule --owner \"Awaken\"                 --state float
+chunkc tiling::rule --owner \"Calculator\"             --state float
+chunkc tiling::rule --owner \"ColorPicker\"            --state float
 chunkc tiling::rule --owner \"Finder\" --name \"Copy\" --state float
-chunkc tiling::rule --owner \"LastPass\" --state float
-chunkc tiling::rule --owner \"QuickTime Player\" --state float
-chunkc tiling::rule --owner \"Steam\" --state float
-chunkc tiling::rule --owner \"System Preferences\" --state float
+chunkc tiling::rule --owner \"LastPass\"               --state float
+chunkc tiling::rule --owner \"QuickTime Player\"       --state float
+chunkc tiling::rule --owner \"Steam\"                  --state float
+chunkc tiling::rule --owner \"System Preferences\"     --state float
+chunkc tiling::rule --owner \"Monosnap\"               --state float

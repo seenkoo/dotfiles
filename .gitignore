@@ -12,3 +12,4 @@ compile-cache
 packages
 storage
 atom.symlink/recovery
+atom.symlink/remoteEdit.json

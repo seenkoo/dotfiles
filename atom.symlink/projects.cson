@@ -25,6 +25,7 @@
     group: "softmajor"
     paths: [
       "/Users/seenkoo/Code/softmajor/els.smhost.ru"
+      "/Users/seenkoo/Code/softmajor/elsfbk.ru"
     ]
     devMode: true
   }
@@ -33,6 +34,65 @@
     group: "seenkoo"
     paths: [
       "/Users/seenkoo/.dotfiles"
+    ]
+  }
+  {
+    title: "pes.spb.ru"
+    group: "softmajor"
+    paths: [
+      "/Users/seenkoo/Code/softmajor/pes.spb.ru"
+    ]
+  }
+  {
+    title: "mcprof.smhost.ru"
+    group: "softmajor"
+    paths: [
+      "/Users/seenkoo/Code/softmajor/mcprof.smhost.ru"
+    ]
+    devMode: true
+  }
+  {
+    title: "home.seenkoo.info"
+    group: "seenkoo"
+    paths: [
+      "/usr/local/var/www"
+    ]
+    devMode: true
+  }
+  {
+    title: "lk.tomsk.ru"
+    group: "softmajor"
+    paths: [
+      "/Users/seenkoo/Code/softmajor/lk.tomsk.ru"
+    ]
+  }
+  {
+    title: "evrodush.ru"
+    group: "softmajor"
+    paths: [
+      "/Users/seenkoo/Code/softmajor/evrodush.ru"
+    ]
+  }
+  {
+    title: "dev.ensb.tomsk.ru"
+    group: "softmajor"
+    paths: [
+      "/Users/seenkoo/Code/softmajor/dev.ensb.tomsk.ru"
+    ]
+    devMode: true
+  }
+  {
+    title: "elsfbk.ru"
+    group: "softmajor"
+    paths: [
+      "/Users/seenkoo/Code/softmajor/elsfbk.ru"
+    ]
+  }
+  {
+    title: "fbk-pravo.ru"
+    group: "softmajor"
+    paths: [
+      "/Users/seenkoo/Code/softmajor/fbk-pravo.ru"
     ]
   }
 ]
