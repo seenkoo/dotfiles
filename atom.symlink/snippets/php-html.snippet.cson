@@ -33,11 +33,20 @@
     prefix: "if"
     body: "<? if (${1:condition})\n{ ?>\n\t$0\n<?\n} ?>"
   "<?=…?>":
-    prefix: "e"
+    prefix: "ee"
     body: "<?=${1:$var}?>"
   "<?=htmlspecialchars(…)?>":
     prefix: "eh"
     body: "<?=htmlspecialchars(${1:$var})?>"
   "<?if(!defined(\"B_PROLOG_INCLUDED\" … die();?>":
-    prefix: "ifnotprolog"
-    body: "<?if(!defined(\"B_PROLOG_INCLUDED\") || B_PROLOG_INCLUDED!==true)die();?>"
+    prefix: "notprolog"
+    body: "<?if(!defined(\"B_PROLOG_INCLUDED\") || B_PROLOG_INCLUDED!==true)die();"
+  "require($_SERVER[\"DOCUMENT_ROOT\"].\"/bitrix/modules/main/include/prolog_before.php\");":
+    prefix: "reqprolog"
+    body: "require($_SERVER[\"DOCUMENT_ROOT\"].\"/bitrix/modules/main/include/prolog_before.php\");"
+  "<?=$arItem['…']?>":
+    prefix: "ei"
+    body: "<?=$arItem['${1:NAME}']$0?>"
+  "<?inspect($var)?>":
+    prefix: "d"
+    body: "<?inspect(${1:$var})?>"

@@ -11,7 +11,8 @@ yard
 rubygems-update
 gem-path
 awesome_print
-rails' > $default_gems_file
+rails
+rsense' > $default_gems_file
 
 echo \
 'addressable

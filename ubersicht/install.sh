@@ -11,5 +11,5 @@ env git clone https://github.com/seenkoo/ubersicht-widgets.git $widgets
 
 mkdir -p ~/Library/Application\ Support/Übersicht
 ln -Ffhs $widgets ~/Library/Application\ Support/Übersicht/widgets
-osascript -e 'tell application "Übersicht" to quit'
+osascript -e 'tell application "Übersicht" to refresh'
 open -a /Applications/Übersicht.app

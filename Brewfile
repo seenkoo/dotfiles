@@ -38,7 +38,6 @@ brew "cuetools"
 brew "ack"
 brew "asciinema"
 brew "certbot"
-brew "htop"
 brew "midnight-commander"
 brew "jq"
 brew "erlang"
@@ -99,7 +98,7 @@ brew "mpc"
 brew "mpd", args: ["with-flac", "with-lame", "with-lastfm", "with-libmms", "with-libmodplug", "with-libnfs", "with-libshout", "with-libvorbis", "with-libzzip", "with-mad", "with-opus", "with-two-lame", "with-upnp", "with-wavpack", "with-yajl"]
 brew "mpdscribble", restart_service: true
 
-brew "homebrew/nginx/nginx-full", args: ["with-addition", "with-auth-req", "with-auto-keepalive-module", "with-debug", "with-gunzip", "with-gzip-static", "with-headers-more-module", "with-http2", "with-passenger", "with-realip"]
+brew "homebrew/nginx/nginx-full", args: ["with-addition", "with-auth-req", "with-auto-keepalive-module", "with-debug", "with-gunzip", "with-gzip-static", "with-headers-more-module", "with-http2", "with-passenger", "with-realip", "with-geoip", "with-geoip2-module"]
 
 brew "chrome-cli"
 brew "chromedriver", restart_service: true

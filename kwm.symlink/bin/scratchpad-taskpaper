@@ -12,6 +12,6 @@ osascript <<APPLESCRIPT
     set mainFilePath to (system attribute "TASKPAPER_MAIN_FILE")
     open POSIX file mainFilePath as string
     activate
-    do shell script "kwmc scratchpad add"
+    # do shell script "kwmc scratchpad add"
   end tell
 APPLESCRIPT

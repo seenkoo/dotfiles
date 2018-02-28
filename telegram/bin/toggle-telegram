@@ -1,0 +1,22 @@
+#!/usr/bin/osascript
+-- Toggle Telegram window visibility
+# Ensure app is open
+set appName to "Telegram"
+if application appName is not running then reopen application appName
+
+# Get desktop bounds to resize app window and align it on the screen
+tell application "Finder"
+  set {dX, dY, dW, dH} to bounds of window of desktop
+  set {wX, wY, wW, wH} to {dX+dW/4, dY+dH/4, dW/2, dH/2}
+end tell
+
+# Render
+tell application "System Events" to tell process appName
+  # Resize app window and align it to the middle of the screen
+  tell front window to set {size, position} to {{wW, wH}, {wX, wY}}
+  # Toggle window visibility
+  # Hide app window to background, if it is visible and frontmost
+  # Otherwise, make it visible as the frontmost window
+  set aToggle to not(visible and frontmost)
+  set {visible, frontmost} to (aToggle, aToggle)
+end tell

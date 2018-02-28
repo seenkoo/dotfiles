@@ -1,0 +1,14 @@
+if [[ "$1" = "-r" ]]; then
+  maxdepth="999"
+  dir="$2"
+else
+  maxdepth="1"
+  dir="$1"
+fi
+
+if [[ -z "$dir" ]]; then
+  dir="."
+fi
+
+echo $(find "${dir}" -maxdepth "${maxdepth}" -type d | wc -l) dirs
+echo $(find "${dir}" -maxdepth "${maxdepth}" -type f | wc -l) files

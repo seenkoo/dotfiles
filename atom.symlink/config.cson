@@ -11,6 +11,7 @@
       enable: true
     tree:
       enableDragAndDrop: false
+      showProjectName: "remote"
   aligner:
     alignComments: true
   "aligner-javascript": {}
@@ -19,6 +20,18 @@
     syntaxBrightness: "100%"
     syntaxContrast: "100%"
     syntaxSaturation: "100%"
+  "api-docs":
+    _theme: "Dark"
+    jquery: true
+    jqueryui: true
+    jsdoc: true
+    moment: true
+    nginx: true
+    php: true
+    "rails~5":
+      "1": true
+    "ruby~2":
+      "5": true
   "atom-beautify":
     coffeescript:
       default_beautifier: "Coffee Formatter"
@@ -39,20 +52,35 @@
       unescape_strings: true
     php:
       rules: "@PSR2,-full_opening_tag,"
+    sql: {}
+  "atom-clock":
+    dateFormat: "HH:mm"
+    showTooltip: true
+    tooltipDateFormat: "DD.MM.Y HH:mm:ss"
   "atom-easy-jsdoc":
     beta: true
     useReturns: true
+  "atom-fuzzy-grep":
+    detectGitProjectAndUseGitGrep: false
+    grepCommandString: "rg -i -n -H --no-heading --column"
+    preserveLastSearch: true
+    showFullPath: true
+  "atom-ide-ui":
+    use:
+      "atom-ide-code-actions": false
+      "atom-ide-diagnostics": false
+      "atom-ide-diagnostics-ui": false
   "atom-ternjs":
     useSnippets: true
   "autocomplete-plus":
     autoActivationDelay: 100
-    confirmCompletion: "tab always, enter when suggestion explicitly selected"
-    defaultProvider: "Fuzzy"
+    enableBuiltinProvider: false
+    enableExtendedUnicodeSupport: true
     minimumWordLength: 1
     similarSuggestionRemoval: "textOrSnippet"
-    suggestionListFollows: "Cursor"
+    useAlternateScoring: false
   "autocomplete-ruby":
-    rsensePath: "/usr/local/bin/rsense"
+    rsensePath: "/usr/local/opt/rbenv/shims/rsense"
   "autohide-tree-view":
     pushEditor: true
   "block-comment-plus":
@@ -64,20 +92,32 @@
         borderColor: "#00f900"
         borderStyle: "bordered-box"
       blinkOn: {}
+  "bottom-dock": {}
   "color-picker":
     preferredFormat: "HEX"
     uppercaseColorValues: true
   comment: {}
   core:
+    debugLSP: false
+    destroyEmptyPanes: false
     disabledPackages: [
       "vim-mode-plus"
       "symbol-gen"
       "goto-definition"
       "apex-superfish-menu"
-      "tree-view-extended"
       "livestyle-atom"
-      "remote-edit"
       "symbols-view"
+    ]
+    excludeVcsIgnoredPaths: false
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      "desktop.ini"
+      "/upload"
     ]
     packagesWithKeymapsDisabled: [
       "mpd"
@@ -87,25 +127,31 @@
       "emmet"
       "Remote-FTP"
       "tasks"
+      "remote-ftp"
+      "atom-fuzzy-grep"
+      "hey-pane"
     ]
     projectHome: "~/Code"
     telemetryConsent: "no"
     themes: [
-      "seti-ui"
-      "monokai"
+      "atom-dark-ui"
+      "solarized-dark-syntax"
     ]
     titleBar: "hidden"
-    warnOnLargeFileLimit: 10
+    warnOnLargeFileLimit: 2
   "dash-ui":
     themeColor: "Purple"
-  docblockr: {}
+  docblockr:
+    spacer_between_sections: "after_description"
   editor:
-    autoIndentOnPaste: false
     fontFamily: "SourceCode Pro"
     fontSize: 12
     invisibles: {}
+    nonWordCharacters: "$/()\\\"':,.;<>~!@#%^&*|+=[]{}`?-"
     scrollPastEnd: true
     scrollSensitivity: 50
+    showIndentGuide: true
+    showInvisibles: true
     softWrap: true
     tabType: "soft"
   emmet:
@@ -119,8 +165,10 @@
   "file-icons":
     strategies: {}
   filesize: {}
+  "find-and-replace": {}
   fonts:
     fontFamily: "FiraCode Light"
+  "fuzzy-finder": {}
   "glowing-cursor":
     cursorWidth: 2
     glowColor: "#ff2600"
@@ -131,12 +179,18 @@
     logToConsole: true
   "goto-definition":
     performanceMode: true
+  "hey-pane":
+    expandedWidth: 90
   "highlight-column":
     lineMode: true
   "highlight-line": {}
   "highlight-selected":
     hideHighlightOnSelectedWord: true
     highlightBackground: true
+  "ide-php":
+    phpPath: "/usr/bin/php"
+  "ide-ruby":
+    lintLevel: "0"
   "jsdoc-generator": {}
   linter:
     disabledProviders: [
@@ -168,13 +222,8 @@
       "--fix-uri"
       "no"
     ]
-    grammarScopes: [
-      "text.html.basic"
-      "text.html.php"
-    ]
   "linter-ui-default":
     panelHeight: 261
-    showPanel: true
     statusBarRepresents: "Current File"
   "livestyle-atom":
     debugMode: true
@@ -212,22 +261,34 @@
     createOnChange: true
     forceOverwrite: true
   "php-fmt":
-    configFile: "/Users/seenkoo/.atom/.phpfmt"
+    configFile: "/Users/seenkoo/.atom/phpfmt.ini"
     executablePath: "/Users/seenkoo/.atom/phpfmt/fmt.phar"
     indentationSpaces: 0
     level: "none"
     phpExecutablePath: "/usr/local/bin/php"
   pigments:
-    autocompleteSuggestionsFromValue: true
+    groupPaletteColors: "by file"
   preview:
     _analyticsUserId: "6dd96efc-4c04-4f3f-8bac-70bdd8055265"
   "project-manager":
     alwaysOpenInSameWindow: true
     prettifyTitle: false
+  random: {}
   "remote-edit":
     filterHostsUsing: {}
     foldersOnTop: true
     showHiddenFiles: true
+  "remote-ftp":
+    connector: {}
+    dev:
+      debugResponse: true
+    notifications:
+      enableTransfer: true
+      enableWatchFileChange: true
+    statusbar:
+      enable: true
+    tree:
+      enableDragAndDrop: false
   scratch:
     autosave: true
   "seti-syntax":
@@ -235,9 +296,9 @@
     themeColor: "Green"
   "seti-ui":
     compactView: true
+    disableAnimations: true
     fileIcons: false
-    hideProjectTab: true
-    themeColor: "Purple"
+    themeColor: "Steel"
   "snippet-manager":
     root: "~/.atom/snippets"
   "standard-formatter":
@@ -245,13 +306,14 @@
   "sublime-block-comment":
     pad: true
   "sync-settings":
-    _lastBackupHash: "8f9c648f271daf1d5cea5a0ead6a7e9a39f234a7"
-    blacklistedKeys: [
-      "sync-settings.personalAccessToken"
-    ]
+    _lastBackupHash: "1fe2c6edb3525601f9eae1dfa224008160cdfda0"
     checkForUpdatedBackup: false
-    gistId: "55831374ddd0bf814e6e27ae63e77c5a"
-    personalAccessToken: "546b19844d472ba351518fdc65e0717244633804"
+    extraFiles: [
+      "phpfmt.ini"
+      "projects.cson"
+      "TasksGrammar.cson"
+    ]
+    gistId: "f17140785258363ecfd34df051f977ea"
   tasks: {}
   "todo-show":
     findTheseTodos: [
@@ -278,8 +340,9 @@
       "bitrix/php_interface/mail*/"
       "bitrix/sxd/"
       "bitrix/modules/"
-      "**/js/jquery*.js"
-      "**/css/jquery*.js"
+      "jquery*.js"
+      "excanvas.js"
+      "*carousel.js"
       "normalize.css"
       "node_modules"
       "vendor"
@@ -289,9 +352,16 @@
     ]
     sortBy: "Id"
     statusBarIndicator: true
-  "tree-view": {}
+  "tree-view":
+    alwaysOpenExisting: true
+    autoReveal: true
+    focusOnReveal: false
+    hideVcsIgnoredFiles: true
   "tree-view-auto-fold": {}
-  "tree-view-autoresize": {}
+  "tree-view-autoresize":
+    minimumWidth: 50
+  "tree-view-big-files":
+    filesizeThreshold: 1000000
   "tree-view-open-files": {}
   "tree-view-panes": {}
   "vim-mode-plus":
@@ -326,11 +396,15 @@
 ".html.php.text":
   editor:
     autoIndentOnPaste: true
+    nonWordCharacters: "$/()\\\"':,.;<>~!@#%^&*|+=[]{}`?-"
     scrollPastEnd: false
     showIndentGuide: false
     showInvisibles: true
     softWrapAtPreferredLineLength: true
     tabType: "hard"
+  whitespace:
+    ensureSingleTrailingNewline: false
+    removeTrailingWhitespace: false
 ".html.ruby.text":
   editor:
     tabLength: 2
@@ -347,6 +421,10 @@
 ".js.source":
   editor:
     preferredLineLength: 99
+".nginx.source":
+  editor:
+    autoIndentOnPaste: false
+    tabType: "hard"
 ".rails.rjs.ruby.source":
   editor:
     tabLength: 2

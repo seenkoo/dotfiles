@@ -1,0 +1,51 @@
+#!/usr/bin/env zsh
+
+source ~/.taskpaper/env.zsh
+
+appName='TaskPaper'
+
+DOC_NAMES=''
+for DOC_NAME in "${TASKPAPER_WORKSPACE_DOCS[@]}"; do
+  if [[ -n "$DOC_NAMES" ]]; then
+    DOC_NAMES="${DOC_NAMES}, "
+  fi
+  DOC_NAMES="${DOC_NAMES}\"${DOC_NAME}\""
+done
+DOC_NAMES="${DOC_NAMES}"
+
+osascript <<EOD
+on startswith(txt, l)
+  repeat with v in l
+    if txt starts with v then return true
+  end repeat
+  return false
+end startswith
+
+tell application "$appName" to reopen activate
+
+tell application "System Events"
+  tell application "Finder"
+    set {DX, DY, DW, DH} to bounds of window of desktop
+  end tell
+
+  set WW to 800 -- (DW / 2)
+  set WH to 400 -- (DH / 2)
+  set WX to 0 -- (DW / 4)
+  set WY to 0 -- (DH / 4)
+
+  set docNames to {$DOC_NAMES}
+
+  tell process "$appName"
+    repeat with i from count(windows) to 1 by -1
+      set windowName to (name of item i of windows)
+      if my startswith(windowName, docNames) then
+        tell item i of windows
+          set {size, position} to {{WW, WH}, {WX, WY}}
+          perform action "AXRaise"
+        end tell
+        return 0
+      end if
+    end repeat
+  end tell
+end tell
+EOD

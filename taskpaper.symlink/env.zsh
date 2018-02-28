@@ -1,1 +1,3 @@
-export TASKPAPER_MAIN_FILE="$HOME/Library/Mobile Documents/com~hogbaysoftware~TaskPaper/Documents/general.taskpaper"
+export TASKPAPER_DOC_ROOT="$HOME/Library/Mobile Documents/com~hogbaysoftware~TaskPaper/Documents"
+export TASKPAPER_FILE_EXT='.taskpaper'
+export TASKPAPER_WORKSPACE_DOCS=( Main Work )

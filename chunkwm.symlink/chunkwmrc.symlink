@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 
 #
 # NOTE: specify the absolutepath to the directory to use when
@@ -19,7 +19,7 @@ chunkc core::hotload 1
 #
 
 chunkc set global_desktop_mode           bsp
-chunkc set 2_desktop_mode                monocle
+chunkc set 2_desktop_mode                float
 chunkc set 3_desktop_mode                float
 
 chunkc set 1_desktop_tree                ~/.chunkwm/layouts/desktop_1
@@ -30,15 +30,15 @@ chunkc set global_desktop_offset_left    10
 chunkc set global_desktop_offset_right   10
 chunkc set global_desktop_offset_gap     15
 
-chunkc set 1_desktop_offset_top          100
-chunkc set 1_desktop_offset_bottom       75
-chunkc set 1_desktop_offset_left         15
-chunkc set 1_desktop_offset_right        15
+# chunkc set 1_desktop_offset_top          100
+# chunkc set 1_desktop_offset_bottom       75
+# chunkc set 1_desktop_offset_left         15
+# chunkc set 1_desktop_offset_right        15
 
-chunkc set 3_desktop_offset_top          100
-chunkc set 3_desktop_offset_bottom       75
-chunkc set 3_desktop_offset_left         15
-chunkc set 3_desktop_offset_right        15
+# chunkc set 3_desktop_offset_top          100
+# chunkc set 3_desktop_offset_bottom       75
+# chunkc set 3_desktop_offset_left         15
+# chunkc set 3_desktop_offset_right        15
 
 chunkc set desktop_padding_step_size     10.0
 chunkc set desktop_gap_step_size         5.0
@@ -92,7 +92,7 @@ chunkc core::load ffm.so
 # NOTE: shell commands require escaped quotes
 #       to pass value containing a whitespace.
 # -----------------------------------------------------------------------------
-chunkc tiling::rule --owner \"Spotify\" --role AXWindow --subrole AXDialog --state tile
+# chunkc tiling::rule --owner \"Spotify\" --role AXWindow --subrole AXDialog --state tile
 chunkc tiling::rule --owner \"Adium\"                  --state float
 chunkc tiling::rule --owner \"App Store\"              --state float
 chunkc tiling::rule --owner \"Awaken\"                 --state float
@@ -103,4 +103,14 @@ chunkc tiling::rule --owner \"LastPass\"               --state float
 chunkc tiling::rule --owner \"QuickTime Player\"       --state float
 chunkc tiling::rule --owner \"Steam\"                  --state float
 chunkc tiling::rule --owner \"System Preferences\"     --state float
-chunkc tiling::rule --owner \"Monosnap\"               --state float
+chunkc tiling::rule --name Monosnap --state tile
+chunkc tiling::rule --owner \"Telegram\"               --state float
+
+chunkc tiling::rule --owner \"wine\" --state float
+
+source ~/.taskpaper/env.zsh
+
+for DOC_NAME in "${TASKPAPER_WORKSPACE_DOCS[@]}";
+do
+chunkc tiling::rule --owner \"TaskPaper\" --name \"'.*'${DOC_NAME}'.*'\" --state float
+done

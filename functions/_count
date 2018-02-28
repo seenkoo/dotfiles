@@ -1,0 +1,2 @@
+#compdef count
+_wanted directories expl directory _directories -/ "$@" -

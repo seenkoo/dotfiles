@@ -1,4 +1,7 @@
 ".source.php":
+  "inspect($var);":
+    prefix: "d"
+    body: "inspect(${1:$var});"
   "GetMessage('…')":
     prefix: "GetMessage"
     body: "GetMessage('${1:MESG_KEY}')"

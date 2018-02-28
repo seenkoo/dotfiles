@@ -1,12 +1,20 @@
+'atom-text-editor':
+  'cmd-`': 'hey-pane:toggle-focus-of-active-pane'
+
 'atom-workspace':
   'ctrl-alt-o': 'remote-ftp:toggle'
+  'cmd-t': 'fuzzy-grep:toggle'
+  'alt-?': 'fuzzy-grep:toggleWordUnderCursor' # shift-alt-/
+
+'body.platform-darwin atom-workspace .atom-fuzzy-grep atom-text-editor':
+  'cmd-v': 'fuzzy-grep:pasteEscaped'
 
 '.platform-darwin atom-workspace':
   'ctrl-cmd-,': 'scratch:toggle'
   'ctrl-alt-cmd-/': 'comment-commander:format-comment'
   'cmd-?': 'comment-headers:insert'
 
-'atom-text-editor':
+'atom-text-editor:not([mini])':
   'alt-left': 'editor:move-to-beginning-of-word'
   'alt-right': 'editor:move-to-end-of-word'
   'ctrl-alt-d': 'editor:delete-to-end-of-subword'
@@ -22,13 +30,17 @@
   'ctrl-u': 'editor:delete-line'
   'ctrl-t': 'fuzzy-finder:toggle-buffer-finder'
   'cmd-shift-e': 'autocomplete-plus:activate'
+  'cmd-u': 'emmet:update-tag'
+  'cmd-shift-r': 'emmet:remove-tag'
+  'ctrl-w': 'emmet:wrap-with-abbreviation'
+  'cmd-e': 'emmet:expand-abbreviation-with-tab'
 
 '.platform-darwin atom-text-editor':
   'f3': 'next-occurrence:prev'
   'f4': 'next-occurrence:next'
   'alt-r': 'bookmarks:toggle-bookmark'
-  'shift-alt-r': 'bookmarks:clear-bookmarks'
-  'ctrl-w': 'emmet:wrap-with-abbreviation'
+  # 'shift-alt-r': 'bookmarks:clear-bookmarks'
+  'ctrl-s': 'bracket-matcher:select-inside-brackets'
 
 'atom-workspace atom-text-editor:not([mini])':
   'ctrl-cmd-j': 'editor:move-line-down'

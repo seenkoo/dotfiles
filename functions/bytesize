@@ -1,0 +1,44 @@
+#!/usr/bin/env zsh
+# Description ..: Gets number of bytes contained in file.
+# Date .........: Wed Feb 21 08:51:32 +05 2018
+
+bytesize() {
+  usage() {
+    printf \
+      "%-19s  %-4s  %-s\n%-19s  %-4s  %-s\n%-19s  %-4s  %-s\n" \
+      "COMMAND" "TYPE" "OUTPUT" \
+      "bytesize -h, --help" "text" "This help message" \
+      "bytesize filepath" "text" "Number of bytes contained in file at filepath"
+
+    return 0
+  }
+
+  [ "${#}" -eq 0 ] && usage && return 1
+
+  declare WC
+  declare AWK
+  declare RESPONSE
+
+  WC=$(which wc)
+  AWK=$(which awk)
+
+  case "${1}" in
+  "-h"|"--help")
+    usage && return 0
+    ;;
+  *)
+    ;;
+  esac
+
+  if ! RESPONSE=$(wc -c "${1}" | awk '{print $1}'); then
+    return 2
+  fi
+
+  printf "%s" "${RESPONSE}"
+
+  unset WC
+  unset AWK
+  unset RESPONSE
+
+  return 0
+}

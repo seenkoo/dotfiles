@@ -5,6 +5,7 @@
     paths: [
       "/Users/seenkoo/Code/softmajor/fbk.ru"
     ]
+    icon: "icon-jersey"
   }
   {
     title: "ensb.tomsk.ru"
@@ -12,29 +13,32 @@
     paths: [
       "/Users/seenkoo/Code/softmajor/ensb.tomsk.ru"
     ]
+    icon: "icon-jersey"
   }
   {
-    title: "Литштамп"
+    title: "u42219 (modeli96.ru)"
     group: "softmajor"
     paths: [
       "/Users/seenkoo/Code/softmajor/u42219.netangels.ru"
     ]
-  }
-  {
-    title: "els.smhost.ru"
-    group: "softmajor"
-    paths: [
-      "/Users/seenkoo/Code/softmajor/els.smhost.ru"
-      "/Users/seenkoo/Code/softmajor/elsfbk.ru"
-    ]
-    devMode: true
+    icon: "icon-jersey"
   }
   {
     title: "dotfiles"
-    group: "seenkoo"
+    group: "config"
     paths: [
       "/Users/seenkoo/.dotfiles"
     ]
+    icon: "icon-gear"
+    devMode: true
+  }
+  {
+    title: "ubersicht"
+    group: "config"
+    paths: [
+      "/Users/seenkoo/.ubersicht"
+    ]
+    icon: "icon-gear"
     devMode: true
   }
   {
@@ -43,6 +47,7 @@
     paths: [
       "/Users/seenkoo/Code/softmajor/pes.spb.ru"
     ]
+    icon: "icon-jersey"
   }
   {
     title: "mcprof.smhost.ru"
@@ -50,14 +55,7 @@
     paths: [
       "/Users/seenkoo/Code/softmajor/mcprof.smhost.ru"
     ]
-    devMode: true
-  }
-  {
-    title: "home.seenkoo.info"
-    group: "seenkoo"
-    paths: [
-      "/usr/local/var/www"
-    ]
+    icon: "icon-jersey"
     devMode: true
   }
   {
@@ -66,6 +64,7 @@
     paths: [
       "/Users/seenkoo/Code/softmajor/lk.tomsk.ru"
     ]
+    icon: "icon-jersey"
   }
   {
     title: "evrodush.ru"
@@ -73,6 +72,7 @@
     paths: [
       "/Users/seenkoo/Code/softmajor/evrodush.ru"
     ]
+    icon: "icon-jersey"
   }
   {
     title: "dev.ensb.tomsk.ru"
@@ -80,6 +80,7 @@
     paths: [
       "/Users/seenkoo/Code/softmajor/dev.ensb.tomsk.ru"
     ]
+    icon: "icon-jersey"
     devMode: true
   }
   {
@@ -88,12 +89,95 @@
     paths: [
       "/Users/seenkoo/Code/softmajor/elsfbk.ru"
     ]
+    icon: "icon-jersey"
   }
   {
     title: "fbk-pravo.ru"
     group: "softmajor"
     paths: [
       "/Users/seenkoo/Code/softmajor/fbk-pravo.ru"
+    ]
+    icon: "icon-jersey"
+  }
+  {
+    title: "elsfbk.smhost.ru"
+    group: "softmajor"
+    paths: [
+      "/Users/seenkoo/Code/softmajor/elsfbk.smhost.ru"
+    ]
+    icon: "icon-jersey"
+    devMode: true
+  }
+  {
+    title: "mcprof.ru"
+    group: "softmajor"
+    paths: [
+      "/Users/seenkoo/Code/softmajor/mcprof.ru"
+    ]
+    icon: "icon-jersey"
+  }
+  {
+    title: "gorsovetnsk.smhost.ru"
+    group: "softmajor"
+    paths: [
+      "/Users/seenkoo/Code/softmajor/gorsovetnsk.smhost.ru"
+    ]
+    icon: "icon-jersey"
+  }
+  {
+    title: "omesc.ru"
+    group: "softmajor"
+    paths: [
+      "/Users/seenkoo/Code/softmajor/omesc.ru"
+    ]
+    icon: "icon-jersey"
+  }
+  {
+    title: "tesk.tmb.ru"
+    group: "softmajor"
+    paths: [
+      "/Users/seenkoo/Code/softmajor/tesk.su"
+    ]
+    icon: "icon-jersey"
+  }
+  {
+    title: "nginx config"
+    group: "config"
+    paths: [
+      "/usr/local/etc/nginx"
+    ]
+    icon: "icon-gear"
+    devMode: true
+  }
+  {
+    title: "bx.shinku.pro"
+    group: "seenkoo"
+    paths: [
+      "/usr/local/var/www/bx.shinku.pro"
+    ]
+    devMode: true
+  }
+  {
+    title: "rao-esv.ru"
+    group: "softmajor"
+    paths: [
+      "/Users/seenkoo/Code/softmajor/rao-esv.ru"
+    ]
+  }
+  {
+    title: "pesc.ru"
+    group: "softmajor"
+    paths: [
+      "/Users/seenkoo/Code/softmajor/pesc.ru"
+    ]
+  }
+  {
+    title: "sorevnovanie.smhost.ru"
+    group: "softmajor"
+    paths: [
+      "/Users/seenkoo/Code/softmajor/sorevnovanie.smhost.ru"
+      "/usr/local/var/www/sorevnovanie.shinku.pro/www"
+      "/Users/seenkoo/Code/bitrix"
     ]
   }
 ]

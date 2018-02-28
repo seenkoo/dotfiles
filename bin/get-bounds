@@ -1,0 +1,12 @@
+#!/usr/bin/env osascript
+use script "Text Utils" --/Library/Script Libraries/Text Utils.scptd
+on run argv
+  set boundsList to {}
+  repeat with appName in argv
+    tell application "System Events" to tell application process appName
+      set appBounds to size of front window
+      copy (join list items appBounds using text " ") to end of boundsList
+    end tell
+  end repeat
+  set output to (join list items boundsList using text "\n")
+end run

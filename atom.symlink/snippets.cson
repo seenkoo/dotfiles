@@ -71,14 +71,23 @@
       } ?>
     '''
   "<?=…?>":
-    prefix: "e"
+    prefix: "ee"
     body: "<?=${1:$var}?>"
   "<?=htmlspecialchars(…)?>":
     prefix: "eh"
     body: "<?=htmlspecialchars(${1:$var})?>"
+  "<?=$arItem['…']?>":
+    prefix: "ei"
+    body: "<?=$arItem['${1:NAME}']$0?>"
   "<?if(!defined(\"B_PROLOG_INCLUDED\" … die();?>":
-    prefix: "ifnotprolog"
-    body: "<?if(!defined(\"B_PROLOG_INCLUDED\") || B_PROLOG_INCLUDED!==true)die();?>"
+    prefix: "notprolog"
+    body: "<?if(!defined(\"B_PROLOG_INCLUDED\") || B_PROLOG_INCLUDED!==true)die();"
+  "<?inspect($var)?>":
+    prefix: "d"
+    body: "<?inspect(${1:$var})?>"
+  "require($_SERVER[\"DOCUMENT_ROOT\"].\"/bitrix/modules/main/include/prolog_before.php\");":
+    prefix: "reqprolog"
+    body: "require($_SERVER[\"DOCUMENT_ROOT\"].\"/bitrix/modules/main/include/prolog_before.php\");"
 ".source.php":
   "GetMessage('…')":
     prefix: "GetMessage"
@@ -105,3 +114,16 @@
   "$_SERVER['REMOTE_ADDR']":
     prefix: "REM"
     body: "$_SERVER['REMOTE_ADDR']"
+  "inspect($var);":
+    prefix: "d"
+    body: "inspect(${1:$var});"
+".source.shell":
+  "osascript <<EOD … EOD":
+    prefix: "osascript"
+    body: '''
+      osascript <<EOD
+      tell application "${1:System Events}"
+        ${2:activate}
+      end tell
+      EOD
+    '''

@@ -86,11 +86,11 @@ cmd - f8 : mpc stop
 # Toggle kwm-scratchpad iTerm window
 # alt-tab : ~/.kwm/bin/scratchpad-iterm
 
-# Toggle kwm-scratchpad Telegram window
-# cmd-f3 : ~/.kwm/bin/scratchpad-telegram
+# Toggle Telegram window
+cmd-f3 : ~/.dotfiles/telegram/bin/toggle-telegram
 
-# Toggle kwm-scratchpad Taskpaper window
-# cmd-f12 : ~/.kwm/bin/scratchpad-taskpaper
+# Toggle Taskpaper window
+cmd-f12 : ~/.taskpaper/bin/toggle-taskpaper
 
 # Toggle kwm-scratchpad iA Writer window
 # cmd+shift-f12 : ~/.kwm/bin/scratchpad-iawriter

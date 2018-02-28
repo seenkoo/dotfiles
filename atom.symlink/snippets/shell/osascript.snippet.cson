@@ -1,0 +1,10 @@
+'.source.shell':
+  'osascript <<EOD … EOD':
+    'prefix': 'osascript'
+    'body': """
+      osascript <<EOD
+      tell application "${1:System Events}"
+        ${2:activate}
+      end tell
+      EOD
+    """
