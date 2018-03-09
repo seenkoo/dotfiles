@@ -142,7 +142,7 @@ set foldcolumn=1
 syntax enable 
 
 try
-    colorscheme desert
+    colorscheme slate
 catch
 endtry
 

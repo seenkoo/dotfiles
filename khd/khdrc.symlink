@@ -1,96 +1,111 @@
-# reload config
-cmd + alt + ctrl - r : khd -e "reload"; \
+# -----------------------------------------------------------------------------
+# @see https://github.com/koekeishiya/khd/blob/master/examples/khdrc
+# @see https://github.com/koekeishiya/khd/issues/1
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# General #
+# -----------------------------------------------------------------------------
+# reload khd config
+cmd + alt + ctrl - r : khd -e "reload";\
                        chunkc tiling::desktop --deserialize \
                        ~/.dotfiles/chunkwm.symlink/layouts/desktop_1
-
-# open terminal
-ctrl + cmd - return : ~/.dotfiles/bin/iterm
-
+# -----------------------------------------------------------------------------
+# Windows #
+# Focus / Swap / Move #
+# -----------------------------------------------------------------------------
 # focus window
-# alt - h : chunkc tiling::window --focus west
-# alt - j : chunkc tiling::window --focus south
-# alt - k : chunkc tiling::window --focus north
-# alt - l : chunkc tiling::window --focus east
 ctrl - left  : chunkc tiling::window --focus west
 ctrl - down  : chunkc tiling::window --focus south
 ctrl - up    : chunkc tiling::window --focus north
 ctrl - right : chunkc tiling::window --focus east
-
-# equalize size of windows
-shift + alt - 0 : chunkc tiling::desktop --equalize
-
 # swap window
-# ctrl + alt - h : chunkc tiling::window --swap west
-# ctrl + alt - j : chunkc tiling::window --swap south
-# ctrl + alt - k : chunkc tiling::window --swap north
-# ctrl + alt - l : chunkc tiling::window --swap east
 ctrl + alt - left  : chunkc tiling::window --swap west
 ctrl + alt - down  : chunkc tiling::window --swap south
 ctrl + alt - up    : chunkc tiling::window --swap north
 ctrl + alt - right : chunkc tiling::window --swap east
-
 # move window
-# ctrl + cmd - h : chunkc tiling::window --warp west
-# ctrl + cmd - j : chunkc tiling::window --warp south
-# ctrl + cmd - k : chunkc tiling::window --warp north
-# ctrl + cmd - l : chunkc tiling::window --warp east
-ctrl + cmd - left : chunkc tiling::window --warp west
-ctrl + cmd - down : chunkc tiling::window --warp south
-ctrl + cmd - up : chunkc tiling::window --warp north
+ctrl + cmd - left  : chunkc tiling::window --warp west
+ctrl + cmd - down  : chunkc tiling::window --warp south
+ctrl + cmd - up    : chunkc tiling::window --warp north
 ctrl + cmd - right : chunkc tiling::window --warp east
-
+# move window to desktop
+ctrl + shift + cmd - 0x21 : chunkc tiling::window --send-to-desktop prev;\
+                            khd -p "ctrl + alt + cmd - 0x21" # 0x21 is [
+ctrl + shift + cmd - 0x1E : chunkc tiling::window --send-to-desktop next;\
+                            khd -p "ctrl + alt + cmd - 0x1E" # 0x1E is ]
+ctrl + shift + cmd - 1 : chunkc tiling::window --send-to-desktop 1;\
+                            khd -p "ctrl + alt + cmd - 1"
+ctrl + shift + cmd - 2 : chunkc tiling::window --send-to-desktop 2;\
+                            khd -p "ctrl + alt + cmd - 2"
+# -----------------------------------------------------------------------------
+# Windows #
+# Float / Sticky #
+# -----------------------------------------------------------------------------
 # float / unfloat window
 ctrl + alt + cmd - f : chunkc tiling::window --toggle float
-
-# toggle sticky window
-shift + ctrl + cmd - end : chunkc tiling::window --toggle sticky
-
+# float / unfloat window and center on screen
+ctrl + alt + cmd - s : chunkc tiling::window --toggle float;\
+                       chunkc tiling::window --grid-layout 4:4:1:1:2:2
+# toggle sticky, float and resize to picture-in-picture size
+ctrl + alt + cmd - d : chunkc tiling::window --toggle sticky;\
+                       chunkc tiling::window --grid-layout 5:5:4:0:1:1
+# -----------------------------------------------------------------------------
+# UNSORTED #
+# TODO: SORT BELOW #
+# -----------------------------------------------------------------------------
+# toggle window parent zoom
+shift + cmd - 0x32 : chunkc tiling::window --toggle parent # 0x32 is tilda
+# equalize size of windows
+shift + alt - 0 : chunkc tiling::desktop --equalize
 # toggle window split type
 shift + ctrl + cmd - delete : chunkc tiling::window --toggle split
-
 # increase region size
-shift + ctrl + alt + cmd - help : chunkc tiling::window --use-temporary-ratio 0.025 --adjust-window-edge west
-shift + ctrl + alt + cmd - home : chunkc tiling::window --use-temporary-ratio 0.025 --adjust-window-edge east
-shift + ctrl + alt + cmd - pageup : chunkc tiling::window --use-temporary-ratio 0.025 --adjust-window-edge north
-shift + ctrl + alt + cmd - pagedown : chunkc tiling::window --use-temporary-ratio 0.025 --adjust-window-edge south
-
-
+shift + ctrl + alt + cmd - help : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge west
+shift + ctrl + alt + cmd - home : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge east
+shift + ctrl + alt + cmd - pageup : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge north
+shift + ctrl + alt + cmd - pagedown : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge south
 # decrease region size
-ctrl  + alt + cmd - help : chunkc tiling::window --use-temporary-ratio -0.025 --adjust-window-edge west
-ctrl  + alt + cmd - home : chunkc tiling::window --use-temporary-ratio -0.025 --adjust-window-edge east
-ctrl  + alt + cmd - pageup : chunkc tiling::window --use-temporary-ratio -0.025 --adjust-window-edge north
-ctrl  + alt + cmd - pagedown : chunkc tiling::window --use-temporary-ratio -0.025 --adjust-window-edge south
-
+ctrl  + alt + cmd - help : chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge west
+ctrl  + alt + cmd - home : chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge east
+ctrl  + alt + cmd - pageup : chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge north
+ctrl  + alt + cmd - pagedown : chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge south
 # mirror tree y-axis
 shift + ctrl + cmd - help : chunkc tiling::desktop --mirror vertical
 shift + ctrl + cmd - home : chunkc tiling::desktop --mirror vertical
-
 # mirror tree x-axis
 shift + ctrl + cmd - pageup : chunkc tiling::desktop --mirror horizontal
 shift + ctrl + cmd - pagedown : chunkc tiling::desktop --mirror horizontal
-
 # toggle desktop offset
 cmd - f11 : chunkc tiling::desktop --toggle offset
-
 # change layout of desktop
 shift + ctrl + cmd - a : chunkc tiling::desktop --layout bsp
 shift + ctrl + cmd - s : chunkc tiling::desktop --layout monocle
 shift + ctrl + cmd - d : chunkc tiling::desktop --layout float
-
-# Music Player Daemon
+# # make floating window fill screen
+# shift + alt - up     : chunkc tiling::window --grid-layout 1:1:0:0:1:1
+#
+# # make floating window fill left-half of screen
+# shift + alt - left   : chunkc tiling::window --grid-layout 1:2:0:0:1:1
+#
+# # make floating window fill right-half of screen
+# shift + alt - right  : chunkc tiling::window --grid-layout 1:2:1:0:1:1
+# # move floating windows / windows on a grid space
+# # 10 rows 10 cols grid, windows left and top on 0 grid, and have 5 grid width 5 grid height
+# alt - q : chunkc tiling::window --grid-layout 10:10:0:0:5:5
+# -----------------------------------------------------------------------------
+# Music playback control (mpd + mpc) #
+# -----------------------------------------------------------------------------
 cmd - f5 : mpc prev
 cmd - f6 : mpc next
 cmd - f7 : mpc toggle
 cmd - f8 : mpc stop
-
-# Toggle kwm-scratchpad iTerm window
-# alt-tab : ~/.kwm/bin/scratchpad-iterm
-
-# Toggle Telegram window
+# -----------------------------------------------------------------------------
+# Apps #
+# Open / Toggle #
+# -----------------------------------------------------------------------------
+# open iTerm
+ctrl + cmd - return : ~/.dotfiles/bin/iterm
+# toggle Telegram
 cmd-f3 : ~/.dotfiles/telegram/bin/toggle-telegram
-
-# Toggle Taskpaper window
+# toggle Taskpaper
 cmd-f12 : ~/.taskpaper/bin/toggle-taskpaper
-
-# Toggle kwm-scratchpad iA Writer window
-# cmd+shift-f12 : ~/.kwm/bin/scratchpad-iawriter

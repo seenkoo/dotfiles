@@ -172,12 +172,19 @@
     ]
   }
   {
-    title: "sorevnovanie.smhost.ru"
+    title: "sorevnovanie"
     group: "softmajor"
     paths: [
-      "/Users/seenkoo/Code/softmajor/sorevnovanie.smhost.ru"
       "/usr/local/var/www/sorevnovanie.shinku.pro/www"
+      "/Users/seenkoo/Code/softmajor/sorevnovanie.smhost.ru"
+    ]
+  }
+  {
+    title: "sorevn"
+    group: "softmajor"
+    paths: [
       "/Users/seenkoo/Code/bitrix"
+      "/usr/local/var/www/bx.shinku.pro/www/bitrix"
     ]
   }
 ]

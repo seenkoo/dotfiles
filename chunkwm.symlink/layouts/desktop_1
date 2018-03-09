@@ -2,4 +2,6 @@ root vertical 0.425
 left_root horizontal 0.200
 left_leaf
 right_leaf
+right_root horizontal 0.200
+left_leaf
 right_leaf

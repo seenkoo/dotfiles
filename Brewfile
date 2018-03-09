@@ -25,7 +25,7 @@ brew "glib"
 brew "gdbm"
 brew "sqlite"
 brew "xz"
-brew "python3"
+brew "python"
 brew "boost-python", args: ["with-python3", "without-python"]
 
 brew "wget"
@@ -86,7 +86,6 @@ brew "rbenv"
 brew "rbenv-default-gems"
 brew "rbenv-gemset"
 brew "nodejs"
-brew "homebrew/php/php-cs-fixer"
 brew "tidy-html5"
 
 # brew "fdk-aac"

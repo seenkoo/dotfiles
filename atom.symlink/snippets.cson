@@ -21,9 +21,21 @@
       }
     '''
 ".text.html.php":
-  "<? … ?>":
+  "<?php":
     prefix: "php"
-    body: "<? $0 ?>"
+    body: '''
+      <?php
+      $0
+    '''
+  "<?":
+    prefix: "p"
+    body: '''
+      <?
+      $0
+    '''
+  "<?#inline php#?>":
+    prefix: "iphp"
+    body: "<?${1:#inline php code#}?>"
   "<? echo … ?>":
     prefix: "echo"
     body: "<? echo ${1:$var} ?>$0"
@@ -79,29 +91,40 @@
   "<?=$arItem['…']?>":
     prefix: "ei"
     body: "<?=$arItem['${1:NAME}']$0?>"
+  "assert B_PROLOG_INCLUDED":
+    prefix: "prolog!!!"
+    body: "<?if(!defined(\"B_PROLOG_INCLUDED\") || B_PROLOG_INCLUDED!==true)die();"
+  "<?d($var)?>":
+    prefix: "d"
+    body: "<?d(${1:$var})?>"
+  "<? … ?>":
+    prefix: "php"
+    body: "<? $0 ?>"
   "<?if(!defined(\"B_PROLOG_INCLUDED\" … die();?>":
     prefix: "notprolog"
     body: "<?if(!defined(\"B_PROLOG_INCLUDED\") || B_PROLOG_INCLUDED!==true)die();"
-  "<?inspect($var)?>":
-    prefix: "d"
-    body: "<?inspect(${1:$var})?>"
   "require($_SERVER[\"DOCUMENT_ROOT\"].\"/bitrix/modules/main/include/prolog_before.php\");":
     prefix: "reqprolog"
     body: "require($_SERVER[\"DOCUMENT_ROOT\"].\"/bitrix/modules/main/include/prolog_before.php\");"
+  "<?inspect($var)?>":
+    prefix: "d"
+    body: "<?inspect(${1:$var})?>"
 ".source.php":
+  "require bitrix {prolog_before}":
+    prefix: "reqbx"
+    body: '''
+      require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/${1:prolog_before}.php');
+      $0
+    '''
   "GetMessage('…')":
     prefix: "GetMessage"
     body: "GetMessage('${1:MESG_KEY}')"
   "Bitrix\\Main\\Loader::includeModule('…')":
     prefix: "includeModule"
     body: "Bitrix\\\\Main\\\\Loader::includeModule('${1:iblock}');"
-  "if (!$USER->isAdmin()) {…}":
-    prefix: "ifadmin"
-    body: '''
-      if (${1:!}$USER->isAdmin()) {
-      	${2:die();}
-      }
-    '''
+  "$USER->isAdmin()":
+    prefix: "uadmin?"
+    body: "$USER->isAdmin()"
   SITE_DIR:
     prefix: "SD"
     body: "SITE_DIR"
@@ -114,9 +137,19 @@
   "$_SERVER['REMOTE_ADDR']":
     prefix: "REM"
     body: "$_SERVER['REMOTE_ADDR']"
+  "d($var);":
+    prefix: "d"
+    body: "d(${1:$var});"
   "inspect($var);":
     prefix: "d"
     body: "inspect(${1:$var});"
+  "if (!$USER->isAdmin()) {…}":
+    prefix: "ifadmin"
+    body: '''
+      if (${1:!}$USER->isAdmin()) {
+      	${2:die();}
+      }
+    '''
 ".source.shell":
   "osascript <<EOD … EOD":
     prefix: "osascript"

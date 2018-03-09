@@ -32,10 +32,15 @@
       "1": true
     "ruby~2":
       "5": true
+  "atom-autocomplete-php":
+    binPhp: "/usr/local/bin/php"
   "atom-beautify":
     coffeescript:
       default_beautifier: "Coffee Formatter"
       jslint_happy: true
+    executables:
+      php: {}
+      "php-cs-fixer": {}
     general: {}
     html:
       extra_liners: [
@@ -48,6 +53,9 @@
       indent_inner_html: true
       wrap_line_length: 120
     js:
+      brace_style: "end-expand"
+      break_chained_methods: true
+      object_curly_spacing: true
       space_after_anon_function: true
       unescape_strings: true
     php:
@@ -72,13 +80,13 @@
       "atom-ide-diagnostics-ui": false
   "atom-ternjs":
     useSnippets: true
+  autocomplete: {}
+  "autocomplete-php":
+    executablePath: "/usr/local/bin/php"
   "autocomplete-plus":
     autoActivationDelay: 100
     enableBuiltinProvider: false
-    enableExtendedUnicodeSupport: true
     minimumWordLength: 1
-    similarSuggestionRemoval: "textOrSnippet"
-    useAlternateScoring: false
   "autocomplete-ruby":
     rsensePath: "/usr/local/opt/rbenv/shims/rsense"
   "autohide-tree-view":
@@ -93,20 +101,23 @@
         borderStyle: "bordered-box"
       blinkOn: {}
   "bottom-dock": {}
+  "code-peek": {}
   "color-picker":
     preferredFormat: "HEX"
     uppercaseColorValues: true
   comment: {}
   core:
+    closeEmptyWindows: false
     debugLSP: false
     destroyEmptyPanes: false
     disabledPackages: [
       "vim-mode-plus"
       "symbol-gen"
-      "goto-definition"
       "apex-superfish-menu"
       "livestyle-atom"
       "symbols-view"
+      "spell-check"
+      "autocomplete"
     ]
     excludeVcsIgnoredPaths: false
     ignoredNames: [
@@ -117,8 +128,10 @@
       "._*"
       "Thumbs.db"
       "desktop.ini"
-      "/upload"
+      "/upload/"
+      "*.tar"
     ]
+    openEmptyEditorOnStart: false
     packagesWithKeymapsDisabled: [
       "mpd"
       "scratch"
@@ -130,19 +143,30 @@
       "remote-ftp"
       "atom-fuzzy-grep"
       "hey-pane"
+      "api-docs"
+      "autocomplete-plus"
+      "spell-check"
+      "file-bookmark"
+      "php-fmt"
+      "atom-autocomplete-php"
+      "autocomplete"
+      "code-peek"
+      "file-header"
+      "snippet-manager"
+      "project-manager"
     ]
-    projectHome: "~/Code"
+    projectHome: "/Users/seenkoo/Code"
     telemetryConsent: "no"
     themes: [
-      "atom-dark-ui"
-      "solarized-dark-syntax"
+      "seti-ui"
+      "monokai-seti"
     ]
     titleBar: "hidden"
     warnOnLargeFileLimit: 2
   "dash-ui":
     themeColor: "Purple"
   docblockr:
-    spacer_between_sections: "after_description"
+    per_section_indent: true
   editor:
     fontFamily: "SourceCode Pro"
     fontSize: 12
@@ -160,14 +184,38 @@
     customShell: "/usr/local/bin/zsh"
   "exception-reporting":
     userId: "891c391f-f6e4-4672-8bd2-f0f59250261b"
+  favorites:
+    paths: []
   "file-bookmark":
     git: false
+    icons: false
+  "file-header":
+    autoAddingHeaderOnNewFile: false
+    autoAddingHeaderOnSaving: false
+    autoUpdateEnabled: false
+    username: "seenkoo"
   "file-icons":
     strategies: {}
   filesize: {}
   "find-and-replace": {}
   fonts:
     fontFamily: "FiraCode Light"
+  "formatter-jsbeautify":
+    a:
+      executablePath: "/usr/local/bin/js-beautify"
+      nodePath: "/usr/local/bin/node"
+    css:
+      enable: false
+    html:
+      enable: false
+  "formatter-tidy":
+    a:
+      executablePath: "/usr/local/bin/tidy"
+    html:
+      arguments: [
+        "--config"
+        "'/Users/seenkoo/.config/tidy/tidy.conf'"
+      ]
   "fuzzy-finder": {}
   "glowing-cursor":
     cursorWidth: 2
@@ -179,8 +227,7 @@
     logToConsole: true
   "goto-definition":
     performanceMode: true
-  "hey-pane":
-    expandedWidth: 90
+  "hey-pane": {}
   "highlight-column":
     lineMode: true
   "highlight-line": {}
@@ -293,12 +340,11 @@
     autosave: true
   "seti-syntax":
     dynamicColor: false
-    themeColor: "Green"
+    themeColor: "Pink"
   "seti-ui":
     compactView: true
     disableAnimations: true
-    fileIcons: false
-    themeColor: "Steel"
+    hideProjectTab: true
   "snippet-manager":
     root: "~/.atom/snippets"
   "standard-formatter":
@@ -306,7 +352,7 @@
   "sublime-block-comment":
     pad: true
   "sync-settings":
-    _lastBackupHash: "1fe2c6edb3525601f9eae1dfa224008160cdfda0"
+    _lastBackupHash: "f080f488b39ede0470ba0254d5c2fbf13b717621"
     checkForUpdatedBackup: false
     extraFiles: [
       "phpfmt.ini"
@@ -314,6 +360,7 @@
       "TasksGrammar.cson"
     ]
     gistId: "f17140785258363ecfd34df051f977ea"
+  tabs: {}
   tasks: {}
   "todo-show":
     findTheseTodos: [
@@ -353,15 +400,15 @@
     sortBy: "Id"
     statusBarIndicator: true
   "tree-view":
-    alwaysOpenExisting: true
-    autoReveal: true
     focusOnReveal: false
-    hideVcsIgnoredFiles: true
   "tree-view-auto-fold": {}
   "tree-view-autoresize":
     minimumWidth: 50
   "tree-view-big-files":
     filesizeThreshold: 1000000
+  "tree-view-filter":
+    caseInsensitive: true
+    liveUpdate: true
   "tree-view-open-files": {}
   "tree-view-panes": {}
   "vim-mode-plus":
@@ -395,6 +442,7 @@
     tabType: "auto"
 ".html.php.text":
   editor:
+    autoIndent: true
     autoIndentOnPaste: true
     nonWordCharacters: "$/()\\\"':,.;<>~!@#%^&*|+=[]{}`?-"
     scrollPastEnd: false

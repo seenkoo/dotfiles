@@ -56,4 +56,4 @@ elif [[ "$OSTYPE" = 'cygwin' ]]; then
 fi
 
 alias sta='subl -a'
-alias ata='atom -a'
+alias ata='atom-beta -a'
