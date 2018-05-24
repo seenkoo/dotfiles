@@ -1,0 +1,4 @@
+#compdef w
+local sitedirs=$(fd '' --type d --max-depth 1 $WEBROOT | sed -E "s#$WEBROOT/?##g");
+_arguments \
+  "1:site directories in $WEBROOT:($sitedirs)"

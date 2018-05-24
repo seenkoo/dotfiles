@@ -172,19 +172,32 @@
     ]
   }
   {
-    title: "sorevnovanie"
+    title: "sorevnovanie [dev]"
     group: "softmajor"
     paths: [
       "/usr/local/var/www/sorevnovanie.shinku.pro/www"
-      "/Users/seenkoo/Code/softmajor/sorevnovanie.smhost.ru"
+      "/usr/local/var/www/sorevnovanie.shinku.pro/www/ges"
+      "/usr/local/var/www/sorevnovanie.shinku.pro/www/tes"
+      "/usr/local/var/www/sorevnovanie.shinku.pro/www/bitrix/modules"
+      "/usr/local/var/www/sorevnovanie.shinku.pro/www/bitrix/components"
+      "/usr/local/var/www/sorevnovanie.shinku.pro/www/vendor"
+      "/usr/local/var/www/sorevnovanie.shinku.pro/www/_dev"
+      "/usr/local/var/www/sorevnovanie.shinku.pro/www/bitrix/php_interface"
     ]
   }
   {
-    title: "sorevn"
-    group: "softmajor"
+    title: "bx.shinku.pro / modules"
+    group: "devtools"
     paths: [
-      "/Users/seenkoo/Code/bitrix"
-      "/usr/local/var/www/bx.shinku.pro/www/bitrix"
+      "/usr/local/var/www/bx.shinku.pro/www/bitrix/modules"
     ]
+  }
+  {
+    title: "lemfam"
+    group: "work"
+    paths: [
+      "/Users/seenkoo/Code/lemfam"
+    ]
+    icon: "icon-jersey"
   }
 ]

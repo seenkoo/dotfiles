@@ -1,0 +1,3 @@
+local siteDir="$WEBROOT/$1";
+cd ${(Q)siteDir};
+git status &>/dev/null && git status;

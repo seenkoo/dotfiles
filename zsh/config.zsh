@@ -1,11 +1,7 @@
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
-fpath=($ZSH/functions $fpath)
-
-autoload -U $ZSH/functions/*(:t)
-
-WORDCHARS=.
+WORDCHARS=''
 
 KEYTIMEOUT=1
 
@@ -32,10 +28,12 @@ setopt PROMPT_SUBST
 setopt COMPLETE_IN_WORD
 setopt IGNORE_EOF
 setopt INTERACTIVE_COMMENTS # recognize comments
-# don't expand aliases _before_ completion has finished
-#   like: git comm-[tab]
 setopt COMPLETE_ALIASES
-
+unsetopt menu_complete   # do not autoselect the first completion entry
+unsetopt flowcontrol
+setopt auto_menu         # show completion menu on successive tab press
+setopt complete_in_word
+setopt always_to_end
 # only define LC_CTYPE if undefined
 if [[ -z "$LC_CTYPE" && -z "$LC_ALL" ]]; then
   export LC_CTYPE=${LANG%%:*} # pick the first entry from LANG

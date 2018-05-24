@@ -6,7 +6,6 @@ setopt pushdminus
 alias reload!='. ~/.zshrc'
 
 alias cls='clear' # Good 'ol Clear Screen command
-alias help='man'
 
 alias wha='which -a'
 
@@ -28,8 +27,8 @@ alias 9='cd -9'
 
 alias dud='du -d 1 -h'
 alias duf='du -sh *'
-alias fd='find . -type d -name'
-alias ff='find . -type f -name'
+#alias fd='find . -type d -name'
+#alias ff='find . -type f -name'
 
 alias agrep='alias | grep -E'
 alias hgrep="fc -El 0 | grep"
@@ -54,9 +53,8 @@ alias ls='ls -FGh'
 alias l='ls -lAFTGh'
 alias ll='ls -lFGTh'
 alias la='ls -AG'
-# grc overides for ls
-#   Made possible through contributions from generous benefactors like
-#   `brew install coreutils`
+# -----------------------------------------------------------------------------
+# Override `ls` with `gls`
 if $(gls &>/dev/null)
 then
   alias ls='gls -Fh --color=auto'
@@ -64,7 +62,7 @@ then
   alias ll='gls -Flh --time-style="+%d.%m.%Y %H:%M:%S" --color=auto'
   alias la='gls -A --color=auto'
 fi
-
+# -----------------------------------------------------------------------------
 # Make path to directory and cd into it
 function take() {
   mkdir -p "$1"
@@ -73,4 +71,9 @@ function take() {
 
 function ct() {
   cd "$UTMPDIR"
+}
+
+function lcl {
+  local d="$1"
+  find "$(realpath "${d}")" -type f | head -1 | awk '{ print substr($0,index($0,$8)) }' | awk '{print "'\''"$0"'\''"}' | xargs -I{} cat "{}"
 }

@@ -5,10 +5,14 @@ set appName to "Telegram"
 if application appName is not running then reopen application appName
 
 # Get desktop bounds to resize app window and align it on the screen
-tell application "Finder"
-  set {dX, dY, dW, dH} to bounds of window of desktop
-  set {wX, wY, wW, wH} to {dX+dW/4, dY+dH/4, dW/2, dH/2}
-end tell
+
+set resolutions to {}
+repeat with p in paragraphs of (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution:/{ printf \"%s %s\\n\", $2, $4 }'")
+  set resolutions to resolutions & {{word 1 of p as number, word 2 of p as number}}
+end repeat
+
+set {dW, dH} to first item of resolutions
+set {wX, wY, wW, wH} to {dW/4, dH/4, dW/2, dH/2}
 
 # Render
 tell application "System Events" to tell process appName

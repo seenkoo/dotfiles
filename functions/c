@@ -1,17 +1,3 @@
-#
-# This lets you quickly jump into a project directory.
-#
-# Type:
-#
-#   c <tab>
-#
-# ...to autocomplete on all of your projects in the directories specified in
-# `functions/_c`. Typically I am using it like:
-#
-#    c holm<tab>/bo<tab>
-#
-# ...to quickly jump into holman/boom, for example.
-#
-
-cd "$PROJECTS/$1"
-git status &>/dev/null && git status
+local projectDir="$PROJECTS/$@";
+cd ${(Q)projectDir};
+git status &>/dev/null && git status;

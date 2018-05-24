@@ -29,8 +29,10 @@
     nginx: true
     php: true
     "rails~5":
+      "0": true
       "1": true
     "ruby~2":
+      "3": true
       "5": true
   "atom-autocomplete-php":
     binPhp: "/usr/local/bin/php"
@@ -60,6 +62,7 @@
       unescape_strings: true
     php:
       rules: "@PSR2,-full_opening_tag,"
+    ruby: {}
     sql: {}
   "atom-clock":
     dateFormat: "HH:mm"
@@ -75,9 +78,9 @@
     showFullPath: true
   "atom-ide-ui":
     use:
-      "atom-ide-code-actions": false
-      "atom-ide-diagnostics": false
-      "atom-ide-diagnostics-ui": false
+      "atom-ide-code-actions": "never"
+      "atom-ide-diagnostics": "never"
+      "atom-ide-diagnostics-ui": "never"
   "atom-ternjs":
     useSnippets: true
   autocomplete: {}
@@ -118,6 +121,7 @@
       "symbols-view"
       "spell-check"
       "autocomplete"
+      "markdown-preview"
     ]
     excludeVcsIgnoredPaths: false
     ignoredNames: [
@@ -154,6 +158,9 @@
       "file-header"
       "snippet-manager"
       "project-manager"
+      "tree-view-filter"
+      "rails-snippets"
+      "rails-transporter"
     ]
     projectHome: "/Users/seenkoo/Code"
     telemetryConsent: "no"
@@ -168,6 +175,7 @@
   docblockr:
     per_section_indent: true
   editor:
+    autoIndentOnPaste: false
     fontFamily: "SourceCode Pro"
     fontSize: 12
     invisibles: {}
@@ -235,7 +243,7 @@
     hideHighlightOnSelectedWord: true
     highlightBackground: true
   "ide-php":
-    phpPath: "/usr/bin/php"
+    phpPath: "/usr/bin/php7.1.7"
   "ide-ruby":
     lintLevel: "0"
   "jsdoc-generator": {}
@@ -352,7 +360,7 @@
   "sublime-block-comment":
     pad: true
   "sync-settings":
-    _lastBackupHash: "f080f488b39ede0470ba0254d5c2fbf13b717621"
+    _lastBackupHash: "22d79b460fa3b6250c3b4f70a59b8b1f000ce2e6"
     checkForUpdatedBackup: false
     extraFiles: [
       "phpfmt.ini"
@@ -458,6 +466,7 @@
     tabLength: 2
 ".js.rails.source source.jquery.js":
   editor:
+    nonWordCharacters: "/\\()\"':,.;<>~!#@%^&*|+=[]{}`?-…"
     preferredLineLength: 99
     tabLength: 2
 ".js.regexp.replacement.source":

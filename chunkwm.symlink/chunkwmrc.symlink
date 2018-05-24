@@ -1,5 +1,6 @@
 # -----------------------------------------------------------------------------
 # @see https://github.com/koekeishiya/chunkwm/blob/master/examples/chunkwmrc
+# @see https://github.com/koekeishiya/chunkwm/blob/master/src/plugins/tiling/README.md
 # NOTE: shell commands require escaped quotes to pass value containing a whitespace
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
@@ -14,24 +15,27 @@ chunkc core::hotload    0
 # global desktop
 chunkc set global_desktop_mode          bsp
 chunkc set global_desktop_offset_top    26
-chunkc set global_desktop_offset_bottom 10
-chunkc set global_desktop_offset_left   10
-chunkc set global_desktop_offset_right  10
-chunkc set global_desktop_offset_gap    10
+chunkc set global_desktop_offset_bottom 0
+chunkc set global_desktop_offset_left   0
+chunkc set global_desktop_offset_right  0
+chunkc set global_desktop_offset_gap    0
 chunkc set desktop_padding_step_size    5.0
 chunkc set desktop_gap_step_size        5.0
 # 1 desktop
 chunkc set 1_desktop_tree          ~/.chunkwm/layouts/desktop_1
-chunkc set 1_desktop_offset_top    76
-chunkc set 1_desktop_offset_bottom 10
-chunkc set 1_desktop_offset_left   15
-chunkc set 1_desktop_offset_right  15
+chunkc set 1_desktop_offset_top    50
+chunkc set 1_desktop_offset_bottom 0
+chunkc set 1_desktop_offset_left   0
+chunkc set 1_desktop_offset_right  0
+chunkc set 1_desktop_offset_gap    0 
 # 2 desktop
-chunkc set 2_desktop_mode          float
-# chunkc set 2_desktop_offset_top    100
-# chunkc set 2_desktop_offset_bottom 75
-# chunkc set 2_desktop_offset_left   15
-# chunkc set 2_desktop_offset_right  15
+chunkc set 2_desktop_tree          ~/.chunkwm/layouts/desktop_2
+chunkc set 2_desktop_mode          bsp
+chunkc set 2_desktop_offset_top    26
+chunkc set 2_desktop_offset_bottom 0
+chunkc set 2_desktop_offset_left   0
+chunkc set 2_desktop_offset_right  0
+chunkc set 2_desktop_offset_gap    0
 # -----------------------------------------------------------------------------
 # BSP mode #
 chunkc set bsp_spawn_left    0
@@ -41,12 +45,13 @@ chunkc set bsp_split_ratio   0.5
 # -----------------------------------------------------------------------------
 # Window settings #
 chunkc set window_focus_cycle   monitor
-chunkc set mouse_follows_focus  intrinsic
+chunkc set mouse_follows_focus  none
 chunkc set window_float_next    0
 chunkc set window_region_locked 1
-chunkc set mouse_modifier \"cmd shift\"
+chunkc set mouse_move_window \"cmd shift\"
+chunkc set mouse_resize_window \"ctrl cmd shift\"
 # https://github.com/koekeishiya/chwm-sa
-chunkc set window_float_topmost 1
+chunkc set window_float_topmost 1 
 chunkc set window_fade_inactive 0
 chunkc set window_fade_alpha    0.95
 chunkc set window_fade_duration 0.30

@@ -1,14 +1,19 @@
+'.platform-darwin':
+  'cmd-f': 'find-and-replace:show'
+
 'atom-text-editor':
   'cmd-f1': 'api-docs:search-under-cursor'
   'cmd-`': 'hey-pane:toggle-focus-of-active-pane'
   'ctrl-cmd-p': 'project-manager:list-projects'
 
 'atom-workspace':
-  'ctrl-alt-o': 'remote-ftp:toggle'
-  'cmd-t': 'fuzzy-grep:toggle'
-  'alt-?': 'fuzzy-grep:toggleWordUnderCursor'#'shift-alt-/'
   'cmd-;': 'file-bookmark:toggle-panel'
   'cmd-:': 'file-bookmark:toggle-bookmark'#'shift-cmd-;'
+  'cmd-t': 'fuzzy-grep:toggle'
+  'alt-?': 'fuzzy-grep:toggleWordUnderCursor'#'shift-alt-/'
+  'cmd-r': 'fuzzy-finder:toggle-file-finder'
+  'ctrl-cmd-shift-p': 'pinned-tabs:pin-active'
+  'ctrl-alt-o': 'remote-ftp:toggle'
 
 'body.platform-darwin atom-workspace .atom-fuzzy-grep atom-text-editor':
   'cmd-v': 'fuzzy-grep:pasteEscaped'

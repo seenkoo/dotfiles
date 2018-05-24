@@ -1,53 +1,66 @@
 # -----------------------------------------------------------------------------
 # @see https://github.com/koekeishiya/khd/blob/master/examples/khdrc
 # @see https://github.com/koekeishiya/khd/issues/1
+# @see https://github.com/koekeishiya/chunkwm/blob/master/src/plugins/tiling/README.md
 # -----------------------------------------------------------------------------
+# chunkc tiling::window --grid-layout rows:cols:left:top:width:height
 # -----------------------------------------------------------------------------
 # General #
 # -----------------------------------------------------------------------------
-# reload khd config
+# reload khd config and refresh chunkwm layout
 cmd + alt + ctrl - r : khd -e "reload";\
+                        chunkc tiling::desktop --deserialize \
+                        ~/.dotfiles/chunkwm.symlink/layouts/desktop_1
+shift + cmd + alt + ctrl - r : khd -e "reload";\
                        chunkc tiling::desktop --deserialize \
-                       ~/.dotfiles/chunkwm.symlink/layouts/desktop_1
+                       ~/.dotfiles/chunkwm.symlink/layouts/desktop_2
+# Disable chunkwm-border temporary when taking screenshot
+cmd + shift - 4 -> : chunkc border::clear
 # -----------------------------------------------------------------------------
-# Windows #
-# Focus / Swap / Move #
-# -----------------------------------------------------------------------------
-# focus window
+# Focus window #
+# --focus <direction>
 ctrl - left  : chunkc tiling::window --focus west
 ctrl - down  : chunkc tiling::window --focus south
 ctrl - up    : chunkc tiling::window --focus north
 ctrl - right : chunkc tiling::window --focus east
-# swap window
+# -----------------------------------------------------------------------------
+# Swap window #
+# --swap <direction>
 ctrl + alt - left  : chunkc tiling::window --swap west
 ctrl + alt - down  : chunkc tiling::window --swap south
 ctrl + alt - up    : chunkc tiling::window --swap north
 ctrl + alt - right : chunkc tiling::window --swap east
-# move window
+# -----------------------------------------------------------------------------
+# Move window #
+# --warp <direction>
 ctrl + cmd - left  : chunkc tiling::window --warp west
 ctrl + cmd - down  : chunkc tiling::window --warp south
 ctrl + cmd - up    : chunkc tiling::window --warp north
 ctrl + cmd - right : chunkc tiling::window --warp east
-# move window to desktop
-ctrl + shift + cmd - 0x21 : chunkc tiling::window --send-to-desktop prev;\
-                            khd -p "ctrl + alt + cmd - 0x21" # 0x21 is [
-ctrl + shift + cmd - 0x1E : chunkc tiling::window --send-to-desktop next;\
-                            khd -p "ctrl + alt + cmd - 0x1E" # 0x1E is ]
-ctrl + shift + cmd - 1 : chunkc tiling::window --send-to-desktop 1;\
-                            khd -p "ctrl + alt + cmd - 1"
-ctrl + shift + cmd - 2 : chunkc tiling::window --send-to-desktop 2;\
-                            khd -p "ctrl + alt + cmd - 2"
 # -----------------------------------------------------------------------------
-# Windows #
-# Float / Sticky #
+# Send window #
+# send to desktop
+alt + ctrl + cmd - left  : chunkc tiling::window --send-to-desktop prev
+alt + ctrl + cmd - right : chunkc tiling::window --send-to-desktop next
+shift + ctrl + cmd - 1   : chunkc tiling::window --send-to-desktop 1
+shift + ctrl + cmd - 2   : chunkc tiling::window --send-to-desktop 2
+# send and switch to desktop
+shift + ctrl + cmd - left : chunkc tiling::window --send-to-desktop prev;\
+                            khd -p "ctrl + alt + cmd - 0x21"
+shift + ctrl + cmd - right : chunkc tiling::window --send-to-desktop next;\
+                             khd -p "ctrl + alt + cmd - 0x1E"
 # -----------------------------------------------------------------------------
-# float / unfloat window
+# Sticky window #
+# toggle float
 ctrl + alt + cmd - f : chunkc tiling::window --toggle float
-# float / unfloat window and center on screen
-ctrl + alt + cmd - s : chunkc tiling::window --toggle float;\
+# toggle float and move to center-center 0.5w 0.5h
+ctrl + alt + cmd - c : chunkc tiling::window --toggle float;\
                        chunkc tiling::window --grid-layout 4:4:1:1:2:2
-# toggle sticky, float and resize to picture-in-picture size
-ctrl + alt + cmd - d : chunkc tiling::window --toggle sticky;\
+# toggle float and move to right-center 0.54w 0.96h (overflow with the big window on desktop_1 layout)
+ctrl + alt + cmd - t : chunkc tiling::window --toggle float;\
+                       chunkc tiling::window --grid-layout 100:100:44:2:54:96
+# toggle sticky and resize to picture-in-picture size</direction>
+ctrl + alt + cmd - s : chunkc tiling::window --toggle sticky;\
                        chunkc tiling::window --grid-layout 5:5:4:0:1:1
 # -----------------------------------------------------------------------------
 # UNSORTED #
@@ -56,19 +69,19 @@ ctrl + alt + cmd - d : chunkc tiling::window --toggle sticky;\
 # toggle window parent zoom
 shift + cmd - 0x32 : chunkc tiling::window --toggle parent # 0x32 is tilda
 # equalize size of windows
-shift + alt - 0 : chunkc tiling::desktop --equalize
+shift + cmd - 0 : chunkc tiling::desktop --equalize
 # toggle window split type
 shift + ctrl + cmd - delete : chunkc tiling::window --toggle split
 # increase region size
-shift + ctrl + alt + cmd - help : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge west
-shift + ctrl + alt + cmd - home : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge east
-shift + ctrl + alt + cmd - pageup : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge north
-shift + ctrl + alt + cmd - pagedown : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge south
+shift + ctrl + alt + cmd - help : chunkc tiling::window --use-temporary-ratio 0.02 --adjust-window-edge west
+shift + ctrl + alt + cmd - home : chunkc tiling::window --use-temporary-ratio 0.02 --adjust-window-edge east
+shift + ctrl + alt + cmd - pageup : chunkc tiling::window --use-temporary-ratio 0.02 --adjust-window-edge north
+shift + ctrl + alt + cmd - pagedown : chunkc tiling::window --use-temporary-ratio 0.02 --adjust-window-edge south
 # decrease region size
-ctrl  + alt + cmd - help : chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge west
-ctrl  + alt + cmd - home : chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge east
-ctrl  + alt + cmd - pageup : chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge north
-ctrl  + alt + cmd - pagedown : chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge south
+ctrl  + alt + cmd - help : chunkc tiling::window --use-temporary-ratio -0.02 --adjust-window-edge west
+ctrl  + alt + cmd - home : chunkc tiling::window --use-temporary-ratio -0.02 --adjust-window-edge east
+ctrl  + alt + cmd - pageup : chunkc tiling::window --use-temporary-ratio -0.02 --adjust-window-edge north
+ctrl  + alt + cmd - pagedown : chunkc tiling::window --use-temporary-ratio -0.02 --adjust-window-edge south
 # mirror tree y-axis
 shift + ctrl + cmd - help : chunkc tiling::desktop --mirror vertical
 shift + ctrl + cmd - home : chunkc tiling::desktop --mirror vertical

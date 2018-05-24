@@ -49,7 +49,7 @@ highline
 http
 i18n
 imgkit
-listen
+listen ~>2.7
 mail
 mimemagic
 minitest

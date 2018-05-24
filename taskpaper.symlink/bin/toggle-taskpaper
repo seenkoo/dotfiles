@@ -1,45 +1,35 @@
-#!/usr/bin/env zsh
-
-source ~/.taskpaper/env.zsh
-
-appName='TaskPaper'
-
-DOC_NAMES=''
-for DOC_NAME in "${TASKPAPER_WORKSPACE_DOCS[@]}"; do
-  if [[ -n "$DOC_NAMES" ]]; then
-    DOC_NAMES="${DOC_NAMES}, "
-  fi
-  DOC_NAMES="${DOC_NAMES}\"${DOC_NAME}\""
-done
-DOC_NAMES="${DOC_NAMES}"
-
-osascript <<EOD
-on startswith(txt, l)
-  repeat with v in l
-    if txt starts with v then return true
+#!/usr/bin/osascript
+# Checks if any member of strList starts with str
+on starts_with(str, strList)
+  repeat with cur in strList
+    if str starts with cur then return true
   end repeat
   return false
-end startswith
+end starts_with
 
-tell application "$appName" to reopen activate
+
+tell application "TaskPaper" to reopen activate
 
 tell application "System Events"
-  tell application "Finder"
-    set {DX, DY, DW, DH} to bounds of window of desktop
-  end tell
+  set docTitles to {"Main", "Work"}
 
-  set WW to 800 -- (DW / 2)
-  set WH to 400 -- (DH / 2)
-  set WX to 0 -- (DW / 4)
-  set WY to 0 -- (DH / 4)
+  set resolutions to {}
+  repeat with p in paragraphs of (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution:/{ printf \"%s %s\\n\", $2, $4 }'")
+    set resolutions to resolutions & {{word 1 of p as number, word 2 of p as number}}
+  end repeat
 
-  set docNames to {$DOC_NAMES}
+  set {DW, DH} to first item of resolutions
+  set WW to (DW / 1.5)
+  set WH to (DH / 1.5)
+  set WX to (DW / 6)
+  set WY to 26
 
-  tell process "$appName"
-    repeat with i from count(windows) to 1 by -1
-      set windowName to (name of item i of windows)
-      if my startswith(windowName, docNames) then
-        tell item i of windows
+
+  tell process "TaskPaper"
+    repeat with wIdx from count(windows) to 1 by -1
+      set wName to (name of item wIdx of windows)
+      if my starts_with(wName, docTitles) then
+        tell item wIdx of windows
           set {size, position} to {{WW, WH}, {WX, WY}}
           perform action "AXRaise"
         end tell
@@ -48,4 +38,3 @@ tell application "System Events"
     end repeat
   end tell
 end tell
-EOD

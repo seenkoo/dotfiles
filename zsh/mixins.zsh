@@ -68,3 +68,10 @@ function env_default() {
 function run_detached() {
   nohup "$@" </dev/null >/dev/null 2>&1 &
 }
+
+cat() {
+    local out colored
+    out=$(/bin/cat $@)
+    colored=$(echo $out | pygmentize -f console -g 2>/dev/null)
+    [[ -n $colored ]] && echo "$colored" || echo "$out"
+}
