@@ -9,26 +9,26 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-setopt AUTO_CD
-setopt NO_BG_NICE # don't nice background tasks
-setopt NO_HUP
-setopt NO_LIST_BEEP
-setopt MULTIOS
-setopt LOCAL_OPTIONS # allow functions to have local options
-setopt LOCAL_TRAPS # allow functions to have local traps
-setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
-setopt HIST_REDUCE_BLANKS
-setopt HIST_IGNORE_SPACE
-setopt HIST_VERIFY
-setopt EXTENDED_HISTORY # add timestamps to history
-setopt APPEND_HISTORY # append history instead of replacing history file
-setopt INC_APPEND_HISTORY # add command to history as soon as it is entered
-setopt SHARE_HISTORY # share history across sessions
-setopt PROMPT_SUBST
-setopt COMPLETE_IN_WORD
-setopt IGNORE_EOF
-setopt INTERACTIVE_COMMENTS # recognize comments
-setopt COMPLETE_ALIASES
+setopt auto_cd
+setopt no_bg_nice # don't nice background tasks
+setopt no_hup
+setopt no_list_beep
+setopt multios
+setopt local_options # allow functions to have local options
+setopt local_traps # allow functions to have local traps
+setopt hist_ignore_all_dups  # don't record dupes in history
+setopt hist_reduce_blanks
+setopt hist_ignore_space
+setopt hist_verify
+setopt extended_history # add timestamps to history
+setopt append_history # append history instead of replacing history file
+setopt inc_append_history # add command to history as soon as it is entered
+setopt share_history # share history across sessions
+setopt prompt_subst
+setopt complete_in_word
+setopt ignore_eof
+setopt interactive_comments # recognize comments
+unsetopt complete_aliases
 unsetopt menu_complete   # do not autoselect the first completion entry
 unsetopt flowcontrol
 setopt auto_menu         # show completion menu on successive tab press
